@@ -2,6 +2,8 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
+import { Analytics } from "@vercel/analytics/next"
+import { Suspense } from "react"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -69,7 +71,7 @@ export const metadata: Metadata = {
     canonical: "https://biowaves.co.ke",
   },
   category: "Technology",
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -94,6 +96,12 @@ export default function RootLayout({
         <meta name="business:contact_data:country_name" content="Kenya" />
         <meta name="business:contact_data:phone_number" content="+254707019898" />
         <meta name="business:contact_data:email" content="biowavestechnologyservices@gmail.com" />
+
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link rel="icon" href="/favicon.png" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
 
         {/* Structured Data for Local Business */}
         <script
@@ -305,7 +313,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Suspense fallback={null}>{children}</Suspense>
+        <Analytics />
+      </body>
     </html>
   )
 }

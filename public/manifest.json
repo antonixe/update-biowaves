@@ -1,0 +1,31 @@
+{
+  "name": "BioWaves - High-Speed Fiber Internet",
+  "short_name": "BioWaves",
+  "description": "Lightning-fast fiber internet, CCTV security systems, and IP intercom solutions in Kapsabet, Kenya",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "technology", "utilities"],
+  "lang": "en-KE",
+  "scope": "/",
+  "id": "biowaves-telecom"
+}
