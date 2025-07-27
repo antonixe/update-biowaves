@@ -82,6 +82,12 @@ export default function RootLayout({
   return (
     <html lang="en-KE">
       <head>
+        {/* Security Headers */}
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <meta httpEquiv="X-Frame-Options" content="DENY" />
+        <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
+        <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+
         {/* Additional SEO Meta Tags */}
         <meta name="geo.region" content="KE-30" />
         <meta name="geo.placename" content="Kapsabet, Nandi County, Kenya" />
