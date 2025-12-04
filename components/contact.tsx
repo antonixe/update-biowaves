@@ -31,7 +31,7 @@ export function Contact() {
   return (
     <section id="contact" className="section bg-neutral-900" aria-labelledby="contact-heading">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-24">
           {/* Left Content */}
           <ScrollAnimation>
             <div>
@@ -63,7 +63,7 @@ export function Contact() {
                   href={method.href}
                   target={method.href.startsWith("http") ? "_blank" : "_self"}
                   rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="group flex items-start gap-4 p-5 rounded-xl bg-neutral-800/50 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-900"
+                  className="group flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl bg-neutral-800/50 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-900 active:scale-[0.98]"
                   role="listitem"
                   aria-label={`${method.label}: ${method.value}`}
                 >
@@ -75,7 +75,7 @@ export function Contact() {
                       <p className="text-sm text-neutral-500">{method.label}</p>
                       <ArrowUpRight className="h-4 w-4 text-neutral-600 group-hover:text-neutral-400 transition-colors" aria-hidden="true" />
                     </div>
-                    <p className="text-white font-medium truncate">{method.value}</p>
+                    <p className="text-white font-medium break-all sm:truncate">{method.value}</p>
                     <p className="text-sm text-neutral-500">{method.subValue}</p>
                   </div>
                 </a>

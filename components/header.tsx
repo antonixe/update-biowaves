@@ -166,13 +166,13 @@ export function Header() {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className={`w-full flex items-center px-4 py-3 text-left rounded-xl transition-colors ${
+                  className={`w-full flex items-center px-4 py-4 text-left rounded-xl transition-colors active:scale-[0.98] ${
                     isActive 
                       ? "bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white" 
-                      : "text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-800"
+                      : "text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-800 active:bg-neutral-100 dark:active:bg-neutral-700"
                   }`}
                 >
-                  <span className="font-medium">{item.name}</span>
+                  <span className="font-medium text-base">{item.name}</span>
                 </button>
               )
             })}
@@ -180,7 +180,7 @@ export function Header() {
           <div className="p-4 pt-2 border-t border-neutral-100 dark:border-neutral-800">
             <Button
               onClick={scrollToContact}
-              className="w-full bg-neutral-900 hover:bg-neutral-800 dark:bg-white dark:hover:bg-neutral-200 text-white dark:text-neutral-900 rounded-xl h-12"
+              className="w-full bg-neutral-900 hover:bg-neutral-800 dark:bg-white dark:hover:bg-neutral-200 text-white dark:text-neutral-900 rounded-xl h-12 text-base font-medium active:scale-[0.98] transition-transform"
             >
               Get Connected
             </Button>

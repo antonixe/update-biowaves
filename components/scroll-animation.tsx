@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, ReactNode } from "react"
+import { useEffect, useRef, useState, ReactNode } from "react"
 
 interface ScrollAnimationProps {
   children: ReactNode
@@ -16,8 +16,30 @@ export function ScrollAnimation({
   animation = "fade-up" 
 }: ScrollAnimationProps) {
   const ref = useRef<HTMLDivElement>(null)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
 
   useEffect(() => {
+    // Check for reduced motion preference
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
+    setPrefersReducedMotion(mediaQuery.matches)
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches)
+    }
+
+    mediaQuery.addEventListener("change", handleChange)
+    return () => mediaQuery.removeEventListener("change", handleChange)
+  }, [])
+
+  useEffect(() => {
+    // If user prefers reduced motion, show content immediately
+    if (prefersReducedMotion) {
+      if (ref.current) {
+        ref.current.classList.add("animate-in")
+      }
+      return
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -40,7 +62,7 @@ export function ScrollAnimation({
     }
 
     return () => observer.disconnect()
-  }, [delay])
+  }, [delay, prefersReducedMotion])
 
   const animationClasses = {
     "fade-up": "translate-y-8 opacity-0",

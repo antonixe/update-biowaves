@@ -51,12 +51,12 @@ export function Coverage() {
 
         {/* Locations Grid */}
         <ScrollAnimation delay={100}>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-12" role="list" aria-label="Coverage locations">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-3 mb-12" role="list" aria-label="Coverage locations">
             {locations.map((location, index) => (
               <div
                 key={index}
                 role="listitem"
-                className="px-4 py-3 bg-neutral-50 dark:bg-neutral-900 rounded-lg text-sm text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-center"
+                className="px-3 sm:px-4 py-3 sm:py-3 bg-neutral-50 dark:bg-neutral-900 rounded-lg text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-center"
               >
                 {location}
               </div>
@@ -66,7 +66,7 @@ export function Coverage() {
 
         {/* CTA */}
         <ScrollAnimation delay={200}>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-8 border-t border-neutral-200 dark:border-neutral-800">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-8 border-t border-neutral-200 dark:border-neutral-800">
             <div>
               <h3 className="font-medium text-neutral-900 dark:text-white mb-1">Don't see your location?</h3>
               <p className="text-sm text-neutral-600 dark:text-neutral-400">We're expanding. Contact us to check availability.</p>
@@ -74,7 +74,7 @@ export function Coverage() {
             <Button
               onClick={scrollToContact}
               variant="outline"
-              className="border-neutral-300 dark:border-neutral-700 hover:bg-neutral-900 dark:hover:bg-white hover:text-white dark:hover:text-neutral-900 hover:border-neutral-900 dark:hover:border-white transition-all focus:ring-2 focus:ring-neutral-900 dark:focus:ring-white focus:ring-offset-2"
+              className="w-full sm:w-auto border-neutral-300 dark:border-neutral-700 hover:bg-neutral-900 dark:hover:bg-white hover:text-white dark:hover:text-neutral-900 hover:border-neutral-900 dark:hover:border-white transition-all focus:ring-2 focus:ring-neutral-900 dark:focus:ring-white focus:ring-offset-2"
               aria-label="Check if your location has coverage"
             >
               Check Availability

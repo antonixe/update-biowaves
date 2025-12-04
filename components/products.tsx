@@ -50,11 +50,11 @@ export function Products() {
         </ScrollAnimation>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6" role="list">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6" role="list">
           {products.map((product, index) => (
             <ScrollAnimation key={product.name} delay={index * 150}>
               <article
-                className="group bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-8 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors h-full"
+                className="group bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-6 sm:p-8 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors h-full"
                 role="listitem"
               >
                 {/* Icon */}

@@ -130,10 +130,10 @@ export function Packages() {
         </ScrollAnimation>
 
         {/* Packages Grid */}
-        <div className={`grid gap-4 ${
+        <div className={`grid gap-4 sm:gap-5 ${
           activeTab === "home" 
-            ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-5" 
-            : "grid-cols-1 md:grid-cols-3 max-w-4xl"
+            ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5" 
+            : "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-4xl"
         }`}>
           {packages.map((pkg, index) => (
             <ScrollAnimation key={pkg.name} animation="fade-up" delay={150 + index * 75}>
