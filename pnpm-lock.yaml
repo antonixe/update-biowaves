@@ -101,6 +101,9 @@ importers:
       '@vercel/analytics':
         specifier: latest
         version: 1.5.0(@remix-run/react@2.17.0(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@5.0.2))(@sveltejs/kit@2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6(@types/node@22.0.0)(jiti@1.21.7)(yaml@2.8.0)))(svelte@5.36.17)(vite@7.0.6(@types/node@22.0.0)(jiti@1.21.7)(yaml@2.8.0)))(next@15.2.6(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(react@19.2.1)(svelte@5.36.17)(vue-router@4.5.1(vue@3.5.18(typescript@5.0.2)))(vue@3.5.18(typescript@5.0.2))
+      '@vercel/speed-insights':
+        specifier: ^1.3.1
+        version: 1.3.1(@sveltejs/kit@2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6(@types/node@22.0.0)(jiti@1.21.7)(yaml@2.8.0)))(svelte@5.36.17)(vite@7.0.6(@types/node@22.0.0)(jiti@1.21.7)(yaml@2.8.0)))(next@15.2.6(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(react@19.2.1)(svelte@5.36.17)(vue-router@4.5.1(vue@3.5.18(typescript@5.0.2)))(vue@3.5.18(typescript@5.0.2))
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.5.0)
@@ -1456,6 +1459,29 @@ packages:
     peerDependenciesMeta:
       '@remix-run/react':
         optional: true
+      '@sveltejs/kit':
+        optional: true
+      next:
+        optional: true
+      react:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+      vue-router:
+        optional: true
+
+  '@vercel/speed-insights@1.3.1':
+    resolution: {integrity: sha512-PbEr7FrMkUrGYvlcLHGkXdCkxnylCWePx7lPxxq36DNdfo9mcUjLOmqOyPDHAOgnfqgGGdmE3XI9L/4+5fr+vQ==}
+    peerDependencies:
+      '@sveltejs/kit': ^1 || ^2
+      next: '>= 13'
+      react: ^18 || ^19 || ^19.0.0-rc
+      svelte: '>= 4'
+      vue: ^3
+      vue-router: ^4
+    peerDependenciesMeta:
       '@sveltejs/kit':
         optional: true
       next:
@@ -3625,6 +3651,15 @@ snapshots:
   '@vercel/analytics@1.5.0(@remix-run/react@2.17.0(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@5.0.2))(@sveltejs/kit@2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6(@types/node@22.0.0)(jiti@1.21.7)(yaml@2.8.0)))(svelte@5.36.17)(vite@7.0.6(@types/node@22.0.0)(jiti@1.21.7)(yaml@2.8.0)))(next@15.2.6(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(react@19.2.1)(svelte@5.36.17)(vue-router@4.5.1(vue@3.5.18(typescript@5.0.2)))(vue@3.5.18(typescript@5.0.2))':
     optionalDependencies:
       '@remix-run/react': 2.17.0(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@5.0.2)
+      '@sveltejs/kit': 2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6(@types/node@22.0.0)(jiti@1.21.7)(yaml@2.8.0)))(svelte@5.36.17)(vite@7.0.6(@types/node@22.0.0)(jiti@1.21.7)(yaml@2.8.0))
+      next: 15.2.6(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+      react: 19.2.1
+      svelte: 5.36.17
+      vue: 3.5.18(typescript@5.0.2)
+      vue-router: 4.5.1(vue@3.5.18(typescript@5.0.2))
+
+  '@vercel/speed-insights@1.3.1(@sveltejs/kit@2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6(@types/node@22.0.0)(jiti@1.21.7)(yaml@2.8.0)))(svelte@5.36.17)(vite@7.0.6(@types/node@22.0.0)(jiti@1.21.7)(yaml@2.8.0)))(next@15.2.6(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(react@19.2.1)(svelte@5.36.17)(vue-router@4.5.1(vue@3.5.18(typescript@5.0.2)))(vue@3.5.18(typescript@5.0.2))':
+    optionalDependencies:
       '@sveltejs/kit': 2.26.1(@sveltejs/vite-plugin-svelte@6.1.0(svelte@5.36.17)(vite@7.0.6(@types/node@22.0.0)(jiti@1.21.7)(yaml@2.8.0)))(svelte@5.36.17)(vite@7.0.6(@types/node@22.0.0)(jiti@1.21.7)(yaml@2.8.0))
       next: 15.2.6(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
       react: 19.2.1
