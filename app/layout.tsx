@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Suspense } from "react"
 import { ThemeProvider } from "@/components/theme-provider"
 
@@ -321,6 +322,7 @@ export default function RootLayout({
           <Suspense fallback={null}>{children}</Suspense>
         </ThemeProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
