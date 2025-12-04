@@ -4,6 +4,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
+import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -45,21 +46,12 @@ export const metadata: Metadata = {
     title: "BioWaves - High-Speed Fiber Internet & Business Solutions in Kapsabet, Kenya",
     description:
       "Get lightning-fast fiber internet, CCTV security systems, and IP intercom solutions in Kapsabet, Nandi County. Reliable connectivity for homes and businesses with 99.9% uptime guarantee.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "BioWaves - High-Speed Fiber Internet in Kapsabet, Kenya",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "BioWaves - High-Speed Fiber Internet & Business Solutions in Kapsabet, Kenya",
     description:
       "Get lightning-fast fiber internet, CCTV security systems, and IP intercom solutions in Kapsabet, Nandi County. Reliable connectivity for homes and businesses with 99.9% uptime guarantee.",
-    images: ["/og-image.jpg"],
     creator: "@biowaves_ke",
   },
   verification: {
@@ -80,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en-KE">
+    <html lang="en-KE" suppressHydrationWarning>
       <head>
         {/* Security Headers */}
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
@@ -320,7 +312,14 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <Suspense fallback={null}>{children}</Suspense>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Suspense fallback={null}>{children}</Suspense>
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

@@ -1,9 +1,8 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Camera, Phone, Radio } from "lucide-react"
+import { Camera, Phone, Radio, ArrowUpRight } from "lucide-react"
+import { ScrollAnimation } from "@/components/scroll-animation"
 
 export function Products() {
   const scrollToContact = () => {
@@ -16,89 +15,84 @@ export function Products() {
   const products = [
     {
       name: "Hikvision CCTV Package",
-      description: "Complete 8-channel HD surveillance system for comprehensive security coverage",
+      description: "Complete 8-channel HD surveillance system with night vision, mobile app access, and 24/7 recording capabilities.",
       price: 15000.95,
       icon: Camera,
-      iconGradient: "from-red-500 to-pink-500",
-      features: ["8-Channel HD Recording", "24/7 Monitoring", "Mobile App Access", "Night Vision"],
     },
     {
       name: "IP Intercom System",
-      description: "Advanced IP-based intercom solution for modern buildings",
+      description: "Modern IP-based intercom with HD audio/video, remote access, and seamless mobile integration.",
       price: 11099.95,
       icon: Phone,
-      iconGradient: "from-blue-500 to-cyan-500",
-      features: ["HD Audio/Video", "Remote Access", "Mobile Integration", "Easy Installation"],
     },
     {
       name: "Long Range Wireless Intercom",
-      description: "Reliable wireless communication with up to 1km range",
+      description: "Reliable wireless communication with crystal clear audio, weather resistance, and up to 1km range.",
       price: 20044.95,
       icon: Radio,
-      iconGradient: "from-green-500 to-emerald-500",
-      features: ["1km Range", "Crystal Clear Audio", "Weather Resistant", "Long Battery Life"],
     },
   ]
 
   return (
-    <section id="products" className="py-24 sm:py-32 bg-gray-50">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Products</h2>
-          <p className="mt-4 text-lg leading-8 text-gray-600">
-            Quality hardware solutions for your security and communication needs
-          </p>
-        </div>
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {products.map((product) => (
-            <Card
-              key={product.name}
-              className="overflow-hidden group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
-            >
-              {/* Icon Section */}
-              <div className="aspect-video bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-cyan-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div
-                  className={`relative z-10 w-24 h-24 rounded-2xl bg-gradient-to-r ${product.iconGradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-lg`}
-                >
-                  <product.icon className="h-12 w-12 text-white" />
-                </div>
-                {/* Decorative elements */}
-                <div className="absolute top-4 right-4 w-16 h-16 bg-white/20 rounded-full blur-xl"></div>
-                <div className="absolute bottom-4 left-4 w-12 h-12 bg-white/30 rounded-full blur-lg"></div>
-              </div>
+    <section id="products" className="section bg-white dark:bg-neutral-950" aria-labelledby="products-heading">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        {/* Section Header */}
+        <ScrollAnimation>
+          <div className="max-w-2xl mb-16">
+            <p className="text-sm font-medium text-neutral-500 mb-3">Products</p>
+            <h2 id="products-heading" className="text-3xl sm:text-4xl font-semibold text-neutral-900 dark:text-white tracking-tight mb-4">
+              Security & communication
+            </h2>
+            <p className="text-lg text-neutral-600 dark:text-neutral-400">
+              Professional hardware solutions to complement your connectivity needs.
+            </p>
+          </div>
+        </ScrollAnimation>
 
-              <CardHeader>
-                <CardTitle className="text-xl group-hover:text-blue-600 transition-colors">{product.name}</CardTitle>
-                <CardDescription className="text-gray-600">{product.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="mb-4">
-                  <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-                    Ksh {product.price.toLocaleString()}
-                  </span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {product.features.map((feature) => (
-                    <Badge
-                      key={feature}
-                      variant="secondary"
-                      className="text-xs bg-gray-100 hover:bg-blue-50 transition-colors"
-                    >
-                      {feature}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-              <CardFooter>
-                <Button
-                  onClick={scrollToContact}
-                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6" role="list">
+          {products.map((product, index) => (
+            <ScrollAnimation key={product.name} delay={index * 150}>
+              <article
+                className="group bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-8 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors h-full"
+                role="listitem"
+              >
+                {/* Icon */}
+                <div 
+                  className="flex items-center justify-center w-12 h-12 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 mb-6 group-hover:border-neutral-300 dark:group-hover:border-neutral-600 transition-colors"
+                  aria-hidden="true"
                 >
-                  Get Quote
-                </Button>
-              </CardFooter>
-            </Card>
+                  <product.icon className="h-6 w-6 text-neutral-600 dark:text-neutral-400" />
+                </div>
+
+                {/* Content */}
+                <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-3">
+                  {product.name}
+                </h3>
+                <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
+                  {product.description}
+                </p>
+
+                {/* Price & CTA */}
+                <div className="flex items-center justify-between pt-6 border-t border-neutral-200 dark:border-neutral-700">
+                  <div>
+                    <p className="text-xs text-neutral-500 mb-0.5">Starting at</p>
+                    <p className="text-xl font-semibold text-neutral-900 dark:text-white">
+                      <span className="sr-only">Price: </span>KES {product.price.toLocaleString()}
+                    </p>
+                  </div>
+                  <Button
+                    onClick={scrollToContact}
+                    variant="ghost"
+                    className="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white hover:bg-transparent p-0 h-auto font-medium group/btn focus:ring-2 focus:ring-neutral-900 dark:focus:ring-white focus:ring-offset-2 rounded"
+                    aria-label={`Get quote for ${product.name}`}
+                  >
+                    Get Quote
+                    <ArrowUpRight className="ml-1 h-4 w-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" aria-hidden="true" />
+                  </Button>
+                </div>
+              </article>
+            </ScrollAnimation>
           ))}
         </div>
       </div>

@@ -1,100 +1,101 @@
 "use client"
 
-import { Phone, Mail, MapPin, Clock } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
+import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react"
+import { ScrollAnimation } from "@/components/scroll-animation"
 
 export function Contact() {
-  const contactInfo = [
+  const contactMethods = [
     {
       icon: Phone,
-      title: "Call Us",
-      content: "+254 707 019 898",
-      action: () => window.open("tel:+254707019898", "_self"),
-      bgColor: "from-green-500/20 to-emerald-500/20",
-      iconColor: "text-green-400",
-      hoverColor: "hover:from-green-500/30 hover:to-emerald-500/30",
+      label: "Phone",
+      value: "+254 707 019 898",
+      subValue: "Alt: +254 702 018 277",
+      href: "tel:+254707019898",
     },
     {
       icon: Mail,
-      title: "Email Us",
-      content: "biowavestechnologyservices@gmail.com",
-      action: () => window.open("mailto:biowavestechnologyservices@gmail.com", "_self"),
-      bgColor: "from-blue-500/20 to-cyan-500/20",
-      iconColor: "text-blue-400",
-      hoverColor: "hover:from-blue-500/30 hover:to-cyan-500/30",
+      label: "Email",
+      value: "biowavestechnologyservices@gmail.com",
+      subValue: "We respond within 24 hours",
+      href: "mailto:biowavestechnologyservices@gmail.com",
     },
     {
       icon: MapPin,
-      title: "Visit Us",
-      content: "Eden Plaza, 3rd Floor, Kapsabet",
-      action: () => window.open("https://maps.google.com/?q=Eden+Plaza+Kapsabet", "_blank"),
-      bgColor: "from-purple-500/20 to-pink-500/20",
-      iconColor: "text-purple-400",
-      hoverColor: "hover:from-purple-500/30 hover:to-pink-500/30",
-    },
-    {
-      icon: Clock,
-      title: "Business Hours",
-      content: "Mon - Fri: 8 AM - 5 PM",
-      action: null,
-      bgColor: "from-orange-500/20 to-yellow-500/20",
-      iconColor: "text-orange-400",
-      hoverColor: "hover:from-orange-500/30 hover:to-yellow-500/30",
+      label: "Office",
+      value: "Eden Plaza, 3rd Floor",
+      subValue: "Kapsabet, Nandi County",
+      href: "https://maps.google.com/?q=Eden+Plaza+Kapsabet",
     },
   ]
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent mb-4">
-            Get In Touch
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to experience lightning-fast internet? Contact us today to learn more about our packages and services.
-          </p>
-        </div>
+    <section id="contact" className="section bg-neutral-900" aria-labelledby="contact-heading">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+          {/* Left Content */}
+          <ScrollAnimation>
+            <div>
+              <p className="text-sm font-medium text-neutral-500 mb-3">Contact</p>
+              <h2 id="contact-heading" className="text-3xl sm:text-4xl font-semibold text-white tracking-tight mb-6">
+                Get in touch
+              </h2>
+              <p className="text-lg text-neutral-400 leading-relaxed mb-10">
+                Ready to upgrade your internet? Reach out to discuss your needs. 
+                Our team is here to help you find the perfect plan.
+              </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {contactInfo.map((info, index) => {
-            const IconComponent = info.icon
-            return (
-              <Card
-                key={index}
-                className={`group relative overflow-hidden border-0 bg-gradient-to-br ${info.bgColor} ${info.hoverColor} backdrop-blur-sm transition-all duration-300 transform hover:scale-105 ${
-                  info.action ? "cursor-pointer" : ""
-                }`}
-                onClick={info.action || undefined}
-              >
-                <CardContent className="p-8 text-center">
-                  <div className="mb-6 flex justify-center">
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-white/20 rounded-2xl blur-xl"></div>
-                      <div className="relative bg-white/10 backdrop-blur-sm p-4 rounded-2xl border border-white/20">
-                        <IconComponent className={`h-8 w-8 ${info.iconColor}`} />
-                      </div>
-                    </div>
+              {/* Business Hours */}
+              <div className="inline-block">
+                <p className="text-sm text-neutral-500 mb-1">Business Hours</p>
+                <p className="text-white font-medium">
+                  <time>Monday – Friday, 8:00 AM – 5:00 PM</time>
+                </p>
+              </div>
+            </div>
+          </ScrollAnimation>
+
+          {/* Right Content - Contact Methods */}
+          <ScrollAnimation delay={200}>
+            <div className="space-y-4" role="list" aria-label="Contact methods">
+              {contactMethods.map((method, index) => (
+                <a
+                  key={index}
+                  href={method.href}
+                  target={method.href.startsWith("http") ? "_blank" : "_self"}
+                  rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="group flex items-start gap-4 p-5 rounded-xl bg-neutral-800/50 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-900"
+                  role="listitem"
+                  aria-label={`${method.label}: ${method.value}`}
+                >
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-neutral-700 flex items-center justify-center group-hover:bg-neutral-600 transition-colors" aria-hidden="true">
+                    <method.icon className="h-5 w-5 text-neutral-300" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{info.title}</h3>
-                  <p className="text-gray-700 leading-relaxed">{info.content}</p>
-                  {info.action && (
-                    <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="text-sm text-gray-600">Click to {info.title.toLowerCase()}</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between mb-1">
+                      <p className="text-sm text-neutral-500">{method.label}</p>
+                      <ArrowUpRight className="h-4 w-4 text-neutral-600 group-hover:text-neutral-400 transition-colors" aria-hidden="true" />
                     </div>
-                  )}
-                </CardContent>
-              </Card>
-            )
-          })}
-        </div>
+                    <p className="text-white font-medium truncate">{method.value}</p>
+                    <p className="text-sm text-neutral-500">{method.subValue}</p>
+                  </div>
+                </a>
+              ))}
 
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full border border-blue-200/50">
-            <Clock className="h-5 w-5 text-blue-500 mr-2" />
-            <span className="text-gray-700 font-medium">
-              Need immediate assistance? Call us during business hours for instant support!
-            </span>
-          </div>
+              {/* Quick Call CTA */}
+              <div className="mt-6 pt-6 border-t border-neutral-800">
+                <a
+                  href="tel:+254707019898"
+                  className="group inline-flex items-center gap-3 text-white hover:text-neutral-300 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-900 rounded-full"
+                  aria-label="Call BioWaves now at +254 707 019 898"
+                >
+                  <span className="flex items-center justify-center w-10 h-10 rounded-full bg-white text-neutral-900 group-hover:bg-neutral-200 transition-colors" aria-hidden="true">
+                    <Phone className="h-4 w-4" />
+                  </span>
+                  <span className="font-medium">Call us now</span>
+                </a>
+              </div>
+            </div>
+          </ScrollAnimation>
         </div>
       </div>
     </section>

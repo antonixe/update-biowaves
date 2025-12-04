@@ -1,59 +1,88 @@
-import { CheckCircle, Users, Award, Clock } from "lucide-react"
+"use client"
+
+import { MapPin } from "lucide-react"
+import { ScrollAnimation } from "@/components/scroll-animation"
 
 export function About() {
   const stats = [
-    { name: "Years of Experience", value: "5+", icon: Clock },
-    { name: "Happy Customers", value: "1000+", icon: Users },
-    { name: "Expert Technicians", value: "10+", icon: Award },
-    { name: "Uptime Guarantee", value: "99.9%", icon: CheckCircle },
-  ]
-
-  const highlights = [
-    "Over 5 years of experience in telecommunications",
-    "Serving 1000+ happy customers across Kenya",
-    "Expert technical team led by Paul C. Chirchir",
-    "Committed to reliable and fast connectivity solutions",
+    { label: "Years", value: "5+" },
+    { label: "Customers", value: "1,000+" },
+    { label: "Locations", value: "18+" },
+    { label: "Uptime", value: "99.9%" },
   ]
 
   return (
-    <section id="about" className="py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">About BioWaves</h2>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            BioWaves is a fast, affordable and reliable internet connectivity provider for small to medium sized
-            businesses. BioWaves Last Mile Business Fibre is a high-speed, cost-effective internet service designed
-            specifically for business customers, offering reliable and fast connectivity.
-          </p>
-        </div>
-
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4">
-            {stats.map((stat) => (
-              <div key={stat.name} className="flex flex-col items-center text-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-lg bg-blue-600">
-                  <stat.icon className="h-8 w-8 text-white" aria-hidden="true" />
-                </div>
-                <dt className="text-base leading-7 text-gray-600">{stat.name}</dt>
-                <dd className="text-3xl font-bold leading-9 tracking-tight text-gray-900">{stat.value}</dd>
+    <section id="about" className="section bg-neutral-50 dark:bg-neutral-900" aria-labelledby="about-heading">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+          {/* Left Content */}
+          <ScrollAnimation>
+            <div>
+              <p className="text-sm font-medium text-neutral-500 mb-3">About</p>
+              <h2 id="about-heading" className="text-3xl sm:text-4xl font-semibold text-neutral-900 dark:text-white tracking-tight mb-6">
+                Connecting Nandi County to the future
+              </h2>
+              <div className="space-y-4 text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                <p>
+                  BioWaves Technology Services is a leading internet connectivity provider 
+                  serving businesses and homes in Kapsabet and surrounding areas. We specialize 
+                  in delivering fast, affordable, and reliable fiber internet solutions.
+                </p>
+                <p>
+                  Founded with a mission to bridge the digital divide, we've grown to serve 
+                  over 1,000 customers across 18+ locations. Our expert team ensures top-notch 
+                  service and support to keep you connected.
+                </p>
               </div>
-            ))}
-          </dl>
-        </div>
 
-        <div className="mx-auto mt-16 max-w-2xl lg:mx-0">
-          <h3 className="text-2xl font-bold tracking-tight text-gray-900 mb-8">Why Choose Us</h3>
-          <ul className="space-y-4">
-            {highlights.map((highlight, index) => (
-              <li key={index} className="flex items-start">
-                <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-700">{highlight}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-8 text-gray-600">
-            Our technician, Paul C. Chirchir, ensures top-notch service and support to keep you connected.
-          </p>
+              {/* Stats Row */}
+              <div className="grid grid-cols-4 gap-4 mt-10 pt-10 border-t border-neutral-200 dark:border-neutral-700" role="list" aria-label="Company statistics">
+                {stats.map((stat, index) => (
+                  <div key={index} role="listitem">
+                    <div className="text-2xl font-semibold text-neutral-900 dark:text-white">{stat.value}</div>
+                    <div className="text-sm text-neutral-500">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollAnimation>
+
+          {/* Right Content */}
+          <ScrollAnimation delay={200}>
+            <div className="lg:pt-8">
+              {/* Values */}
+              <div className="space-y-6 mb-10" role="list" aria-label="Our values">
+                {[
+                  { title: "Reliability", desc: "99.9% uptime with 24/7 monitoring and support" },
+                  { title: "Speed", desc: "High-speed fiber connections up to 100Mbps" },
+                  { title: "Local", desc: "Proudly serving Kapsabet and Nandi County" },
+                ].map((item, index) => (
+                  <div key={index} className="flex gap-4" role="listitem">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 flex items-center justify-center text-sm font-medium" aria-hidden="true">
+                      {index + 1}
+                    </div>
+                    <div>
+                      <h3 className="font-medium text-neutral-900 dark:text-white mb-1">{item.title}</h3>
+                      <p className="text-sm text-neutral-600 dark:text-neutral-400">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Location */}
+              <address className="bg-white dark:bg-neutral-800 rounded-xl p-5 border border-neutral-200 dark:border-neutral-700 not-italic">
+                <div className="flex items-center gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-700 flex items-center justify-center" aria-hidden="true">
+                    <MapPin className="h-5 w-5 text-neutral-600 dark:text-neutral-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-neutral-500">Our Office</p>
+                    <p className="font-medium text-neutral-900 dark:text-white">Eden Plaza, 3rd Floor, Kapsabet</p>
+                  </div>
+                </div>
+              </address>
+            </div>
+          </ScrollAnimation>
         </div>
       </div>
     </section>

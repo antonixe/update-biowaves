@@ -1,90 +1,78 @@
-import { Zap, Infinity, Headphones, Shield, Clock, Users } from "lucide-react"
+"use client"
+
+import { Zap, Infinity, Headphones, Shield, Clock, Wrench } from "lucide-react"
+import { ScrollAnimation } from "@/components/scroll-animation"
 
 export function Features() {
   const features = [
     {
       name: "Lightning Fast",
-      description: "Experience speeds up to 100Mbps with our fiber optic network",
+      description: "Fiber-optic speeds up to 100Mbps for seamless streaming, gaming, and work.",
       icon: Zap,
-      gradient: "from-yellow-400 to-orange-500",
     },
     {
       name: "Unlimited Data",
-      description: "No data caps or hidden charges - browse without limits",
+      description: "No caps, no throttling. Use as much as you need without worrying about limits.",
       icon: Infinity,
-      gradient: "from-blue-500 to-cyan-500",
     },
     {
       name: "24/7 Support",
-      description: "Round-the-clock technical assistance when you need it",
+      description: "Our local support team is always available when you need assistance.",
       icon: Headphones,
-      gradient: "from-green-400 to-emerald-500",
     },
     {
-      name: "Secure Connection",
-      description: "Advanced security features to protect your data",
+      name: "Secure Network",
+      description: "Enterprise-grade security to keep your data and privacy protected.",
       icon: Shield,
-      gradient: "from-purple-500 to-pink-500",
     },
     {
       name: "99.9% Uptime",
-      description: "Reliable connection you can count on",
+      description: "Redundant infrastructure ensures your connection stays reliable.",
       icon: Clock,
-      gradient: "from-red-400 to-rose-500",
     },
     {
-      name: "Expert Team",
-      description: "Professional installation and maintenance services",
-      icon: Users,
-      gradient: "from-indigo-500 to-blue-600",
+      name: "Free Installation",
+      description: "Professional setup by our expert technicians at no extra cost.",
+      icon: Wrench,
     },
   ]
 
   return (
-    <section className="py-24 sm:py-32 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50/50 to-white"></div>
-      <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-        <div className="mx-auto max-w-2xl text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-6">
-            <span className="text-sm font-medium text-blue-700">Why Choose BioWaves</span>
+    <section className="section bg-white dark:bg-neutral-950" aria-labelledby="features-heading">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        {/* Section Header */}
+        <ScrollAnimation>
+          <div className="max-w-2xl mb-16">
+            <p className="text-sm font-medium text-neutral-500 mb-3">Why BioWaves</p>
+            <h2 id="features-heading" className="text-3xl sm:text-4xl font-semibold text-neutral-900 dark:text-white tracking-tight mb-4">
+              Built for reliability
+            </h2>
+            <p className="text-lg text-neutral-600 dark:text-neutral-400">
+              We've designed our network from the ground up to deliver consistent, 
+              dependable internet you can count on.
+            </p>
           </div>
-          <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-4">
-            Built for the
-            <span className="block bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              Modern World
-            </span>
-          </h2>
-          <p className="text-lg leading-8 text-gray-600 font-light">
-            Experience internet that adapts to your lifestyle with cutting-edge technology and unmatched reliability
-          </p>
-        </div>
+        </ScrollAnimation>
 
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12" role="list">
           {features.map((feature, index) => (
-            <div
-              key={feature.name}
-              className="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100"
-            >
-              {/* Gradient background on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-cyan-50/50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-              <div className="relative">
-                {/* Icon with gradient background */}
-                <div
-                  className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${feature.gradient} mb-6 group-hover:scale-110 transition-transform duration-300`}
+            <ScrollAnimation key={feature.name} delay={index * 100}>
+              <div className="group" role="listitem">
+                <div 
+                  className="flex items-center justify-center w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-800 mb-4 group-hover:bg-neutral-900 dark:group-hover:bg-white transition-colors"
+                  aria-hidden="true"
                 >
-                  <feature.icon className="h-8 w-8 text-white" aria-hidden="true" />
+                  <feature.icon className="h-5 w-5 text-neutral-600 dark:text-neutral-400 group-hover:text-white dark:group-hover:text-neutral-900 transition-colors" />
                 </div>
-
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-lg font-medium text-neutral-900 dark:text-white mb-2">
                   {feature.name}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-
-                {/* Decorative element */}
-                <div className="absolute top-4 right-4 w-20 h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
-            </div>
+            </ScrollAnimation>
           ))}
         </div>
       </div>

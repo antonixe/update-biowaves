@@ -1,109 +1,108 @@
 "use client"
 
-import Link from "next/link"
-import { Mail, Phone, MapPin } from "lucide-react"
+import { Mail, Phone, MapPin, ArrowUp } from "lucide-react"
 
 export function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
+  const scrollToSection = (href: string) => {
+    const sectionId = href.replace("#", "")
+    const section = document.getElementById(sectionId)
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
+  const navigation = [
+    { name: "Home", href: "#home" },
+    { name: "Plans", href: "#packages" },
+    { name: "Products", href: "#products" },
+    { name: "About", href: "#about" },
+    { name: "Coverage", href: "#coverage" },
+    { name: "Contact", href: "#contact" },
+  ]
+
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-10">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
-          {/* Company Info */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="h-8 w-8 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">BW</span>
-              </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                BioWaves
-              </span>
-            </div>
-            <p className="text-gray-300 mb-6 max-w-md">
-              Connecting Kapsabet with lightning-fast internet solutions. Experience the future of connectivity with our
-              reliable fiber optic and wireless services.
+    <footer className="bg-neutral-950">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        {/* Main Footer */}
+        <div className="py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-10">
+          {/* Brand */}
+          <div className="lg:col-span-4">
+            <span className="text-xl font-semibold text-white mb-4 block">BioWaves</span>
+            <p className="text-neutral-500 text-sm leading-relaxed mb-6">
+              Fast, reliable fiber internet for homes and businesses in Kapsabet, Nandi County.
             </p>
+            <div className="space-y-2 text-sm">
+              <a href="tel:+254707019898" className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors focus:outline-none focus-visible:text-white focus-visible:underline">
+                <Phone className="h-4 w-4" aria-hidden="true" />
+                +254 707 019 898
+              </a>
+              <a href="mailto:biowavestechnologyservices@gmail.com" className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors focus:outline-none focus-visible:text-white focus-visible:underline">
+                <Mail className="h-4 w-4" aria-hidden="true" />
+                biowavestechnologyservices@gmail.com
+              </a>
+              <div className="flex items-center gap-2 text-neutral-500">
+                <MapPin className="h-4 w-4" aria-hidden="true" />
+                Eden Plaza, 3rd Floor, Kapsabet
+              </div>
+            </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="#home" className="text-gray-300 hover:text-white transition-colors duration-300">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="#about" className="text-gray-300 hover:text-white transition-colors duration-300">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="#packages" className="text-gray-300 hover:text-white transition-colors duration-300">
-                  Packages
-                </Link>
-              </li>
-              <li>
-                <Link href="#products" className="text-gray-300 hover:text-white transition-colors duration-300">
-                  Products
-                </Link>
-              </li>
-              <li>
-                <Link href="#coverage" className="text-gray-300 hover:text-white transition-colors duration-300">
-                  Coverage
-                </Link>
-              </li>
-              <li>
-                <Link href="#contact" className="text-gray-300 hover:text-white transition-colors duration-300">
-                  Contact
-                </Link>
-              </li>
+          {/* Navigation */}
+          <div className="lg:col-span-2">
+            <h4 className="text-sm font-medium text-white mb-4">Navigation</h4>
+            <ul className="space-y-2">
+              {navigation.map((item) => (
+                <li key={item.name}>
+                  <button
+                    onClick={() => scrollToSection(item.href)}
+                    className="text-sm text-neutral-500 hover:text-white transition-colors focus:outline-none focus-visible:text-white focus-visible:underline"
+                  >
+                    {item.name}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6">Contact Info</h3>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-blue-400" />
-                <div>
-                  <p className="text-gray-300">+254 707 019 898</p>
-                  <p className="text-gray-300">+254 702 018 277</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-blue-400" />
-                <p className="text-gray-300 break-all">biowavestechnologyservices@gmail.com</p>
-              </div>
-              <div className="flex items-center space-x-3">
-                <MapPin className="h-5 w-5 text-blue-400" />
-                <p className="text-gray-300">
-                  Eden Plaza, 3rd Floor
-                  <br />
-                  Kapsabet, Nandi County
-                </p>
-              </div>
+          {/* Services */}
+          <div className="lg:col-span-3">
+            <h4 className="text-sm font-medium text-white mb-4">Services</h4>
+            <ul className="space-y-2 text-sm text-neutral-500">
+              <li>Fiber to the Home</li>
+              <li>Fiber to the Business</li>
+              <li>CCTV Installation</li>
+              <li>IP Intercom Systems</li>
+              <li>Network Solutions</li>
+            </ul>
+          </div>
+
+          {/* Hours */}
+          <div className="lg:col-span-3">
+            <h4 className="text-sm font-medium text-white mb-4">Hours</h4>
+            <div className="text-sm text-neutral-500 space-y-1">
+              <p>Monday – Friday</p>
+              <p className="text-neutral-400">8:00 AM – 5:00 PM</p>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
-          <div className="flex flex-col sm:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">© 2024 BioWaves Technology Services. All rights reserved.</p>
-            <div className="flex space-x-6 mt-4 sm:mt-0">
-              <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
-                Terms of Service
-              </Link>
-              <Link href="/support" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
-                Support
-              </Link>
-            </div>
-          </div>
+        <div className="py-6 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-neutral-600">
+            © 2026 BioWaves Technology Services
+          </p>
+          <button
+            onClick={scrollToTop}
+            className="inline-flex items-center gap-1.5 text-xs text-neutral-500 hover:text-white transition-colors focus:outline-none focus-visible:text-white focus-visible:underline"
+            aria-label="Scroll back to top of page"
+          >
+            Back to top
+            <ArrowUp className="h-3 w-3" />
+          </button>
         </div>
       </div>
     </footer>

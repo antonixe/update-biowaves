@@ -1,94 +1,105 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Zap, Globe, Shield } from "lucide-react"
+import { ArrowRight, ArrowDown } from "lucide-react"
 
 export function Hero() {
   const scrollToPackages = () => {
     const packagesSection = document.getElementById("packages")
     if (packagesSection) {
-      packagesSection.scrollIntoView({ behavior: "smooth" })
+      const offset = 80
+      const elementPosition = packagesSection.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - offset
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" })
+    }
+  }
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact")
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" })
     }
   }
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50">
-        <div className="absolute inset-0">
-          {/* Floating geometric shapes */}
-          <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-32 h-32 bg-gradient-to-r from-cyan-400/20 to-blue-400/20 rounded-full blur-xl animate-pulse delay-1000"></div>
-          <div className="absolute bottom-40 left-20 w-24 h-24 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full blur-xl animate-pulse delay-2000"></div>
+    <section id="home" className="relative min-h-screen flex flex-col">
+      {/* Background */}
+      <div className="absolute inset-0 bg-neutral-50 dark:bg-neutral-950" />
+      
+      {/* Content */}
+      <div className="relative flex-1 flex items-center">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-32 lg:py-40">
+          <div className="max-w-3xl">
+            {/* Eyebrow */}
+            <p className="text-sm font-medium text-neutral-500 mb-6 opacity-0 animate-fade-up">
+              Internet Service Provider — Kapsabet, Kenya
+            </p>
 
-          {/* Grid pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+            {/* Main Heading */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-neutral-900 dark:text-white leading-[1.1] mb-8 opacity-0 animate-fade-up delay-100">
+              Fast, reliable internet
+              <br />
+              <span className="text-neutral-400 dark:text-neutral-500">for everyone.</span>
+            </h1>
+
+            {/* Description */}
+            <p className="text-lg sm:text-xl text-neutral-600 dark:text-neutral-400 max-w-xl leading-relaxed mb-10 opacity-0 animate-fade-up delay-200">
+              Experience fiber-optic speeds up to 100 Mbps with unlimited data. 
+              We're connecting Nandi County to what matters most.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-start gap-4 opacity-0 animate-fade-up delay-300">
+              <Button
+                onClick={scrollToPackages}
+                size="lg"
+                className="bg-neutral-900 hover:bg-neutral-800 dark:bg-white dark:hover:bg-neutral-200 text-white dark:text-neutral-900 rounded-full h-12 px-8 text-base font-medium transition-all hover:scale-[1.02] active:scale-[0.98] group focus-visible:ring-2 focus-visible:ring-neutral-900 dark:focus-visible:ring-white focus-visible:ring-offset-2"
+              >
+                View Plans
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+              </Button>
+              <Button
+                onClick={scrollToContact}
+                variant="ghost"
+                size="lg"
+                className="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white hover:bg-transparent rounded-full h-12 px-6 text-base font-medium focus-visible:ring-2 focus-visible:ring-neutral-500 focus-visible:ring-offset-2"
+              >
+                Contact Sales
+              </Button>
+            </div>
+
+            {/* Stats Row */}
+            <div className="mt-20 pt-10 border-t border-neutral-200 dark:border-neutral-800 opacity-0 animate-fade-up delay-400">
+              <div className="grid grid-cols-3 gap-8 lg:gap-16">
+                {[
+                  { value: "100", unit: "Mbps", label: "Top Speed" },
+                  { value: "18+", unit: "", label: "Locations" },
+                  { value: "99.9", unit: "%", label: "Uptime" },
+                ].map((stat, index) => (
+                  <div key={index}>
+                    <div className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-neutral-900 dark:text-white tracking-tight">
+                      {stat.value}
+                      <span className="text-neutral-400 dark:text-neutral-500">{stat.unit}</span>
+                    </div>
+                    <div className="text-sm text-neutral-500 mt-1">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 py-32 sm:px-8 lg:px-10">
-        <div className="text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200 shadow-lg mb-8 animate-fade-in-down">
-            <Zap className="h-4 w-4 text-yellow-500 mr-2 animate-spin-slow" />
-            <span className="text-sm font-medium text-gray-700">Lightning Fast Internet</span>
-          </div>
-
-          {/* Main Heading with Animation */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-            <span className="block text-gray-900 mb-2 animate-slide-up opacity-0 animation-delay-300">
-              Experience the
-            </span>
-            <span className="block animate-slide-up opacity-0 animation-delay-600">
-              <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 bg-clip-text text-transparent animate-gradient-shift bg-300% relative">
-                <span className="inline-block animate-bounce-gentle mr-2 text-4xl sm:text-5xl lg:text-6xl">⚡</span>
-                <span className="animate-type-text overflow-hidden whitespace-nowrap border-r-2 border-cyan-500">
-                  Future of Internet
-                </span>
-              </span>
-            </span>
-          </h1>
-
-          <p className="mx-auto mt-6 max-w-2xl text-xl leading-8 text-gray-600 font-light animate-fade-in opacity-0 animation-delay-1200">
-            Unleash unlimited possibilities with BioWaves' cutting-edge fiber internet. Fast, reliable, and designed for
-            the digital age.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="mt-12 flex items-center justify-center animate-fade-in opacity-0 animation-delay-1500">
-            <Button
-              onClick={scrollToPackages}
-              size="lg"
-              className="group bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-8 py-4 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 animate-pulse-gentle"
-            >
-              Explore Packages
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </div>
-
-          {/* Stats */}
-          <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            {[
-              { icon: Globe, label: "Coverage Areas", value: "18+" },
-              { icon: Zap, label: "Max Speed", value: "100 Mbps" },
-              { icon: Shield, label: "Uptime", value: "99.9%" },
-            ].map((stat, index) => (
-              <div
-                key={index}
-                className={`group animate-slide-up opacity-0`}
-                style={{ animationDelay: `${1800 + index * 200}ms` }}
-              >
-                <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <stat.icon className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="text-2xl font-bold text-gray-900 mb-1">{stat.value}</div>
-                  <div className="text-sm text-gray-600">{stat.label}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in delay-600">
+        <button
+          onClick={scrollToPackages}
+          className="flex flex-col items-center gap-2 text-neutral-400 hover:text-neutral-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-500 rounded-lg p-2"
+          aria-label="Scroll to packages section"
+        >
+          <span className="text-xs font-medium uppercase tracking-wider">Scroll</span>
+          <ArrowDown className="h-4 w-4 animate-bounce" />
+        </button>
       </div>
     </section>
   )
