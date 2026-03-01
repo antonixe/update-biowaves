@@ -1,102 +1,77 @@
 "use client"
 
-import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react"
+import { Phone } from "lucide-react"
 import { ScrollAnimation } from "@/components/scroll-animation"
 
 export function Contact() {
-  const contactMethods = [
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+254 707 019 898",
-      subValue: "Alt: +254 702 018 277",
-      href: "tel:+254707019898",
-    },
-    {
-      icon: Mail,
-      label: "Email",
-      value: "info@seacomnetworks.co.ke",
-      subValue: "We respond within 24 hours",
-      href: "mailto:info@seacomnetworks.co.ke",
-    },
-    {
-      icon: MapPin,
-      label: "Office",
-      value: "Eden Plaza, 3rd Floor",
-      subValue: "Kapsabet, Nandi County",
-      href: "https://maps.google.com/?q=Eden+Plaza+Kapsabet",
-    },
-  ]
-
   return (
-    <section id="contact" className="section bg-neutral-900" aria-labelledby="contact-heading">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-24">
-          {/* Left Content */}
-          <ScrollAnimation>
-            <div>
-              <p className="text-sm font-medium text-neutral-500 mb-3">Contact</p>
-              <h2 id="contact-heading" className="text-3xl sm:text-4xl font-semibold text-white tracking-tight mb-6">
-                Get in touch
-              </h2>
-              <p className="text-lg text-neutral-400 leading-relaxed mb-10">
-                Ready to upgrade your internet? Reach out to discuss your needs. 
-                Our team is here to help you find the perfect plan.
-              </p>
+    <section id="contact" className="relative bg-neutral-950 overflow-hidden" aria-labelledby="contact-heading">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
 
-              {/* Business Hours */}
-              <div className="inline-block">
-                <p className="text-sm text-neutral-500 mb-1">Business Hours</p>
-                <p className="text-white font-medium">
-                  <time>Monday – Friday, 8:00 AM – 5:00 PM</time>
-                </p>
-              </div>
+        {/* Top — centered signal + number */}
+        <div className="pt-24 sm:pt-32 lg:pt-44 pb-16 sm:pb-20 flex flex-col items-center text-center px-2">
+          <ScrollAnimation>
+            {/* Pulsing signal dot */}
+            <div className="relative mb-10">
+              <span className="absolute inset-0 w-3 h-3 bg-teal-500 rounded-full animate-ping opacity-40" aria-hidden="true" />
+              <span className="relative block w-3 h-3 bg-teal-500 rounded-full" aria-hidden="true" />
             </div>
           </ScrollAnimation>
 
-          {/* Right Content - Contact Methods */}
-          <ScrollAnimation delay={200}>
-            <div className="space-y-4" role="list" aria-label="Contact methods">
-              {contactMethods.map((method, index) => (
-                <a
-                  key={index}
-                  href={method.href}
-                  target={method.href.startsWith("http") ? "_blank" : "_self"}
-                  rel={method.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="group flex items-start gap-3 sm:gap-4 p-4 sm:p-5 rounded-xl bg-neutral-800/50 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 transition-all focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-900 active:scale-[0.98]"
-                  role="listitem"
-                  aria-label={`${method.label}: ${method.value}`}
-                >
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-neutral-700 flex items-center justify-center group-hover:bg-neutral-600 transition-colors" aria-hidden="true">
-                    <method.icon className="h-5 w-5 text-neutral-300" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between mb-1">
-                      <p className="text-sm text-neutral-500">{method.label}</p>
-                      <ArrowUpRight className="h-4 w-4 text-neutral-600 group-hover:text-neutral-400 transition-colors" aria-hidden="true" />
-                    </div>
-                    <p className="text-white font-medium break-all sm:truncate">{method.value}</p>
-                    <p className="text-sm text-neutral-500">{method.subValue}</p>
-                  </div>
-                </a>
-              ))}
+          <ScrollAnimation delay={100}>
+            <p className="text-[10px] font-mono uppercase tracking-[0.4em] text-neutral-600 mb-6">We&apos;re online</p>
+          </ScrollAnimation>
 
-              {/* Quick Call CTA */}
-              <div className="mt-6 pt-6 border-t border-neutral-800">
-                <a
-                  href="tel:+254707019898"
-                  className="group inline-flex items-center gap-3 text-white hover:text-neutral-300 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-900 rounded-full"
-                  aria-label="Call Seacom Networks now at +254 707 019 898"
-                >
-                  <span className="flex items-center justify-center w-10 h-10 rounded-full bg-white text-neutral-900 group-hover:bg-neutral-200 transition-colors" aria-hidden="true">
-                    <Phone className="h-4 w-4" />
-                  </span>
-                  <span className="font-medium">Call us now</span>
-                </a>
-              </div>
+          <h2 id="contact-heading" className="sr-only">Contact Seacom Networks</h2>
+
+          <ScrollAnimation delay={150}>
+            <a
+              href="tel:+254707019898"
+              className="group block"
+            >
+              <p className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-serif italic text-white leading-none tracking-tight group-hover:text-teal-400 transition-colors duration-500">
+                0707 019 898
+              </p>
+            </a>
+          </ScrollAnimation>
+
+          <ScrollAnimation delay={200}>
+            <p className="mt-4 text-sm text-neutral-600">Alt: 0702 018 277</p>
+          </ScrollAnimation>
+
+          {/* Action row */}
+          <ScrollAnimation delay={250}>
+            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none sm:w-auto">
+              <a
+                href="tel:+254707019898"
+                className="flex items-center justify-center gap-2 h-12 px-6 sm:px-8 bg-teal-600 hover:bg-teal-500 text-white text-sm font-medium transition-colors"
+              >
+                <Phone className="h-4 w-4" />
+                Call
+              </a>
+              <a
+                href="https://wa.me/254707019898"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 h-12 px-6 sm:px-8 border border-neutral-800 hover:border-neutral-600 text-neutral-400 hover:text-white text-sm font-medium transition-colors"
+              >
+                WhatsApp
+              </a>
             </div>
           </ScrollAnimation>
         </div>
+
+        {/* Bottom bar — info strip */}
+        <ScrollAnimation delay={300}>
+          <div className="py-8 border-t border-neutral-800/40 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-[11px] text-neutral-600">
+            <span>Mon–Fri 8–5</span>
+            <span className="hidden sm:inline text-neutral-800">·</span>
+            <span>Sat 9–2</span>
+            <span className="hidden sm:inline text-neutral-800">·</span>
+            <span>Eden Plaza, Kapsabet</span>
+          </div>
+        </ScrollAnimation>
+
       </div>
     </section>
   )

@@ -2,214 +2,133 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Check, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { ScrollAnimation } from "@/components/scroll-animation"
 
 export function Packages() {
   const [activeTab, setActiveTab] = useState<"home" | "business">("home")
 
   const scrollToContact = () => {
-    const contactSection = document.getElementById("contact")
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" })
-    }
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
   }
 
   const homePackages = [
-    {
-      name: "Basic",
-      speed: "5 Mbps",
-      price: 1500,
-      description: "Light browsing & social media",
-      features: ["Unlimited Data", "Free Installation", "24/7 Support"],
-      popular: false,
-    },
-    {
-      name: "Standard",
-      speed: "10 Mbps",
-      price: 2000,
-      description: "Small families & remote work",
-      features: ["Unlimited Data", "Free Installation", "24/7 Support", "HD Streaming"],
-      popular: false,
-    },
-    {
-      name: "Premium",
-      speed: "20 Mbps",
-      price: 2500,
-      description: "Multiple devices & streaming",
-      features: ["Unlimited Data", "Priority Installation", "24/7 Support", "HD Streaming"],
-      popular: false,
-    },
-    {
-      name: "Advanced",
-      speed: "30 Mbps",
-      price: 3000,
-      description: "Power users & large families",
-      features: ["Unlimited Data", "Priority Installation", "Priority Support", "4K Streaming"],
-      popular: true,
-    },
-    {
-      name: "Ultimate",
-      speed: "50 Mbps",
-      price: 3500,
-      description: "Maximum speed & performance",
-      features: ["Unlimited Data", "Priority Installation", "Priority Support", "Static IP Option"],
-      popular: false,
-    },
+    { name: "Basic", speed: "5", price: 1500, desc: "Browsing & social", popular: false },
+    { name: "Standard", speed: "10", price: 2000, desc: "Small households", popular: false },
+    { name: "Premium", speed: "20", price: 2500, desc: "Multi-device", popular: false },
+    { name: "Advanced", speed: "30", price: 3000, desc: "Power users", popular: true },
+    { name: "Ultimate", speed: "50", price: 3500, desc: "Max performance", popular: false },
   ]
 
   const businessPackages = [
-    {
-      name: "Starter",
-      speed: "30 Mbps",
-      price: 5000,
-      description: "Small businesses & startups",
-      features: ["Unlimited Data", "99.9% Uptime SLA", "Priority Support", "Static IP"],
-      popular: false,
-    },
-    {
-      name: "Professional",
-      speed: "50 Mbps",
-      price: 8000,
-      description: "Growing teams & offices",
-      features: ["Unlimited Data", "99.9% Uptime SLA", "24/7 Priority Support", "Multiple Static IPs"],
-      popular: true,
-    },
-    {
-      name: "Enterprise",
-      speed: "100 Mbps",
-      price: 20000,
-      description: "Large organizations",
-      features: ["Unlimited Data", "99.99% Uptime SLA", "Dedicated Support", "Account Manager"],
-      popular: false,
-    },
+    { name: "Starter", speed: "30", price: 5000, desc: "Small teams", popular: false },
+    { name: "Professional", speed: "50", price: 8000, desc: "Growing offices", popular: true },
+    { name: "Enterprise", speed: "100", price: 20000, desc: "Large orgs", popular: false },
   ]
 
   const packages = activeTab === "home" ? homePackages : businessPackages
 
   return (
-    <section id="packages" className="section bg-neutral-50 dark:bg-neutral-900">
+    <section id="packages" className="py-24 lg:py-32 bg-stone-50 dark:bg-neutral-900">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Section Header */}
+        {/* Header */}
         <ScrollAnimation animation="fade-up">
-          <div className="max-w-2xl mb-12">
-            <p className="text-sm font-medium text-neutral-500 mb-3">Pricing</p>
-            <h2 className="text-3xl sm:text-4xl font-semibold text-neutral-900 dark:text-white tracking-tight mb-4">
-              Simple, honest pricing
-            </h2>
-            <p className="text-lg text-neutral-600 dark:text-neutral-400">
-              All plans include unlimited data and free installation. No hidden fees.
-            </p>
-          </div>
-        </ScrollAnimation>
+          <div className="mb-16">
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500 mb-4">Pricing</p>
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif italic text-neutral-900 dark:text-white tracking-tight">
+                Honest pricing.
+              </h2>
 
-        {/* Tab Switcher */}
-        <ScrollAnimation animation="fade-up" delay={100}>
-          <div className="flex gap-2 mb-12">
-            <button
-              onClick={() => setActiveTab("home")}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 dark:focus-visible:ring-white focus-visible:ring-offset-2 ${
-                activeTab === "home"
-                  ? "bg-neutral-900 dark:bg-white text-white dark:text-neutral-900"
-                  : "bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white border border-neutral-200 dark:border-neutral-700"
-              }`}
-            >
-              Home
-            </button>
-            <button
-              onClick={() => setActiveTab("business")}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 dark:focus-visible:ring-white focus-visible:ring-offset-2 ${
-                activeTab === "business"
-                  ? "bg-neutral-900 dark:bg-white text-white dark:text-neutral-900"
-                  : "bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white border border-neutral-200 dark:border-neutral-700"
-              }`}
-            >
-              Business
-            </button>
-          </div>
-        </ScrollAnimation>
-
-        {/* Packages Grid */}
-        <div className={`grid gap-4 sm:gap-5 ${
-          activeTab === "home" 
-            ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5" 
-            : "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-4xl"
-        }`}>
-          {packages.map((pkg, index) => (
-            <ScrollAnimation key={pkg.name} animation="fade-up" delay={150 + index * 75}>
-              <div
-                className={`relative bg-white dark:bg-neutral-800 rounded-2xl p-6 transition-all hover:shadow-lg h-full ${
-                  pkg.popular 
-                    ? "ring-2 ring-neutral-900 dark:ring-white" 
-                    : "border border-neutral-200 dark:border-neutral-700"
-                }`}
-              >
-              {/* Popular Badge */}
-              {pkg.popular && (
-                <div className="absolute -top-3 left-6">
-                  <span className="inline-block px-3 py-1 text-xs font-medium bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 rounded-full">
-                    Popular
-                  </span>
-                </div>
-              )}
-
-              <div className={pkg.popular ? "pt-2" : ""}>
-                {/* Speed Badge */}
-                <div className="inline-block px-2.5 py-1 bg-neutral-100 dark:bg-neutral-700 rounded-md text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-4">
-                  {pkg.speed}
-                </div>
-
-                {/* Name & Description */}
-                <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-1">{pkg.name}</h3>
-                <p className="text-sm text-neutral-500 mb-4">{pkg.description}</p>
-
-                {/* Price */}
-                <div className="mb-6">
-                  <span className="text-3xl font-semibold text-neutral-900 dark:text-white">
-                    {pkg.price.toLocaleString()}
-                  </span>
-                  <span className="text-neutral-500 ml-1">KES/mo</span>
-                </div>
-
-                {/* Features */}
-                <ul className="space-y-2.5 mb-6">
-                  {pkg.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2.5 text-sm text-neutral-600 dark:text-neutral-400">
-                      <Check className="h-4 w-4 text-neutral-400 flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA Button */}
-                <Button
-                  onClick={scrollToContact}
-                  variant={pkg.popular ? "default" : "outline"}
-                  className={`w-full rounded-full h-10 text-sm font-medium transition-all focus-visible:ring-2 focus-visible:ring-offset-2 ${
-                    pkg.popular
-                      ? "bg-neutral-900 hover:bg-neutral-800 dark:bg-white dark:hover:bg-neutral-200 text-white dark:text-neutral-900 focus-visible:ring-neutral-900 dark:focus-visible:ring-white"
-                      : "border-neutral-300 dark:border-neutral-600 hover:bg-neutral-50 dark:hover:bg-neutral-700 dark:text-neutral-300 focus-visible:ring-neutral-500"
-                  }`}
-                >
-                  Get Started
-                </Button>
+              {/* Tab Switcher */}
+              <div className="flex gap-4">
+                {(["home", "business"] as const).map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className={`text-sm font-medium pb-1 border-b-2 transition-all capitalize ${
+                      activeTab === tab
+                        ? "border-neutral-900 dark:border-white text-neutral-900 dark:text-white"
+                        : "border-transparent text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300"
+                    }`}
+                  >
+                    {tab}
+                  </button>
+                ))}
               </div>
             </div>
+          </div>
+        </ScrollAnimation>
+
+        {/* Plans — horizontal row layout */}
+        <div className="space-y-0 border-t border-neutral-200 dark:border-neutral-800">
+          {packages.map((pkg, index) => (
+            <ScrollAnimation key={pkg.name} animation="fade-up" delay={index * 60}>
+              <div
+                className={`group grid grid-cols-3 sm:grid-cols-4 items-center gap-3 sm:gap-4 py-5 sm:py-6 lg:py-8 border-b transition-colors cursor-pointer ${
+                  pkg.popular 
+                    ? "border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800/50 -mx-4 sm:-mx-6 px-4 sm:px-6" 
+                    : "border-neutral-200/60 dark:border-neutral-800 hover:bg-white/60 dark:hover:bg-neutral-800/30"
+                }`}
+                onClick={scrollToContact}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === "Enter" && scrollToContact()}
+              >
+                {/* Speed */}
+                <div>
+                  <div className="flex items-baseline gap-0.5">
+                    <span className="text-2xl sm:text-3xl lg:text-5xl font-serif italic text-neutral-900 dark:text-white leading-none">
+                      {pkg.speed}
+                    </span>
+                    <span className="text-[10px] sm:text-xs font-mono text-teal-600 dark:text-teal-400">Mbps</span>
+                  </div>
+                </div>
+
+                {/* Name + Desc */}
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <h3 className="text-xs sm:text-sm lg:text-base font-semibold text-neutral-900 dark:text-white truncate">{pkg.name}</h3>
+                    {pkg.popular && (
+                      <span className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider bg-teal-600 text-white">
+                        Popular
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-[10px] sm:text-xs text-neutral-400 mt-0.5 truncate">{pkg.desc}</p>
+                </div>
+
+                {/* Price */}
+                <div className="text-right sm:text-left">
+                  <span className="text-sm sm:text-lg lg:text-2xl font-semibold text-neutral-900 dark:text-white">
+                    {pkg.price.toLocaleString()}
+                  </span>
+                  <span className="text-[9px] sm:text-xs text-neutral-400 ml-0.5 sm:ml-1">KES</span>
+                </div>
+
+                {/* Arrow — visible on hover (desktop only) */}
+                <div className="hidden sm:flex justify-end">
+                  <ArrowRight className="h-4 w-4 text-neutral-300 dark:text-neutral-600 group-hover:text-teal-600 dark:group-hover:text-teal-400 group-hover:translate-x-1 transition-all" />
+                </div>
+              </div>
             </ScrollAnimation>
           ))}
         </div>
 
-        {/* Footer Note */}
+        {/* Single unified CTA */}
         <ScrollAnimation animation="fade-up" delay={400}>
-          <p className="mt-10 text-center text-sm text-neutral-500">
-            All prices in Kenyan Shillings, VAT inclusive.{" "}
-            <button 
+          <div className="mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <p className="text-sm text-neutral-400">
+              All plans: unlimited data, free installation, 24/7 support.
+            </p>
+            <Button
               onClick={scrollToContact}
-              className="text-neutral-900 dark:text-white hover:underline focus:outline-none focus-visible:underline"
+              className="w-full sm:w-auto h-12 px-8 text-sm font-medium rounded-none bg-neutral-900 hover:bg-neutral-800 dark:bg-white dark:hover:bg-neutral-100 text-white dark:text-neutral-900 transition-all"
             >
-              Contact us for custom plans
-            </button>
-          </p>
+              Get connected
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
         </ScrollAnimation>
       </div>
     </section>

@@ -1,95 +1,78 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Camera, Phone, Radio, ArrowUpRight } from "lucide-react"
+import { Camera, Phone, Radio } from "lucide-react"
 import { ScrollAnimation } from "@/components/scroll-animation"
 
 export function Products() {
   const scrollToContact = () => {
-    const contactSection = document.getElementById("contact")
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" })
-    }
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
   }
 
   const products = [
     {
-      name: "Hikvision CCTV Package",
-      description: "Complete 8-channel HD surveillance system with night vision, mobile app access, and 24/7 recording capabilities.",
-      price: 15000.95,
+      name: "Hikvision CCTV",
+      spec: "8CH · HD · Night Vision",
+      price: "15,000",
       icon: Camera,
     },
     {
-      name: "IP Intercom System",
-      description: "Modern IP-based intercom with HD audio/video, remote access, and seamless mobile integration.",
-      price: 11099.95,
+      name: "IP Intercom",
+      spec: "Video · Audio · Mobile",
+      price: "11,099",
       icon: Phone,
     },
     {
-      name: "Long Range Wireless Intercom",
-      description: "Reliable wireless communication with crystal clear audio, weather resistance, and up to 1km range.",
-      price: 20044.95,
+      name: "Wireless Intercom",
+      spec: "1km Range · Weatherproof",
+      price: "20,044",
       icon: Radio,
     },
   ]
 
   return (
-    <section id="products" className="section bg-white dark:bg-neutral-950" aria-labelledby="products-heading">
+    <section id="products" className="py-24 lg:py-32 bg-white dark:bg-neutral-950" aria-labelledby="products-heading">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Section Header */}
+        {/* Header */}
         <ScrollAnimation>
-          <div className="max-w-2xl mb-16">
-            <p className="text-sm font-medium text-neutral-500 mb-3">Products</p>
-            <h2 id="products-heading" className="text-3xl sm:text-4xl font-semibold text-neutral-900 dark:text-white tracking-tight mb-4">
-              Security & communication
-            </h2>
-            <p className="text-lg text-neutral-600 dark:text-neutral-400">
-              Professional hardware solutions to complement your connectivity needs.
-            </p>
-          </div>
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500 mb-4">Products</p>
+          <h2 id="products-heading" className="text-3xl sm:text-4xl font-serif italic text-neutral-900 dark:text-white tracking-tight mb-16">
+            Beyond connectivity.
+          </h2>
         </ScrollAnimation>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6" role="list">
+        {/* Product cards — horizontal on desktop, stack on mobile */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-[1px] bg-neutral-200 dark:bg-neutral-800" role="list">
           {products.map((product, index) => (
-            <ScrollAnimation key={product.name} delay={index * 150}>
+            <ScrollAnimation key={product.name} delay={index * 100}>
               <article
-                className="group bg-neutral-50 dark:bg-neutral-900 rounded-2xl p-6 sm:p-8 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors h-full"
+                className="group relative bg-white dark:bg-neutral-950 p-8 lg:p-10 h-full cursor-pointer hover:bg-stone-50 dark:hover:bg-neutral-900/50 transition-colors"
+                onClick={scrollToContact}
                 role="listitem"
               >
                 {/* Icon */}
-                <div 
-                  className="flex items-center justify-center w-12 h-12 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 mb-6 group-hover:border-neutral-300 dark:group-hover:border-neutral-600 transition-colors"
-                  aria-hidden="true"
-                >
-                  <product.icon className="h-6 w-6 text-neutral-600 dark:text-neutral-400" />
+                <div className="flex items-center justify-center w-12 h-12 border border-neutral-200 dark:border-neutral-800 mb-8 group-hover:border-teal-300 dark:group-hover:border-teal-800 transition-colors" aria-hidden="true">
+                  <product.icon className="h-5 w-5 text-teal-600 dark:text-teal-400" />
                 </div>
 
-                {/* Content */}
-                <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-3">
+                {/* Name */}
+                <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-1">
                   {product.name}
                 </h3>
-                <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
-                  {product.description}
+
+                {/* Spec line */}
+                <p className="text-xs font-mono text-neutral-400 dark:text-neutral-500 tracking-wide mb-8">
+                  {product.spec}
                 </p>
 
-                {/* Price & CTA */}
-                <div className="flex items-center justify-between pt-6 border-t border-neutral-200 dark:border-neutral-700">
+                {/* Price */}
+                <div className="mt-auto pt-6 border-t border-neutral-100 dark:border-neutral-800/60 flex items-baseline justify-between">
                   <div>
-                    <p className="text-xs text-neutral-500 mb-0.5">Starting at</p>
-                    <p className="text-xl font-semibold text-neutral-900 dark:text-white">
-                      <span className="sr-only">Price: </span>KES {product.price.toLocaleString()}
-                    </p>
+                    <span className="text-2xl font-serif italic text-neutral-900 dark:text-white">{product.price}</span>
+                    <span className="text-xs text-neutral-400 ml-1">KES</span>
                   </div>
-                  <Button
-                    onClick={scrollToContact}
-                    variant="ghost"
-                    className="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white hover:bg-transparent p-0 h-auto font-medium group/btn focus:ring-2 focus:ring-neutral-900 dark:focus:ring-white focus:ring-offset-2 rounded"
-                    aria-label={`Get quote for ${product.name}`}
-                  >
-                    Get Quote
-                    <ArrowUpRight className="ml-1 h-4 w-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" aria-hidden="true" />
-                  </Button>
+                  <span className="text-xs text-neutral-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                    Get quote →
+                  </span>
                 </div>
               </article>
             </ScrollAnimation>

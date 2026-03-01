@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, Phone, MapPin, ArrowUp } from "lucide-react"
+import { ArrowUp } from "lucide-react"
 
 export function Footer() {
   const scrollToTop = () => {
@@ -8,100 +8,58 @@ export function Footer() {
   }
 
   const scrollToSection = (href: string) => {
-    const sectionId = href.replace("#", "")
-    const section = document.getElementById(sectionId)
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" })
-    }
+    document.getElementById(href.replace("#", ""))?.scrollIntoView({ behavior: "smooth" })
   }
 
-  const navigation = [
-    { name: "Home", href: "#home" },
+  const nav = [
     { name: "Plans", href: "#packages" },
     { name: "Products", href: "#products" },
-    { name: "About", href: "#about" },
     { name: "Coverage", href: "#coverage" },
     { name: "Contact", href: "#contact" },
   ]
 
   return (
-    <footer className="bg-neutral-950">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Main Footer */}
-        <div className="py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-10">
-          {/* Brand */}
-          <div className="lg:col-span-4">
-            <span className="text-xl font-semibold text-white mb-4 block">Seacom Networks</span>
-            <p className="text-neutral-500 text-sm leading-relaxed mb-6">
-              Fast, reliable fiber internet for homes and businesses in Kapsabet, Nandi County.
-            </p>
-            <div className="space-y-2 text-sm">
-              <a href="tel:+254707019898" className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors focus:outline-none focus-visible:text-white focus-visible:underline">
-                <Phone className="h-4 w-4" aria-hidden="true" />
-                +254 707 019 898
-              </a>
-              <a href="mailto:info@seacomnetworks.co.ke" className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors focus:outline-none focus-visible:text-white focus-visible:underline">
-                <Mail className="h-4 w-4" aria-hidden="true" />
-                info@seacomnetworks.co.ke
-              </a>
-              <div className="flex items-center gap-2 text-neutral-500">
-                <MapPin className="h-4 w-4" aria-hidden="true" />
-                Eden Plaza, 3rd Floor, Kapsabet
-              </div>
-            </div>
-          </div>
+    <footer className="relative bg-neutral-950 overflow-hidden">
+      {/* Large background text */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
+        <span className="text-[12vw] sm:text-[10vw] font-serif italic text-neutral-900/30 whitespace-nowrap leading-none">
+          Seacom
+        </span>
+      </div>
 
-          {/* Navigation */}
-          <div className="lg:col-span-2">
-            <h4 className="text-sm font-medium text-white mb-4">Navigation</h4>
-            <ul className="space-y-2">
-              {navigation.map((item) => (
-                <li key={item.name}>
-                  <button
-                    onClick={() => scrollToSection(item.href)}
-                    className="text-sm text-neutral-500 hover:text-white transition-colors focus:outline-none focus-visible:text-white focus-visible:underline"
-                  >
-                    {item.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+        {/* Main content */}
+        <div className="pt-20 pb-8 flex flex-col items-center text-center gap-8">
+          {/* Nav */}
+          <nav className="flex flex-wrap justify-center gap-x-8 gap-y-3">
+            {nav.map((item) => (
+              <button
+                key={item.name}
+                onClick={() => scrollToSection(item.href)}
+                className="text-xs uppercase tracking-widest text-neutral-500 hover:text-white transition-colors"
+              >
+                {item.name}
+              </button>
+            ))}
+          </nav>
 
-          {/* Services */}
-          <div className="lg:col-span-3">
-            <h4 className="text-sm font-medium text-white mb-4">Services</h4>
-            <ul className="space-y-2 text-sm text-neutral-500">
-              <li>Fiber to the Home</li>
-              <li>Fiber to the Business</li>
-              <li>CCTV Installation</li>
-              <li>IP Intercom Systems</li>
-              <li>Network Solutions</li>
-            </ul>
-          </div>
-
-          {/* Hours */}
-          <div className="lg:col-span-3">
-            <h4 className="text-sm font-medium text-white mb-4">Hours</h4>
-            <div className="text-sm text-neutral-500 space-y-1">
-              <p>Monday – Friday</p>
-              <p className="text-neutral-400">8:00 AM – 5:00 PM</p>
-            </div>
-          </div>
+          {/* Phone */}
+          <a href="tel:+254707019898" className="text-sm text-neutral-600 hover:text-teal-400 transition-colors">
+            +254 707 019 898
+          </a>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="py-6 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-neutral-600">
-            © 2026 Seacom Networks
+        {/* Bottom bar */}
+        <div className="py-6 border-t border-neutral-800/30 flex items-center justify-between">
+          <p className="text-[10px] font-mono text-neutral-700">
+            © 2026 Seacom
           </p>
           <button
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 text-xs text-neutral-500 hover:text-white transition-colors focus:outline-none focus-visible:text-white focus-visible:underline"
-            aria-label="Scroll back to top of page"
+            className="group flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider text-neutral-700 hover:text-white transition-colors"
+            aria-label="Back to top"
           >
-            Back to top
-            <ArrowUp className="h-3 w-3" />
+            <ArrowUp className="h-3 w-3 group-hover:-translate-y-1 transition-transform" />
           </button>
         </div>
       </div>

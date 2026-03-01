@@ -6,71 +6,91 @@ import { ScrollAnimation } from "@/components/scroll-animation"
 export function Features() {
   const features = [
     {
-      name: "Lightning Fast",
-      description: "Fiber-optic speeds up to 100Mbps for seamless streaming, gaming, and work.",
+      name: "Blazing Fast",
+      description: "100Mbps fiber. Zero lag.",
       icon: Zap,
+      size: "large",
     },
     {
-      name: "Unlimited Data",
-      description: "No caps, no throttling. Use as much as you need without worrying about limits.",
+      name: "Truly Unlimited",
+      description: "No caps. No throttle.",
       icon: Infinity,
+      size: "normal",
     },
     {
       name: "24/7 Support",
-      description: "Our local support team is always available when you need assistance.",
+      description: "Local team. We pick up.",
       icon: Headphones,
+      size: "normal",
     },
     {
-      name: "Secure Network",
-      description: "Enterprise-grade security to keep your data and privacy protected.",
+      name: "Enterprise Security",
+      description: "Your data stays yours.",
       icon: Shield,
+      size: "normal",
     },
     {
       name: "99.9% Uptime",
-      description: "Redundant infrastructure ensures your connection stays reliable.",
+      description: "Built to stay online.",
       icon: Clock,
+      size: "normal",
     },
     {
-      name: "Free Installation",
-      description: "Professional setup by our expert technicians at no extra cost.",
+      name: "Free Setup",
+      description: "Pro install. Zero cost.",
       icon: Wrench,
+      size: "large",
     },
   ]
 
   return (
-    <section className="section bg-white dark:bg-neutral-950" aria-labelledby="features-heading">
+    <section className="py-24 lg:py-32 bg-white dark:bg-neutral-950" aria-labelledby="features-heading">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Section Header */}
+        {/* Header — left-aligned, editorial */}
         <ScrollAnimation>
-          <div className="max-w-2xl mb-16">
-            <p className="text-sm font-medium text-neutral-500 mb-3">Why Seacom Networks</p>
-            <h2 id="features-heading" className="text-3xl sm:text-4xl font-semibold text-neutral-900 dark:text-white tracking-tight mb-4">
-              Built for reliability
-            </h2>
-            <p className="text-lg text-neutral-600 dark:text-neutral-400">
-              We've designed our network from the ground up to deliver consistent, 
-              dependable internet you can count on.
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16">
+            <div>
+              <p className="font-mono text-xs uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500 mb-4">Why Seacom</p>
+              <h2 id="features-heading" className="text-4xl sm:text-5xl font-serif italic text-neutral-900 dark:text-white tracking-tight">
+                Built different.
+              </h2>
+            </div>
+            <p className="text-sm text-neutral-400 dark:text-neutral-500 max-w-xs">
+              Six things that set us apart from every other provider.
             </p>
           </div>
         </ScrollAnimation>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12" role="list">
+        {/* Bento Grid — varied sizes */}
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-neutral-200 dark:bg-neutral-800" role="list">
           {features.map((feature, index) => (
-            <ScrollAnimation key={feature.name} delay={index * 100}>
-              <div className="group" role="listitem">
-                <div 
-                  className="flex items-center justify-center w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-800 mb-4 group-hover:bg-neutral-900 dark:group-hover:bg-white transition-colors"
-                  aria-hidden="true"
-                >
-                  <feature.icon className="h-5 w-5 text-neutral-600 dark:text-neutral-400 group-hover:text-white dark:group-hover:text-neutral-900 transition-colors" />
+            <ScrollAnimation key={feature.name} delay={index * 80}>
+              <div 
+                className={`group relative bg-white dark:bg-neutral-950 p-5 sm:p-8 lg:p-10 transition-all h-full overflow-hidden hover:bg-stone-50 dark:hover:bg-neutral-900/50 ${
+                  feature.size === "large" ? "lg:col-span-1" : ""
+                }`} 
+                role="listitem"
+              >
+                {/* Oversized number — decorative */}
+                <span className="absolute -top-4 -right-2 text-[80px] sm:text-[100px] lg:text-[120px] font-serif italic leading-none text-neutral-100 dark:text-neutral-900/40 select-none pointer-events-none" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                {/* Content */}
+                <div className="relative">
+                  <div 
+                    className="flex items-center justify-center w-10 h-10 border border-neutral-200 dark:border-neutral-800 mb-6 group-hover:border-teal-300 dark:group-hover:border-teal-700 transition-colors"
+                    aria-hidden="true"
+                  >
+                    <feature.icon className="h-5 w-5 text-teal-600 dark:text-teal-400" />
+                  </div>
+                  <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-neutral-900 dark:text-white mb-1 sm:mb-2">
+                    {feature.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-xs">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3 className="text-lg font-medium text-neutral-900 dark:text-white mb-2">
-                  {feature.name}
-                </h3>
-                <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                  {feature.description}
-                </p>
               </div>
             </ScrollAnimation>
           ))}
