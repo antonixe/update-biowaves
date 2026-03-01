@@ -31,7 +31,7 @@ export function Footer() {
         <div className="py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* Brand */}
           <div className="lg:col-span-4">
-            <span className="text-xl font-semibold text-white mb-4 block">BioWaves</span>
+            <span className="text-xl font-semibold text-white mb-4 block">Seacom Networks</span>
             <p className="text-neutral-500 text-sm leading-relaxed mb-6">
               Fast, reliable fiber internet for homes and businesses in Kapsabet, Nandi County.
             </p>
@@ -40,9 +40,9 @@ export function Footer() {
                 <Phone className="h-4 w-4" aria-hidden="true" />
                 +254 707 019 898
               </a>
-              <a href="mailto:biowavestechnologyservices@gmail.com" className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors focus:outline-none focus-visible:text-white focus-visible:underline">
+              <a href="mailto:info@seacomnetworks.co.ke" className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors focus:outline-none focus-visible:text-white focus-visible:underline">
                 <Mail className="h-4 w-4" aria-hidden="true" />
-                biowavestechnologyservices@gmail.com
+                info@seacomnetworks.co.ke
               </a>
               <div className="flex items-center gap-2 text-neutral-500">
                 <MapPin className="h-4 w-4" aria-hidden="true" />
@@ -93,7 +93,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="py-6 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-neutral-600">
-            © 2026 BioWaves Technology Services
+            © 2026 Seacom Networks
           </p>
           <button
             onClick={scrollToTop}

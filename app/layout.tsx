@@ -9,7 +9,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "BioWaves - High-Speed Fiber Internet & Business Solutions in Kapsabet, Kenya",
+  title: "Seacom Networks - High-Speed Fiber Internet & Business Solutions in Kapsabet, Kenya",
   description:
     "Get lightning-fast fiber internet, CCTV security systems, and IP intercom solutions in Kapsabet, Nandi County. Reliable connectivity for homes and businesses with 99.9% uptime guarantee.",
   keywords: [
@@ -19,14 +19,14 @@ export const metadata: Metadata = {
     "CCTV installation Kapsabet",
     "IP intercom systems",
     "wireless internet Kenya",
-    "BioWaves internet",
+    "Seacom Networks internet",
     "fiber to home Kenya",
     "business connectivity solutions",
     "internet service provider Kapsabet",
   ],
-  authors: [{ name: "BioWaves Telecom Network" }],
-  creator: "BioWaves Telecom Network",
-  publisher: "BioWaves Telecom Network",
+  authors: [{ name: "Seacom Networks" }],
+  creator: "Seacom Networks",
+  publisher: "Seacom Networks",
   robots: {
     index: true,
     follow: true,
@@ -41,18 +41,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_KE",
-    url: "https://biowaves.co.ke",
-    siteName: "BioWaves Telecom Network",
-    title: "BioWaves - High-Speed Fiber Internet & Business Solutions in Kapsabet, Kenya",
+    url: "https://seacomnetworks.co.ke",
+    siteName: "Seacom Networks",
+    title: "Seacom Networks - High-Speed Fiber Internet & Business Solutions in Kapsabet, Kenya",
     description:
       "Get lightning-fast fiber internet, CCTV security systems, and IP intercom solutions in Kapsabet, Nandi County. Reliable connectivity for homes and businesses with 99.9% uptime guarantee.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "BioWaves - High-Speed Fiber Internet & Business Solutions in Kapsabet, Kenya",
+    title: "Seacom Networks - High-Speed Fiber Internet & Business Solutions in Kapsabet, Kenya",
     description:
       "Get lightning-fast fiber internet, CCTV security systems, and IP intercom solutions in Kapsabet, Nandi County. Reliable connectivity for homes and businesses with 99.9% uptime guarantee.",
-    creator: "@biowaves_ke",
+    creator: "@seacomnetworks_ke",
   },
   verification: {
     google: "your-google-verification-code",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     yahoo: "your-yahoo-verification-code",
   },
   alternates: {
-    canonical: "https://biowaves.co.ke",
+    canonical: "https://seacomnetworks.co.ke",
   },
   category: "Technology",
   generator: "v0.dev",
@@ -93,7 +93,7 @@ export default function RootLayout({
         <meta name="business:contact_data:postal_code" content="30300" />
         <meta name="business:contact_data:country_name" content="Kenya" />
         <meta name="business:contact_data:phone_number" content="+254707019898" />
-        <meta name="business:contact_data:email" content="biowavestechnologyservices@gmail.com" />
+        <meta name="business:contact_data:email" content="info@seacomnetworks.co.ke" />
 
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
@@ -108,14 +108,14 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "@id": "https://biowaves.co.ke/#organization",
-              name: "BioWaves Telecom Network",
-              alternateName: "BioWaves",
+              "@id": "https://seacomnetworks.co.ke/#organization",
+              name: "Seacom Networks",
+              alternateName: "Seacom Networks",
               description:
                 "High-speed fiber internet, CCTV security systems, and IP intercom solutions provider in Kapsabet, Nandi County, Kenya.",
-              url: "https://biowaves.co.ke",
+              url: "https://seacomnetworks.co.ke",
               telephone: "+254707019898",
-              email: "biowavestechnologyservices@gmail.com",
+              email: "info@seacomnetworks.co.ke",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Eden Plaza, 3rd Floor",
@@ -171,9 +171,9 @@ export default function RootLayout({
                 ],
               },
               sameAs: [
-                "https://facebook.com/biowaves.ke",
-                "https://twitter.com/biowaves_ke",
-                "https://instagram.com/biowaves_ke",
+                "https://facebook.com/seacomnetworks.ke",
+                "https://twitter.com/seacomnetworks_ke",
+                "https://instagram.com/seacomnetworks_ke",
               ],
             }),
           }}
@@ -191,25 +191,25 @@ export default function RootLayout({
                   "@type": "ListItem",
                   position: 1,
                   name: "Home",
-                  item: "https://biowaves.co.ke",
+                  item: "https://seacomnetworks.co.ke",
                 },
                 {
                   "@type": "ListItem",
                   position: 2,
                   name: "Internet Packages",
-                  item: "https://biowaves.co.ke#packages",
+                  item: "https://seacomnetworks.co.ke#packages",
                 },
                 {
                   "@type": "ListItem",
                   position: 3,
                   name: "Products",
-                  item: "https://biowaves.co.ke#products",
+                  item: "https://seacomnetworks.co.ke#products",
                 },
                 {
                   "@type": "ListItem",
                   position: 4,
                   name: "Contact",
-                  item: "https://biowaves.co.ke#contact",
+                  item: "https://seacomnetworks.co.ke#contact",
                 },
               ],
             }),
@@ -228,7 +228,7 @@ export default function RootLayout({
                 "Professional fiber internet installation and maintenance services in Kapsabet, Nandi County, Kenya.",
               provider: {
                 "@type": "LocalBusiness",
-                name: "BioWaves Telecom Network",
+                name: "Seacom Networks",
               },
               areaServed: {
                 "@type": "City",
@@ -276,18 +276,18 @@ export default function RootLayout({
               mainEntity: [
                 {
                   "@type": "Question",
-                  name: "What internet speeds does BioWaves offer?",
+                  name: "What internet speeds does Seacom Networks offer?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "BioWaves offers fiber internet speeds ranging from 5 Mbps to 100 Mbps, suitable for both home and business use.",
+                    text: "Seacom Networks offers fiber internet speeds ranging from 5 Mbps to 100 Mbps, suitable for both home and business use.",
                   },
                 },
                 {
                   "@type": "Question",
-                  name: "What areas does BioWaves cover in Kapsabet?",
+                  name: "What areas does Seacom Networks cover in Kapsabet?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "BioWaves covers 18+ locations in Kapsabet including Eden Plaza, Naivas Building, Kapsabet Hospital, and many other commercial and residential areas.",
+                    text: "Seacom Networks covers 18+ locations in Kapsabet including Eden Plaza, Naivas Building, Kapsabet Hospital, and many other commercial and residential areas.",
                   },
                 },
                 {
@@ -295,7 +295,7 @@ export default function RootLayout({
                   name: "What is the uptime guarantee?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "BioWaves provides a 99.9% uptime guarantee for all internet packages with 24/7 technical support.",
+                    text: "Seacom Networks provides a 99.9% uptime guarantee for all internet packages with 24/7 technical support.",
                   },
                 },
                 {
@@ -303,7 +303,7 @@ export default function RootLayout({
                   name: "Do you offer business internet solutions?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Yes, BioWaves offers dedicated business internet packages with static IPs, priority support, and enterprise-grade connectivity.",
+                    text: "Yes, Seacom Networks offers dedicated business internet packages with static IPs, priority support, and enterprise-grade connectivity.",
                   },
                 },
               ],

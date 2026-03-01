@@ -57,7 +57,7 @@ export function PageLoader() {
             </div>
           </div>
           <span className="text-2xl font-semibold text-neutral-900 dark:text-white tracking-tight">
-            BioWaves
+            Seacom Networks
           </span>
         </div>
 

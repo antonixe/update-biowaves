@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/private/", "/admin/"],
     },
-    sitemap: "https://biowaves.co.ke/sitemap.xml",
+    sitemap: "https://seacomnetworks.co.ke/sitemap.xml",
   }
 }

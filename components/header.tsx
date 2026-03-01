@@ -87,7 +87,7 @@ export function Header() {
               className="flex items-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 dark:focus-visible:ring-white focus-visible:ring-offset-2 rounded-lg"
             >
               <span className="text-xl font-semibold tracking-tight text-neutral-900 dark:text-white">
-                BioWaves
+                Seacom Networks
               </span>
             </button>
 

@@ -1,4 +1,4 @@
-# biowaves v1.2
+# seacom-networks v1.2
 
 *Automatically synced with your [v0.dev](https://v0.dev) deployments*
 

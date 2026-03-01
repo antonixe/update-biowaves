@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og"
 
 export const runtime = "edge"
 
-export const alt = "BioWaves - Fast Fiber Internet in Kapsabet"
+export const alt = "Seacom Networks - Fast Fiber Internet in Kapsabet"
 export const size = {
   width: 1200,
   height: 630,
@@ -67,7 +67,7 @@ export default async function Image() {
               letterSpacing: "-0.02em",
             }}
           >
-            BioWaves
+            Seacom Networks
           </span>
         </div>
 

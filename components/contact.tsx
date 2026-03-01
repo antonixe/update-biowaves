@@ -15,9 +15,9 @@ export function Contact() {
     {
       icon: Mail,
       label: "Email",
-      value: "biowavestechnologyservices@gmail.com",
+      value: "info@seacomnetworks.co.ke",
       subValue: "We respond within 24 hours",
-      href: "mailto:biowavestechnologyservices@gmail.com",
+      href: "mailto:info@seacomnetworks.co.ke",
     },
     {
       icon: MapPin,
@@ -86,7 +86,7 @@ export function Contact() {
                 <a
                   href="tel:+254707019898"
                   className="group inline-flex items-center gap-3 text-white hover:text-neutral-300 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-900 rounded-full"
-                  aria-label="Call BioWaves now at +254 707 019 898"
+                  aria-label="Call Seacom Networks now at +254 707 019 898"
                 >
                   <span className="flex items-center justify-center w-10 h-10 rounded-full bg-white text-neutral-900 group-hover:bg-neutral-200 transition-colors" aria-hidden="true">
                     <Phone className="h-4 w-4" />

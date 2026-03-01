@@ -9,7 +9,7 @@ Disallow: /_next/
 Disallow: /private/
 
 # Sitemap
-Sitemap: https://biowaves.co.ke/sitemap.xml
+Sitemap: https://seacomnetworks.co.ke/sitemap.xml
 
 # Crawl delay to prevent server overload
 Crawl-delay: 1

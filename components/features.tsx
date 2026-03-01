@@ -43,7 +43,7 @@ export function Features() {
         {/* Section Header */}
         <ScrollAnimation>
           <div className="max-w-2xl mb-16">
-            <p className="text-sm font-medium text-neutral-500 mb-3">Why BioWaves</p>
+            <p className="text-sm font-medium text-neutral-500 mb-3">Why Seacom Networks</p>
             <h2 id="features-heading" className="text-3xl sm:text-4xl font-semibold text-neutral-900 dark:text-white tracking-tight mb-4">
               Built for reliability
             </h2>

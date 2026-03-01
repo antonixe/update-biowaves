@@ -24,7 +24,7 @@ export function About() {
               </h2>
               <div className="space-y-4 text-neutral-600 dark:text-neutral-400 leading-relaxed">
                 <p>
-                  BioWaves Technology Services is a leading internet connectivity provider 
+                  Seacom Networks is a leading internet connectivity provider 
                   serving businesses and homes in Kapsabet and surrounding areas. We specialize 
                   in delivering fast, affordable, and reliable fiber internet solutions.
                 </p>

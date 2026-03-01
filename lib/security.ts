@@ -1,4 +1,4 @@
-// Security utilities for the BioWaves website
+// Security utilities for the Seacom Networks website
 
 export class RateLimiter {
   private attempts: Map<string, number[]> = new Map()

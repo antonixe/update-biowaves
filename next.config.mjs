@@ -8,7 +8,7 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
-    domains: ['biowaves.co.ke'],
+    domains: ['seacomnetworks.co.ke'],
     formats: ['image/webp', 'image/avif'],
   },
   // Security headers
@@ -61,7 +61,7 @@ const nextConfig = {
             value: 'http',
           },
         ],
-        destination: 'https://biowaves.co.ke/:path*',
+        destination: 'https://seacomnetworks.co.ke/:path*',
         permanent: true,
       },
     ]
