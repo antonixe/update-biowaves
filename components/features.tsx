@@ -50,12 +50,12 @@ export function Features() {
         <ScrollAnimation>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16">
             <div>
-              <p className="font-mono text-xs uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500 mb-4">Why Seacom</p>
-              <h2 id="features-heading" className="text-4xl sm:text-5xl font-serif italic text-neutral-900 dark:text-white tracking-tight">
+              <p className="font-mono text-sm uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500 mb-4">Why Seacom</p>
+              <h2 id="features-heading" className="text-4xl sm:text-5xl lg:text-6xl font-serif italic text-neutral-900 dark:text-white tracking-tight">
                 Built different.
               </h2>
             </div>
-            <p className="text-sm text-neutral-400 dark:text-neutral-500 max-w-xs">
+            <p className="text-base text-neutral-400 dark:text-neutral-500 max-w-xs">
               Six things that set us apart from every other provider.
             </p>
           </div>
@@ -84,10 +84,10 @@ export function Features() {
                   >
                     <feature.icon className="h-5 w-5 text-teal-600 dark:text-teal-400" />
                   </div>
-                  <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-neutral-900 dark:text-white mb-1 sm:mb-2">
+                  <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-neutral-900 dark:text-white mb-1 sm:mb-2">
                     {feature.name}
                   </h3>
-                  <p className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-xs">
+                  <p className="text-sm sm:text-base text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-xs">
                     {feature.description}
                   </p>
                 </div>

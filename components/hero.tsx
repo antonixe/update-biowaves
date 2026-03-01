@@ -30,24 +30,24 @@ export function Hero() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-32 lg:py-40 w-full">
           {/* Eyebrow */}
           <div className="opacity-0 animate-fade-up mb-8">
-            <p className="text-xs font-mono uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500">
+            <p className="text-sm font-mono uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500">
               Kapsabet &mdash; Nandi County &mdash; Kenya
             </p>
           </div>
 
           {/* Headline — serif, massive, editorial */}
           <h1 className="opacity-0 animate-fade-up delay-100 mb-8">
-            <span className="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif italic text-neutral-900 dark:text-white leading-[0.95] tracking-tight">
+            <span className="block text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif italic text-neutral-900 dark:text-white leading-[0.95] tracking-tight">
               Internet that
             </span>
-            <span className="block text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif italic leading-[0.95] tracking-tight mt-1">
+            <span className="block text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif italic leading-[0.95] tracking-tight mt-1">
               <span className="text-gradient bg-gradient-to-r from-teal-600 via-teal-500 to-cyan-500 bg-clip-text text-transparent">just works.</span>
             </span>
           </h1>
 
           {/* Subline — intentionally short */}
           <div className="opacity-0 animate-fade-up delay-200 max-w-md mb-12">
-            <p className="text-base sm:text-lg text-neutral-500 dark:text-neutral-400 leading-relaxed">
+            <p className="text-lg sm:text-xl text-neutral-500 dark:text-neutral-400 leading-relaxed">
               Fiber-optic speeds up to 100 Mbps.<br className="hidden sm:block" />
               Unlimited data. No fine print.
             </p>
@@ -58,7 +58,7 @@ export function Hero() {
             <Button
               onClick={scrollToPackages}
               size="lg"
-              className="w-full sm:w-auto bg-neutral-900 hover:bg-neutral-800 dark:bg-white dark:hover:bg-neutral-100 text-white dark:text-neutral-900 h-12 sm:h-14 px-6 sm:px-8 text-sm sm:text-base font-medium transition-all hover:scale-[1.02] active:scale-[0.98] group rounded-none"
+              className="w-full sm:w-auto bg-neutral-900 hover:bg-neutral-800 dark:bg-white dark:hover:bg-neutral-100 text-white dark:text-neutral-900 h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg font-medium transition-all hover:scale-[1.02] active:scale-[0.98] group rounded-none"
             >
               View plans
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -67,7 +67,7 @@ export function Hero() {
               onClick={scrollToContact}
               variant="ghost"
               size="lg"
-              className="w-full sm:w-auto text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white h-12 sm:h-14 px-6 text-sm sm:text-base font-medium rounded-none"
+              className="w-full sm:w-auto text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white h-12 sm:h-14 px-6 text-base sm:text-lg font-medium rounded-none"
             >
               Talk to us
             </Button>
@@ -84,10 +84,10 @@ export function Hero() {
                 ].map((stat, i) => (
                   <div key={i}>
                     <div className="flex items-baseline gap-0.5">
-                      <span className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-serif italic text-neutral-900 dark:text-white leading-none">{stat.value}</span>
-                      <span className="text-sm sm:text-base font-serif italic text-teal-600 dark:text-teal-400">{stat.unit}</span>
+                      <span className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif italic text-neutral-900 dark:text-white leading-none">{stat.value}</span>
+                      <span className="text-base sm:text-lg font-serif italic text-teal-600 dark:text-teal-400">{stat.unit}</span>
                     </div>
-                    <div className="text-xs font-mono uppercase tracking-[0.15em] text-neutral-400 mt-2 sm:mt-3">{stat.label}</div>
+                    <div className="text-sm font-mono uppercase tracking-[0.15em] text-neutral-400 mt-2 sm:mt-3">{stat.label}</div>
                   </div>
                 ))}
               </div>

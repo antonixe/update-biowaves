@@ -34,8 +34,8 @@ export function Products() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         {/* Header */}
         <ScrollAnimation>
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500 mb-4">Products</p>
-          <h2 id="products-heading" className="text-3xl sm:text-4xl font-serif italic text-neutral-900 dark:text-white tracking-tight mb-16">
+          <p className="font-mono text-sm uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500 mb-4">Products</p>
+          <h2 id="products-heading" className="text-4xl sm:text-5xl font-serif italic text-neutral-900 dark:text-white tracking-tight mb-16">
             Beyond connectivity.
           </h2>
         </ScrollAnimation>
@@ -55,22 +55,22 @@ export function Products() {
                 </div>
 
                 {/* Name */}
-                <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-1">
+                <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-1">
                   {product.name}
                 </h3>
 
                 {/* Spec line */}
-                <p className="text-xs font-mono text-neutral-400 dark:text-neutral-500 tracking-wide mb-8">
+                <p className="text-sm font-mono text-neutral-400 dark:text-neutral-500 tracking-wide mb-8">
                   {product.spec}
                 </p>
 
                 {/* Price */}
                 <div className="mt-auto pt-6 border-t border-neutral-100 dark:border-neutral-800/60 flex items-baseline justify-between">
                   <div>
-                    <span className="text-2xl font-serif italic text-neutral-900 dark:text-white">{product.price}</span>
-                    <span className="text-xs text-neutral-400 ml-1">KES</span>
+                    <span className="text-3xl font-serif italic text-neutral-900 dark:text-white">{product.price}</span>
+                    <span className="text-sm text-neutral-400 ml-1">KES</span>
                   </div>
-                  <span className="text-xs text-neutral-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                  <span className="text-sm text-neutral-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
                     Get quote →
                   </span>
                 </div>

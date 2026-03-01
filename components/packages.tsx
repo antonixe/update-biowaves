@@ -34,9 +34,9 @@ export function Packages() {
         {/* Header */}
         <ScrollAnimation animation="fade-up">
           <div className="mb-16">
-            <p className="font-mono text-xs uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500 mb-4">Pricing</p>
+            <p className="font-mono text-sm uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500 mb-4">Pricing</p>
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif italic text-neutral-900 dark:text-white tracking-tight">
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif italic text-neutral-900 dark:text-white tracking-tight">
                 Honest pricing.
               </h2>
 
@@ -46,7 +46,7 @@ export function Packages() {
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`text-sm font-medium pb-1 border-b-2 transition-all capitalize ${
+                    className={`text-base font-medium pb-1 border-b-2 transition-all capitalize ${
                       activeTab === tab
                         ? "border-neutral-900 dark:border-white text-neutral-900 dark:text-white"
                         : "border-transparent text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300"
@@ -78,32 +78,32 @@ export function Packages() {
                 {/* Speed */}
                 <div>
                   <div className="flex items-baseline gap-0.5">
-                    <span className="text-2xl sm:text-3xl lg:text-5xl font-serif italic text-neutral-900 dark:text-white leading-none">
+                    <span className="text-3xl sm:text-4xl lg:text-5xl font-serif italic text-neutral-900 dark:text-white leading-none">
                       {pkg.speed}
                     </span>
-                    <span className="text-[10px] sm:text-xs font-mono text-teal-600 dark:text-teal-400">Mbps</span>
+                    <span className="text-xs sm:text-sm font-mono text-teal-600 dark:text-teal-400">Mbps</span>
                   </div>
                 </div>
 
                 {/* Name + Desc */}
                 <div className="min-w-0">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <h3 className="text-xs sm:text-sm lg:text-base font-semibold text-neutral-900 dark:text-white truncate">{pkg.name}</h3>
+                    <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-neutral-900 dark:text-white truncate">{pkg.name}</h3>
                     {pkg.popular && (
-                      <span className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider bg-teal-600 text-white">
+                      <span className="hidden sm:inline-block px-2 py-0.5 text-xs font-mono uppercase tracking-wider bg-teal-600 text-white">
                         Popular
                       </span>
                     )}
                   </div>
-                  <p className="text-[10px] sm:text-xs text-neutral-400 mt-0.5 truncate">{pkg.desc}</p>
+                  <p className="text-xs sm:text-sm text-neutral-400 mt-0.5 truncate">{pkg.desc}</p>
                 </div>
 
                 {/* Price */}
                 <div className="text-right sm:text-left">
-                  <span className="text-sm sm:text-lg lg:text-2xl font-semibold text-neutral-900 dark:text-white">
+                  <span className="text-base sm:text-xl lg:text-3xl font-semibold text-neutral-900 dark:text-white">
                     {pkg.price.toLocaleString()}
                   </span>
-                  <span className="text-[9px] sm:text-xs text-neutral-400 ml-0.5 sm:ml-1">KES</span>
+                  <span className="text-[10px] sm:text-sm text-neutral-400 ml-0.5 sm:ml-1">KES</span>
                 </div>
 
                 {/* Arrow — visible on hover (desktop only) */}
@@ -118,12 +118,12 @@ export function Packages() {
         {/* Single unified CTA */}
         <ScrollAnimation animation="fade-up" delay={400}>
           <div className="mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-            <p className="text-sm text-neutral-400">
+            <p className="text-base text-neutral-400">
               All plans: unlimited data, free installation, 24/7 support.
             </p>
             <Button
               onClick={scrollToContact}
-              className="w-full sm:w-auto h-12 px-8 text-sm font-medium rounded-none bg-neutral-900 hover:bg-neutral-800 dark:bg-white dark:hover:bg-neutral-100 text-white dark:text-neutral-900 transition-all"
+              className="w-full sm:w-auto h-12 px-8 text-base font-medium rounded-none bg-neutral-900 hover:bg-neutral-800 dark:bg-white dark:hover:bg-neutral-100 text-white dark:text-neutral-900 transition-all"
             >
               Get connected
               <ArrowRight className="ml-2 h-4 w-4" />

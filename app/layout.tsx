@@ -24,6 +24,18 @@ export const metadata: Metadata = {
     "fiber to home Kenya",
     "business connectivity solutions",
     "internet service provider Kapsabet",
+    "best ISP Kapsabet",
+    "affordable internet Nandi County",
+    "fiber optic internet Kenya",
+    "unlimited internet Kapsabet",
+    "CCTV cameras Nandi County",
+    "Hikvision CCTV Kapsabet",
+    "office internet solutions Kenya",
+    "home internet packages Kapsabet",
+    "broadband Kapsabet Kenya",
+    "enterprise internet Kenya",
+    "fast internet Kapsabet",
+    "wifi installation Kapsabet",
   ],
   authors: [{ name: "Seacom Networks" }],
   creator: "Seacom Networks",
@@ -75,6 +87,12 @@ export default function RootLayout({
   return (
     <html lang="en-KE" suppressHydrationWarning>
       <head>
+        {/* Performance Hints */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
         {/* Security Headers */}
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
         <meta httpEquiv="X-Frame-Options" content="DENY" />
@@ -101,6 +119,52 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.png" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
+
+        {/* WebSite Structured Data — for Google sitelinks */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Seacom Networks",
+              url: "https://seacomnetworks.co.ke",
+              description: "High-speed fiber internet, CCTV security systems, and IP intercom solutions in Kapsabet, Nandi County, Kenya.",
+              publisher: {
+                "@type": "Organization",
+                name: "Seacom Networks",
+                url: "https://seacomnetworks.co.ke",
+              },
+              inLanguage: "en-KE",
+            }),
+          }}
+        />
+
+        {/* Organization Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Seacom Networks",
+              url: "https://seacomnetworks.co.ke",
+              logo: "https://seacomnetworks.co.ke/icon.png",
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+254707019898",
+                contactType: "customer service",
+                areaServed: "KE",
+                availableLanguage: ["English", "Swahili"],
+              },
+              sameAs: [
+                "https://facebook.com/seacomnetworks.ke",
+                "https://twitter.com/seacomnetworks_ke",
+                "https://instagram.com/seacomnetworks_ke",
+              ],
+            }),
+          }}
+        />
 
         {/* Structured Data for Local Business */}
         <script
@@ -322,6 +386,37 @@ export default function RootLayout({
           <Suspense fallback={null}>{children}</Suspense>
         </ThemeProvider>
         <Analytics />
+        {/* Noscript fallback for SEO crawlers */}
+        <noscript>
+          <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
+            <h1>Seacom Networks — High-Speed Fiber Internet in Kapsabet, Kenya</h1>
+            <p>Get lightning-fast fiber internet, CCTV security systems, and IP intercom solutions in Kapsabet, Nandi County. Reliable connectivity for homes and businesses with 99.9% uptime guarantee.</p>
+            <h2>Internet Packages</h2>
+            <ul>
+              <li>Basic 5 Mbps — KES 1,500/mo</li>
+              <li>Standard 10 Mbps — KES 2,000/mo</li>
+              <li>Premium 20 Mbps — KES 2,500/mo</li>
+              <li>Advanced 30 Mbps — KES 3,000/mo</li>
+              <li>Ultimate 50 Mbps — KES 3,500/mo</li>
+            </ul>
+            <h2>Business Packages</h2>
+            <ul>
+              <li>Starter 30 Mbps — KES 5,000/mo</li>
+              <li>Professional 50 Mbps — KES 8,000/mo</li>
+              <li>Enterprise 100 Mbps — KES 20,000/mo</li>
+            </ul>
+            <h2>Products</h2>
+            <ul>
+              <li>Hikvision CCTV — 8CH HD Night Vision — KES 15,000</li>
+              <li>IP Intercom — Video, Audio, Mobile — KES 11,099</li>
+              <li>Wireless Intercom — 1km Range, Weatherproof — KES 20,044</li>
+            </ul>
+            <h2>Contact</h2>
+            <p>Phone: <a href="tel:+254707019898">0707 019 898</a> | WhatsApp: <a href="https://wa.me/254707019898">0707 019 898</a></p>
+            <p>Eden Plaza, 3rd Floor, Kapsabet, Nandi County 30300, Kenya</p>
+            <p>Mon–Fri 8AM–5PM | Sat 9AM–2PM</p>
+          </div>
+        </noscript>
       </body>
     </html>
   )

@@ -27,8 +27,8 @@ export function Coverage() {
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         {/* Compact header */}
         <ScrollAnimation>
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-teal-200/60 dark:text-teal-400/60 mb-4">Coverage</p>
-          <h2 id="coverage-heading" className="text-3xl sm:text-4xl font-serif italic text-white tracking-tight leading-[1.1] mb-2">
+          <p className="font-mono text-sm uppercase tracking-[0.3em] text-teal-200/60 dark:text-teal-400/60 mb-4">Coverage</p>
+          <h2 id="coverage-heading" className="text-4xl sm:text-5xl font-serif italic text-white tracking-tight leading-[1.1] mb-2">
             18+ locations. Growing.
           </h2>
         </ScrollAnimation>
@@ -40,7 +40,7 @@ export function Coverage() {
           <div className="flex animate-marquee whitespace-nowrap" role="list" aria-label="Coverage locations">
             {marqueeItems.map((location, index) => (
               <span key={index} className="inline-flex items-center" role="listitem">
-                <span className="text-base sm:text-lg lg:text-xl font-serif italic text-white/80 px-3 sm:px-4 lg:px-6">
+                <span className="text-lg sm:text-xl lg:text-2xl font-serif italic text-white/80 px-3 sm:px-4 lg:px-6">
                   {location}
                 </span>
                 <span className="w-1.5 h-1.5 rounded-full bg-teal-300/40 flex-shrink-0" aria-hidden="true" />
@@ -55,7 +55,7 @@ export function Coverage() {
         <ScrollAnimation delay={250}>
           <button
             onClick={scrollToContact}
-            className="text-sm text-white/70 hover:text-white transition-colors"
+            className="text-base text-white/70 hover:text-white transition-colors"
             aria-label="Check if your location has coverage"
           >
             Not listed? Check with us →

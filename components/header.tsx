@@ -76,7 +76,7 @@ export function Header() {
                   <circle cx="12" cy="20" r="1" fill="currentColor" />
                 </svg>
               </div>
-              <span className="text-base font-semibold tracking-tight text-neutral-900 dark:text-white">
+              <span className="text-lg font-semibold tracking-tight text-neutral-900 dark:text-white">
                 Seacom
               </span>
             </button>
@@ -95,7 +95,7 @@ export function Header() {
                         : "text-neutral-400 hover:text-neutral-900 dark:text-neutral-500 dark:hover:text-white"
                     }`}
                   >
-                    <span className="font-mono text-[10px] text-teal-500 dark:text-teal-400">{item.num}</span>
+                    <span className="font-mono text-xs text-teal-500 dark:text-teal-400">{item.num}</span>
                     <span className="font-medium">{item.name}</span>
                   </button>
                 )
@@ -107,7 +107,7 @@ export function Header() {
               <ThemeToggle />
               <Button
                 onClick={scrollToContact}
-                className="bg-neutral-900 hover:bg-neutral-800 dark:bg-white dark:hover:bg-neutral-100 text-white dark:text-neutral-900 h-10 px-6 text-sm font-medium rounded-none transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="bg-neutral-900 hover:bg-neutral-800 dark:bg-white dark:hover:bg-neutral-100 text-white dark:text-neutral-900 h-10 px-6 text-base font-medium rounded-none transition-all hover:scale-[1.02] active:scale-[0.98]"
               >
                 Get Connected
               </Button>
@@ -154,8 +154,8 @@ export function Header() {
                       : "text-neutral-400 dark:text-neutral-500"
                   }`}
                 >
-                  <span className="font-mono text-xs text-teal-500">{item.num}</span>
-                  <span className="text-2xl font-serif italic">{item.name}</span>
+                  <span className="font-mono text-sm text-teal-500">{item.num}</span>
+                  <span className="text-3xl font-serif italic">{item.name}</span>
                 </button>
               )
             })}
@@ -163,7 +163,7 @@ export function Header() {
           <div className="mt-10">
             <Button
               onClick={scrollToContact}
-              className="w-full bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 rounded-none h-14 text-base font-medium active:scale-[0.98] transition-transform"
+              className="w-full bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 rounded-none h-14 text-lg font-medium active:scale-[0.98] transition-transform"
             >
               Get Connected
             </Button>

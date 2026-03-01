@@ -36,7 +36,7 @@ export function Footer() {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-xs uppercase tracking-widest text-neutral-500 hover:text-white transition-colors"
+                className="text-sm uppercase tracking-widest text-neutral-500 hover:text-white transition-colors"
               >
                 {item.name}
               </button>
@@ -44,19 +44,19 @@ export function Footer() {
           </nav>
 
           {/* Phone */}
-          <a href="tel:+254707019898" className="text-sm text-neutral-600 hover:text-teal-400 transition-colors">
+          <a href="tel:+254707019898" className="text-base text-neutral-600 hover:text-teal-400 transition-colors">
             +254 707 019 898
           </a>
         </div>
 
         {/* Bottom bar */}
         <div className="py-6 border-t border-neutral-800/30 flex items-center justify-between">
-          <p className="text-[10px] font-mono text-neutral-700">
+          <p className="text-xs font-mono text-neutral-700">
             © 2026 Seacom
           </p>
           <button
             onClick={scrollToTop}
-            className="group flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider text-neutral-700 hover:text-white transition-colors"
+            className="group flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-neutral-700 hover:text-white transition-colors"
             aria-label="Back to top"
           >
             <ArrowUp className="h-3 w-3 group-hover:-translate-y-1 transition-transform" />
