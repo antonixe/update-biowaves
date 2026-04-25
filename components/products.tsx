@@ -1,79 +1,53 @@
 "use client"
 
-import { Camera, Phone, Radio } from "lucide-react"
+import { ArrowRight, Camera, PhoneCall, Radio } from "lucide-react"
 import { ScrollAnimation } from "@/components/scroll-animation"
+
+const products = [
+  ["Hikvision CCTV", "8CH, HD, night vision", "KES 15,000", Camera],
+  ["IP Intercom", "Video, audio, mobile", "KES 11,099", PhoneCall],
+  ["Wireless Intercom", "1 km, weatherproof", "KES 20,044", Radio],
+]
 
 export function Products() {
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
   }
 
-  const products = [
-    {
-      name: "Hikvision CCTV",
-      spec: "8CH · HD · Night Vision",
-      price: "15,000",
-      icon: Camera,
-    },
-    {
-      name: "IP Intercom",
-      spec: "Video · Audio · Mobile",
-      price: "11,099",
-      icon: Phone,
-    },
-    {
-      name: "Wireless Intercom",
-      spec: "1km Range · Weatherproof",
-      price: "20,044",
-      icon: Radio,
-    },
-  ]
-
   return (
-    <section id="products" className="py-24 lg:py-32 bg-white dark:bg-neutral-950" aria-labelledby="products-heading">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Header */}
+    <section id="products" className="section bg-[var(--paper)]" aria-labelledby="products-heading">
+      <div className="mx-auto max-w-7xl px-4 sm:px-5">
         <ScrollAnimation>
-          <p className="font-mono text-sm uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500 mb-4">Products</p>
-          <h2 id="products-heading" className="text-4xl sm:text-5xl font-serif italic text-neutral-900 dark:text-white tracking-tight mb-16">
-            Beyond connectivity.
-          </h2>
+          <div className="flex flex-col gap-4 border-b border-[color-mix(in_oklch,var(--ink)_14%,transparent)] pb-7 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="section-label">Security</p>
+              <h2 id="products-heading" className="section-title mt-3">Add-ons we install.</h2>
+            </div>
+            <p className="max-w-md text-lg font-semibold leading-7 text-[var(--ink-soft)]">
+              Quote security with the internet survey.
+            </p>
+          </div>
         </ScrollAnimation>
 
-        {/* Product cards — horizontal on desktop, stack on mobile */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-[1px] bg-neutral-200 dark:bg-neutral-800" role="list">
-          {products.map((product, index) => (
-            <ScrollAnimation key={product.name} delay={index * 100}>
-              <article
-                className="group relative bg-white dark:bg-neutral-950 p-8 lg:p-10 h-full cursor-pointer hover:bg-stone-50 dark:hover:bg-neutral-900/50 transition-colors"
-                onClick={scrollToContact}
-                role="listitem"
-              >
-                {/* Icon */}
-                <div className="flex items-center justify-center w-12 h-12 border border-neutral-200 dark:border-neutral-800 mb-8 group-hover:border-teal-300 dark:group-hover:border-teal-800 transition-colors" aria-hidden="true">
-                  <product.icon className="h-5 w-5 text-teal-600 dark:text-teal-400" />
-                </div>
-
-                {/* Name */}
-                <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-1">
-                  {product.name}
-                </h3>
-
-                {/* Spec line */}
-                <p className="text-sm font-mono text-neutral-400 dark:text-neutral-500 tracking-wide mb-8">
-                  {product.spec}
-                </p>
-
-                {/* Price */}
-                <div className="mt-auto pt-6 border-t border-neutral-100 dark:border-neutral-800/60 flex items-baseline justify-between">
-                  <div>
-                    <span className="text-3xl font-serif italic text-neutral-900 dark:text-white">{product.price}</span>
-                    <span className="text-sm text-neutral-400 ml-1">KES</span>
-                  </div>
-                  <span className="text-sm text-neutral-400 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
-                    Get quote →
+        <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-[color-mix(in_oklch,var(--ink)_14%,transparent)] bg-[color-mix(in_oklch,var(--ink)_10%,transparent)] lg:grid-cols-3">
+          {products.map(([name, spec, price, Icon], index) => (
+            <ScrollAnimation key={name as string} delay={index * 70}>
+              <article className="min-h-full bg-[var(--field)] p-5">
+                <div className="flex items-center justify-between">
+                  <Icon className="h-7 w-7 text-[var(--signal)]" />
+                  <span className="rounded bg-[var(--service)] px-2 py-1 font-mono text-[0.62rem] font-bold uppercase tracking-[0.1em] text-[var(--ink)]">
+                    From
                   </span>
                 </div>
+                <h3 className="mt-8 text-3xl font-bold leading-none text-[var(--ink)]">{name}</h3>
+                <p className="mt-3 font-mono text-sm font-bold uppercase tracking-[0.08em] text-[var(--ink-soft)]">{spec}</p>
+                <button
+                  onClick={scrollToContact}
+                  className="focus-ring mt-8 flex w-full items-center justify-between rounded-md bg-[var(--ink)] px-4 py-3 text-left font-bold text-[var(--stone)]"
+                >
+                  <span>{price}</span>
+                  <ArrowRight className="h-4 w-4" />
+                </button>
               </article>
             </ScrollAnimation>
           ))}

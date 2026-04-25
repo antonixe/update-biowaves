@@ -2,7 +2,7 @@
 
 import { useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { RefreshCw, Home } from "lucide-react"
+import { Home, Phone, RefreshCw } from "lucide-react"
 
 export default function Error({
   error,
@@ -16,65 +16,39 @@ export default function Error({
   }, [error])
 
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950 flex items-center justify-center px-4">
-      <div className="text-center max-w-md">
-        {/* Error Icon */}
-        <div className="mb-8 flex justify-center">
-          <div className="w-16 h-16 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center">
-            <svg
-              className="w-8 h-8 text-neutral-600 dark:text-neutral-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-              />
-            </svg>
-          </div>
-        </div>
-
-        {/* Message */}
-        <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 dark:text-white mb-4">
-          Something went wrong
-        </h2>
-        <p className="text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
-          We encountered an unexpected error. Please try again or return to the homepage.
+    <main className="flex min-h-screen items-center justify-center bg-[var(--field)] px-4 py-16 text-[var(--ink)]">
+      <section className="w-full max-w-xl rounded-lg border border-[color-mix(in_oklch,var(--ink)_14%,transparent)] bg-[var(--paper)] p-6 sm:p-8">
+        <p className="section-label">Service interruption</p>
+        <h1 className="mt-4 text-4xl font-bold leading-none tracking-normal sm:text-5xl">Something went wrong.</h1>
+        <p className="mt-5 text-base leading-7 text-[var(--ink-soft)]">
+          The page failed to load. Try again, return home, or call the Seacom desk if you were checking plans or coverage.
         </p>
 
-        {/* Actions */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Button
             onClick={reset}
             variant="outline"
-            className="w-full sm:w-auto border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            className="h-12 rounded-md border-[color-mix(in_oklch,var(--ink)_18%,transparent)] bg-[var(--paper)] font-bold text-[var(--ink)] hover:bg-[var(--route)]"
           >
             <RefreshCw className="mr-2 h-4 w-4" />
-            Try Again
+            Try again
           </Button>
           <Button
-            onClick={() => window.location.href = "/"}
-            className="w-full sm:w-auto bg-neutral-900 hover:bg-neutral-800 dark:bg-white dark:hover:bg-neutral-200 text-white dark:text-neutral-900"
+            onClick={() => {
+              window.location.href = "/"
+            }}
+            className="h-12 rounded-md bg-[var(--ink)] font-bold text-[var(--stone)] hover:bg-[color-mix(in_oklch,var(--ink)_88%,var(--signal))]"
           >
             <Home className="mr-2 h-4 w-4" />
-            Back to Home
+            Back home
           </Button>
         </div>
 
-        {/* Contact Link */}
-        <p className="mt-10 text-sm text-neutral-500">
-          Problem persists?{" "}
-          <a 
-            href="tel:+254707019898" 
-            className="text-neutral-900 dark:text-white hover:underline"
-          >
-            Call us
-          </a>
-        </p>
-      </div>
-    </div>
+        <a href="tel:+254707019898" className="focus-ring mt-8 inline-flex items-center gap-2 rounded-md text-sm font-bold text-[var(--signal)] hover:text-[var(--ink)]">
+          <Phone className="h-4 w-4" />
+          Call 0707 019 898
+        </a>
+      </section>
+    </main>
   )
 }

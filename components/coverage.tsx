@@ -1,66 +1,85 @@
 "use client"
 
+import { ArrowRight, MapPin } from "lucide-react"
 import { ScrollAnimation } from "@/components/scroll-animation"
+import { KapsabetMap } from "@/components/kapsabet-map"
+
+const locations = [
+  "Grandview Plaza",
+  "Elgon Plaza",
+  "Shakahola New Soko Areas",
+  "Sonoiya Plaza",
+  "Tiryo Plaza",
+  "Chebut Factory",
+  "NXTON Sports Building",
+  "Gorissa Mall",
+  "Eden Plaza",
+  "Barngetuny Plaza",
+  "Naivas Building",
+  "Kapsabet Hospital",
+  "Sogam Plaza",
+  "Sheraton Building",
+  "Arwos",
+  "Toiyoi Plaza",
+  "KEBEN Building",
+  "Baraton",
+]
 
 export function Coverage() {
-  const locations = [
-    "Grandview Plaza", "Elgon Plaza", "Shakahola New Soko Areas",
-    "Sonoiya Plaza", "Tiryo Plaza", "Chebut Factory",
-    "NXTON Sports Building", "Gorissa Mall", "EDEN PLAZA",
-    "Barngetuny Plaza", "Naivas Building Kapsabet", "Kapsabet Hospital",
-    "Sogam Plaza", "Sheraton Building", "Arwos",
-    "Toiyoi Plaza", "KEBEN Building", "Baraton",
-  ]
-
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
   }
 
-  // Double the locations for seamless marquee loop
-  const marqueeItems = [...locations, ...locations]
-
   return (
-    <section id="coverage" className="relative py-24 lg:py-32 bg-teal-600 dark:bg-teal-950 overflow-hidden" aria-labelledby="coverage-heading">
-      {/* Noise texture */}
-      <div className="noise-overlay absolute inset-0" />
-
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Compact header */}
+    <section id="coverage" className="section bg-[var(--route)]" aria-labelledby="coverage-heading">
+      <div className="mx-auto max-w-7xl px-4 sm:px-5">
         <ScrollAnimation>
-          <p className="font-mono text-sm uppercase tracking-[0.3em] text-teal-200/60 dark:text-teal-400/60 mb-4">Coverage</p>
-          <h2 id="coverage-heading" className="text-4xl sm:text-5xl font-serif italic text-white tracking-tight leading-[1.1] mb-2">
-            18+ locations. Growing.
-          </h2>
+          <div className="grid gap-6 border-b border-[color-mix(in_oklch,var(--ink)_14%,transparent)] pb-7 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div>
+              <p className="section-label">Coverage</p>
+              <h2 id="coverage-heading" className="section-title mt-3 max-w-2xl">
+                Kapsabet coverage check.
+              </h2>
+            </div>
+            <button
+              onClick={scrollToContact}
+              className="focus-ring inline-flex h-12 w-fit items-center gap-2 rounded-md bg-[var(--service)] px-5 font-bold text-[var(--ink)]"
+            >
+              Confirm building
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
         </ScrollAnimation>
-      </div>
 
-      {/* Marquee — flowing location strip */}
-      <ScrollAnimation delay={150}>
-        <div className="relative my-12">
-          <div className="flex animate-marquee whitespace-nowrap" role="list" aria-label="Coverage locations">
-            {marqueeItems.map((location, index) => (
-              <span key={index} className="inline-flex items-center" role="listitem">
-                <span className="text-lg sm:text-xl lg:text-2xl font-serif italic text-white/80 px-3 sm:px-4 lg:px-6">
+        <div className="mt-8 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <ScrollAnimation delay={80}>
+            <div className="overflow-hidden rounded-lg border border-[color-mix(in_oklch,var(--ink)_14%,transparent)] bg-[var(--paper)]">
+              <KapsabetMap />
+              <div className="flex flex-col gap-2 border-t border-[color-mix(in_oklch,var(--ink)_12%,transparent)] p-4 text-sm font-semibold text-[var(--ink-soft)] sm:flex-row sm:items-center sm:justify-between">
+                <span>Kapsabet center: 0.20387, 35.105</span>
+                <a
+                  href="https://www.openstreetmap.org/?mlat=0.20387&mlon=35.105#map=15/0.20387/35.105"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--signal)] hover:text-[var(--ink)]"
+                >
+                  View on OpenStreetMap
+                </a>
+              </div>
+            </div>
+          </ScrollAnimation>
+
+          <div className="grid gap-2 sm:grid-cols-2">
+            {locations.map((location, index) => (
+              <ScrollAnimation key={location} delay={index * 16}>
+                <div className="flex min-h-12 items-center gap-3 rounded-md border border-[color-mix(in_oklch,var(--ink)_12%,transparent)] bg-[var(--paper)] px-4 py-3 text-sm font-bold text-[var(--ink)]">
+                  <MapPin className="h-4 w-4 shrink-0 text-[var(--service)]" />
                   {location}
-                </span>
-                <span className="w-1.5 h-1.5 rounded-full bg-teal-300/40 flex-shrink-0" aria-hidden="true" />
-              </span>
+                </div>
+              </ScrollAnimation>
             ))}
           </div>
         </div>
-      </ScrollAnimation>
-
-      {/* Minimal CTA */}
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <ScrollAnimation delay={250}>
-          <button
-            onClick={scrollToContact}
-            className="text-base text-white/70 hover:text-white transition-colors"
-            aria-label="Check if your location has coverage"
-          >
-            Not listed? Check with us →
-          </button>
-        </ScrollAnimation>
       </div>
     </section>
   )

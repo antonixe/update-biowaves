@@ -1,66 +1,54 @@
 "use client"
 
-import { ArrowUp } from "lucide-react"
+import { ArrowUp, Phone } from "lucide-react"
+
+const nav = [
+  { name: "Plans", href: "#packages" },
+  { name: "Security", href: "#products" },
+  { name: "Coverage", href: "#coverage" },
+  { name: "Contact", href: "#contact" },
+]
 
 export function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }
-
-  const scrollToSection = (href: string) => {
-    document.getElementById(href.replace("#", ""))?.scrollIntoView({ behavior: "smooth" })
-  }
-
-  const nav = [
-    { name: "Plans", href: "#packages" },
-    { name: "Products", href: "#products" },
-    { name: "Coverage", href: "#coverage" },
-    { name: "Contact", href: "#contact" },
-  ]
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" })
+  const scrollToSection = (href: string) => document.getElementById(href.replace("#", ""))?.scrollIntoView({ behavior: "smooth" })
 
   return (
-    <footer className="relative bg-neutral-950 overflow-hidden">
-      {/* Large background text */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
-        <span className="text-[12vw] sm:text-[10vw] font-serif italic text-neutral-900/30 whitespace-nowrap leading-none">
-          Seacom
-        </span>
-      </div>
+    <footer className="bg-[var(--ink)] text-[var(--stone)]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-5">
+        <div className="flex flex-col gap-5 border-y border-[color-mix(in_oklch,var(--stone)_14%,transparent)] py-8 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-2xl font-bold">Seacom Networks</p>
+            <p className="mt-2 font-semibold text-[color-mix(in_oklch,var(--stone)_72%,transparent)]">Eden Plaza, Kapsabet</p>
+          </div>
+          <a href="tel:+254707019898" className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[var(--service)] px-5 font-bold text-[var(--ink)]">
+            <Phone className="h-4 w-4" />
+            0707 019 898
+          </a>
+        </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Main content */}
-        <div className="pt-20 pb-8 flex flex-col items-center text-center gap-8">
-          {/* Nav */}
-          <nav className="flex flex-wrap justify-center gap-x-8 gap-y-3">
+        <div className="flex flex-col gap-5 py-6 sm:flex-row sm:items-center sm:justify-between">
+          <nav className="flex flex-wrap gap-x-5 gap-y-3">
             {nav.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-sm uppercase tracking-widest text-neutral-500 hover:text-white transition-colors"
+                className="focus-ring rounded-sm font-mono text-[0.7rem] font-bold uppercase tracking-[0.12em] text-[color-mix(in_oklch,var(--stone)_62%,transparent)] hover:text-[var(--stone)]"
               >
                 {item.name}
               </button>
             ))}
           </nav>
-
-          {/* Phone */}
-          <a href="tel:+254707019898" className="text-base text-neutral-600 hover:text-teal-400 transition-colors">
-            +254 707 019 898
-          </a>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="py-6 border-t border-neutral-800/30 flex items-center justify-between">
-          <p className="text-xs font-mono text-neutral-700">
-            © 2026 Seacom
-          </p>
-          <button
-            onClick={scrollToTop}
-            className="group flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-neutral-700 hover:text-white transition-colors"
-            aria-label="Back to top"
-          >
-            <ArrowUp className="h-3 w-3 group-hover:-translate-y-1 transition-transform" />
-          </button>
+          <div className="flex items-center justify-between gap-5">
+            <p className="font-mono text-[0.7rem] text-[color-mix(in_oklch,var(--stone)_48%,transparent)]">(c) 2026</p>
+            <button
+              onClick={scrollToTop}
+              className="focus-ring grid h-10 w-10 place-items-center rounded-md border border-[color-mix(in_oklch,var(--stone)_16%,transparent)]"
+              aria-label="Back to top"
+            >
+              <ArrowUp className="h-4 w-4" />
+            </button>
+          </div>
         </div>
       </div>
     </footer>

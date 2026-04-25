@@ -19,7 +19,6 @@ export function ScrollAnimation({
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
 
   useEffect(() => {
-    // Check for reduced motion preference
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
     setPrefersReducedMotion(mediaQuery.matches)
 
@@ -32,7 +31,6 @@ export function ScrollAnimation({
   }, [])
 
   useEffect(() => {
-    // If user prefers reduced motion, show content immediately
     if (prefersReducedMotion) {
       if (ref.current) {
         ref.current.classList.add("animate-in")
@@ -76,7 +74,7 @@ export function ScrollAnimation({
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 ease-out ${animationClasses[animation]} ${className}`}
+      className={`transition-all duration-700 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${animationClasses[animation]} ${className}`}
       style={{
         transitionDelay: `${delay}ms`,
       }}

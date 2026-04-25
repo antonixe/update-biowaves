@@ -12,7 +12,7 @@ import { PageLoader } from "@/components/page-loader"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950">
+    <div className="min-h-screen bg-[var(--field)] text-[var(--ink)]">
       <PageLoader />
       <SEOOptimizedContent />
       <Header />

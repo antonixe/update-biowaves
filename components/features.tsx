@@ -1,97 +1,44 @@
 "use client"
 
-import { Zap, Infinity, Headphones, Shield, Clock, Wrench } from "lucide-react"
+import { ClipboardCheck, Headphones, Infinity, Wrench } from "lucide-react"
 import { ScrollAnimation } from "@/components/scroll-animation"
 
-export function Features() {
-  const features = [
-    {
-      name: "Blazing Fast",
-      description: "100Mbps fiber. Zero lag.",
-      icon: Zap,
-      size: "large",
-    },
-    {
-      name: "Truly Unlimited",
-      description: "No caps. No throttle.",
-      icon: Infinity,
-      size: "normal",
-    },
-    {
-      name: "24/7 Support",
-      description: "Local team. We pick up.",
-      icon: Headphones,
-      size: "normal",
-    },
-    {
-      name: "Enterprise Security",
-      description: "Your data stays yours.",
-      icon: Shield,
-      size: "normal",
-    },
-    {
-      name: "99.9% Uptime",
-      description: "Built to stay online.",
-      icon: Clock,
-      size: "normal",
-    },
-    {
-      name: "Free Setup",
-      description: "Pro install. Zero cost.",
-      icon: Wrench,
-      size: "large",
-    },
-  ]
+const items = [
+  { icon: Infinity, title: "Unlimited data", text: "No daily caps." },
+  { icon: ClipboardCheck, title: "Site survey", text: "Building and route checked first." },
+  { icon: Wrench, title: "Clean install", text: "Cable, router, speed test." },
+  { icon: Headphones, title: "Local support", text: "Phone and WhatsApp desk." },
+]
 
+export function Features() {
   return (
-    <section className="py-24 lg:py-32 bg-white dark:bg-neutral-950" aria-labelledby="features-heading">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Header — left-aligned, editorial */}
+    <section id="features" className="section bg-[var(--paper)]" aria-labelledby="features-heading">
+      <div className="mx-auto max-w-7xl px-4 sm:px-5">
         <ScrollAnimation>
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-16">
+          <div className="flex flex-col gap-4 border-b border-[color-mix(in_oklch,var(--ink)_14%,transparent)] pb-7 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="font-mono text-sm uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500 mb-4">Why Seacom</p>
-              <h2 id="features-heading" className="text-4xl sm:text-5xl lg:text-6xl font-serif italic text-neutral-900 dark:text-white tracking-tight">
-                Built different.
-              </h2>
+              <p className="section-label">How it works</p>
+              <h2 id="features-heading" className="section-title mt-3 max-w-2xl">Simple install path.</h2>
             </div>
-            <p className="text-base text-neutral-400 dark:text-neutral-500 max-w-xs">
-              Six things that set us apart from every other provider.
+            <p className="max-w-md text-lg font-semibold leading-7 text-[var(--ink-soft)]">
+              Confirm coverage. Pick speed. Install. Get support nearby.
             </p>
           </div>
         </ScrollAnimation>
 
-        {/* Bento Grid — varied sizes */}
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-neutral-200 dark:bg-neutral-800" role="list">
-          {features.map((feature, index) => (
-            <ScrollAnimation key={feature.name} delay={index * 80}>
-              <div 
-                className={`group relative bg-white dark:bg-neutral-950 p-5 sm:p-8 lg:p-10 transition-all h-full overflow-hidden hover:bg-stone-50 dark:hover:bg-neutral-900/50 ${
-                  feature.size === "large" ? "lg:col-span-1" : ""
-                }`} 
-                role="listitem"
-              >
-                {/* Oversized number — decorative */}
-                <span className="absolute -top-4 -right-2 text-[80px] sm:text-[100px] lg:text-[120px] font-serif italic leading-none text-neutral-100 dark:text-neutral-900/40 select-none pointer-events-none" aria-hidden="true">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
-                {/* Content */}
-                <div className="relative">
-                  <div 
-                    className="flex items-center justify-center w-10 h-10 border border-neutral-200 dark:border-neutral-800 mb-6 group-hover:border-teal-300 dark:group-hover:border-teal-700 transition-colors"
-                    aria-hidden="true"
-                  >
-                    <feature.icon className="h-5 w-5 text-teal-600 dark:text-teal-400" />
-                  </div>
-                  <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-neutral-900 dark:text-white mb-1 sm:mb-2">
-                    {feature.name}
-                  </h3>
-                  <p className="text-sm sm:text-base text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-xs">
-                    {feature.description}
-                  </p>
+        <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-[color-mix(in_oklch,var(--ink)_14%,transparent)] bg-[color-mix(in_oklch,var(--ink)_10%,transparent)] md:grid-cols-4">
+          {items.map((item, index) => (
+            <ScrollAnimation key={item.title} delay={index * 50}>
+              <article className="min-h-full bg-[var(--field)] p-5">
+                <div className="flex items-center justify-between gap-4">
+                  <item.icon className="h-6 w-6 text-[var(--signal)]" />
+                  <span className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[var(--ink-soft)]">
+                    0{index + 1}
+                  </span>
                 </div>
-              </div>
+                <h3 className="mt-8 text-2xl font-bold leading-none text-[var(--ink)]">{item.title}</h3>
+                <p className="mt-3 text-base font-semibold leading-6 text-[var(--ink-soft)]">{item.text}</p>
+              </article>
             </ScrollAnimation>
           ))}
         </div>

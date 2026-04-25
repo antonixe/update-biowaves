@@ -1,77 +1,62 @@
 "use client"
 
-import { Phone } from "lucide-react"
+import { Clock3, Mail, MapPin, MessageCircle, Phone } from "lucide-react"
 import { ScrollAnimation } from "@/components/scroll-animation"
+
+const details = [
+  [Phone, "0707 019 898"],
+  [MessageCircle, "WhatsApp 0707 019 898"],
+  [Mail, "info@seacomnetworks.co.ke"],
+  [MapPin, "Eden Plaza, 3rd Floor"],
+  [Clock3, "Mon-Fri 8-5, Sat 9-2"],
+]
 
 export function Contact() {
   return (
-    <section id="contact" className="relative bg-neutral-950 overflow-hidden" aria-labelledby="contact-heading">
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+    <section id="contact" className="section bg-[var(--field)]" aria-labelledby="contact-heading">
+      <div className="mx-auto max-w-7xl px-4 sm:px-5">
+        <ScrollAnimation>
+          <div className="overflow-hidden rounded-lg border border-[color-mix(in_oklch,var(--ink)_14%,transparent)] bg-[var(--paper)] shadow-[0_24px_70px_color-mix(in_oklch,var(--ink)_12%,transparent)]">
+            <div className="grid lg:grid-cols-[1fr_1fr]">
+              <div className="p-6 sm:p-8 lg:p-10">
+                <p className="section-label">Contact</p>
+                <h2 id="contact-heading" className="mt-3 text-[clamp(2.7rem,7vw,5.8rem)] font-bold leading-[0.9] tracking-normal text-[var(--ink)]">
+                  Ready to connect?
+                </h2>
+                <p className="mt-6 max-w-md text-xl font-semibold leading-8 text-[var(--ink-soft)]">
+                  Send your building name and usage.
+                </p>
+                <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                  <a href="tel:+254707019898" className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[var(--ink)] px-5 font-bold text-[var(--stone)]">
+                    <Phone className="h-4 w-4" />
+                    Call
+                  </a>
+                  <a
+                    href="https://wa.me/254707019898"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[var(--service)] px-5 font-bold text-[var(--ink)]"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
 
-        {/* Top — centered signal + number */}
-        <div className="pt-24 sm:pt-32 lg:pt-44 pb-16 sm:pb-20 flex flex-col items-center text-center px-2">
-          <ScrollAnimation>
-            {/* Pulsing signal dot */}
-            <div className="relative mb-10">
-              <span className="absolute inset-0 w-3 h-3 bg-teal-500 rounded-full animate-ping opacity-40" aria-hidden="true" />
-              <span className="relative block w-3 h-3 bg-teal-500 rounded-full" aria-hidden="true" />
+              <div className="bg-[color-mix(in_oklch,var(--ink)_94%,var(--signal))] p-6 text-[var(--stone)] sm:p-8 lg:p-10">
+                <p className="font-mono text-[0.72rem] font-bold uppercase tracking-[0.12em] text-[var(--signal-live)]">Details</p>
+                <div className="mt-6 divide-y divide-[color-mix(in_oklch,var(--stone)_16%,transparent)]">
+                  {details.map(([Icon, value]) => (
+                    <div key={value as string} className="flex items-center gap-4 py-4">
+                      <Icon className="h-5 w-5 text-[var(--service)]" />
+                      <p className="text-lg font-bold leading-6">{value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-          </ScrollAnimation>
-
-          <ScrollAnimation delay={100}>
-            <p className="text-xs font-mono uppercase tracking-[0.4em] text-neutral-600 mb-6">We&apos;re online</p>
-          </ScrollAnimation>
-
-          <h2 id="contact-heading" className="sr-only">Contact Seacom Networks</h2>
-
-          <ScrollAnimation delay={150}>
-            <a
-              href="tel:+254707019898"
-              className="group block"
-            >
-              <p className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-serif italic text-white leading-none tracking-tight group-hover:text-teal-400 transition-colors duration-500">
-                0707 019 898
-              </p>
-            </a>
-          </ScrollAnimation>
-
-          <ScrollAnimation delay={200}>
-            <p className="mt-4 text-base text-neutral-600">Alt: 0702 018 277</p>
-          </ScrollAnimation>
-
-          {/* Action row */}
-          <ScrollAnimation delay={250}>
-            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none sm:w-auto">
-              <a
-                href="tel:+254707019898"
-                className="flex items-center justify-center gap-2 h-12 px-6 sm:px-8 bg-teal-600 hover:bg-teal-500 text-white text-base font-medium transition-colors"
-              >
-                <Phone className="h-4 w-4" />
-                Call
-              </a>
-              <a
-                href="https://wa.me/254707019898"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 h-12 px-6 sm:px-8 border border-neutral-800 hover:border-neutral-600 text-neutral-400 hover:text-white text-base font-medium transition-colors"
-              >
-                WhatsApp
-              </a>
-            </div>
-          </ScrollAnimation>
-        </div>
-
-        {/* Bottom bar — info strip */}
-        <ScrollAnimation delay={300}>
-          <div className="py-8 border-t border-neutral-800/40 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-xs text-neutral-600">
-            <span>Mon–Fri 8–5</span>
-            <span className="hidden sm:inline text-neutral-800">·</span>
-            <span>Sat 9–2</span>
-            <span className="hidden sm:inline text-neutral-800">·</span>
-            <span>Eden Plaza, Kapsabet</span>
           </div>
         </ScrollAnimation>
-
       </div>
     </section>
   )

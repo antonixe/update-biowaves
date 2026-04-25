@@ -1,15 +1,25 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, Instrument_Serif } from "next/font/google"
+import { Barlow, Roboto_Mono } from "next/font/google"
 import "./globals.css"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import { ThemeProvider } from "@/components/theme-provider"
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
-const instrumentSerif = Instrument_Serif({ weight: "400", subsets: ["latin"], variable: "--font-serif" })
+const brandSans = Barlow({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
+})
+
+const brandMono = Roboto_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
+})
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://seacomnetworks.co.ke"),
   title: "Seacom Networks - High-Speed Fiber Internet & Business Solutions in Kapsabet, Kenya",
   description:
     "Get lightning-fast fiber internet, CCTV security systems, and IP intercom solutions in Kapsabet, Nandi County. Reliable connectivity for homes and businesses with 99.9% uptime guarantee.",
@@ -76,7 +86,7 @@ export const metadata: Metadata = {
     canonical: "https://seacomnetworks.co.ke",
   },
   category: "Technology",
-  generator: "v0.dev",
+  generator: "Next.js",
 }
 
 export default function RootLayout({
@@ -376,7 +386,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${instrumentSerif.variable} font-sans`}>
+      <body className={`${brandSans.variable} ${brandMono.variable} font-sans`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

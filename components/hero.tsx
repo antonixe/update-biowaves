@@ -1,99 +1,96 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, MapPin, MessageCircle, Phone, Wifi } from "lucide-react"
+import { KapsabetMap } from "@/components/kapsabet-map"
+
+const quickFacts = [
+  ["Home", "5-50 Mbps"],
+  ["Business", "30-100 Mbps"],
+  ["Support", "Kapsabet desk"],
+]
 
 export function Hero() {
   const scrollToPackages = () => {
     const el = document.getElementById("packages")
     if (el) {
-      const pos = el.getBoundingClientRect().top + window.pageYOffset - 80
+      const pos = el.getBoundingClientRect().top + window.pageYOffset - 88
       window.scrollTo({ top: pos, behavior: "smooth" })
     }
   }
 
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-  }
-
   return (
-    <section id="home" className="relative min-h-screen flex flex-col overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-stone-50 dark:bg-neutral-950" />
-
-      {/* Floating gradient orb — signature visual */}
-      <div className="absolute top-1/4 right-[-10%] w-[500px] h-[500px] rounded-full bg-gradient-to-br from-teal-200/40 via-cyan-100/30 to-transparent dark:from-teal-900/20 dark:via-cyan-900/10 dark:to-transparent blur-3xl animate-float pointer-events-none" />
-      <div className="absolute bottom-1/4 left-[-5%] w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-teal-100/30 to-transparent dark:from-teal-950/20 dark:to-transparent blur-3xl animate-pulse-soft pointer-events-none" />
-
-      {/* Content */}
-      <div className="relative flex-1 flex items-center">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-32 lg:py-40 w-full">
-          {/* Eyebrow */}
-          <div className="opacity-0 animate-fade-up mb-8">
-            <p className="text-sm font-mono uppercase tracking-[0.3em] text-neutral-400 dark:text-neutral-500">
-              Kapsabet &mdash; Nandi County &mdash; Kenya
-            </p>
+    <section id="home" className="relative overflow-hidden bg-[var(--field)] pt-24 lg:pt-32">
+      <div className="absolute inset-x-0 top-0 h-2 bg-[var(--service)]" />
+      <div className="mx-auto grid min-h-[82svh] max-w-7xl gap-8 px-4 pb-14 sm:px-5 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:pb-20">
+        <div>
+          <div className="mb-6 flex flex-wrap items-center gap-3 opacity-0 animate-fade-up">
+            <span className="section-label rounded-sm bg-[var(--service-soft)] px-3 py-2 text-[var(--ink)]">Kapsabet ISP</span>
+            <span className="inline-flex items-center gap-2 text-sm font-bold text-[var(--ink)]">
+              <MapPin className="h-4 w-4 text-[var(--service)]" />
+              Eden Plaza, 3rd Floor
+            </span>
           </div>
 
-          {/* Headline — serif, massive, editorial */}
-          <h1 className="opacity-0 animate-fade-up delay-100 mb-8">
-            <span className="block text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif italic text-neutral-900 dark:text-white leading-[0.95] tracking-tight">
-              Internet that
-            </span>
-            <span className="block text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif italic leading-[0.95] tracking-tight mt-1">
-              <span className="text-gradient bg-gradient-to-r from-teal-600 via-teal-500 to-cyan-500 bg-clip-text text-transparent">just works.</span>
-            </span>
+          <h1 className="max-w-4xl text-[clamp(3.1rem,9vw,6.9rem)] font-bold leading-[0.9] tracking-normal text-[var(--ink)] opacity-0 animate-fade-up delay-100">
+            Fiber internet in Kapsabet.
           </h1>
 
-          {/* Subline — intentionally short */}
-          <div className="opacity-0 animate-fade-up delay-200 max-w-md mb-12">
-            <p className="text-lg sm:text-xl text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              Fiber-optic speeds up to 100 Mbps.<br className="hidden sm:block" />
-              Unlimited data. No fine print.
-            </p>
-          </div>
+          <p className="mt-7 max-w-xl text-xl font-semibold leading-8 text-[var(--ink-soft)] opacity-0 animate-fade-up delay-200">
+            Local installation and support for homes, offices, apartments, schools, clinics, and shops.
+          </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 opacity-0 animate-fade-up delay-300 mb-16 sm:mb-24 lg:mb-32">
+          <div className="mt-8 flex flex-col gap-3 opacity-0 animate-fade-up delay-300 sm:flex-row">
             <Button
               onClick={scrollToPackages}
               size="lg"
-              className="w-full sm:w-auto bg-neutral-900 hover:bg-neutral-800 dark:bg-white dark:hover:bg-neutral-100 text-white dark:text-neutral-900 h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg font-medium transition-all hover:scale-[1.02] active:scale-[0.98] group rounded-none"
+              className="h-12 rounded-md bg-[var(--ink)] px-6 text-base font-bold text-[var(--stone)] hover:bg-[color-mix(in_oklch,var(--ink)_88%,var(--signal))]"
             >
-              View plans
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              See plans
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button
-              onClick={scrollToContact}
-              variant="ghost"
-              size="lg"
-              className="w-full sm:w-auto text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white h-12 sm:h-14 px-6 text-base sm:text-lg font-medium rounded-none"
+            <a
+              href="https://wa.me/254707019898"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[var(--service)] px-6 text-base font-bold text-[var(--ink)]"
             >
-              Talk to us
-            </Button>
+              <MessageCircle className="h-4 w-4" />
+              WhatsApp
+            </a>
           </div>
+        </div>
 
-          {/* Stats — editorial, stacked with oversized numbers */}
-          <div className="opacity-0 animate-fade-up delay-400">
-            <div className="border-t border-neutral-200 dark:border-neutral-800 pt-10">
-              <div className="grid grid-cols-3 gap-4 sm:gap-8 lg:gap-16">
-                {[
-                  { value: "100", unit: "Mbps", label: "Top speed" },
-                  { value: "18+", unit: "", label: "Covered buildings" },
-                  { value: "99.9", unit: "%", label: "Guaranteed uptime" },
-                ].map((stat, i) => (
-                  <div key={i}>
-                    <div className="flex items-baseline gap-0.5">
-                      <span className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif italic text-neutral-900 dark:text-white leading-none">{stat.value}</span>
-                      <span className="text-base sm:text-lg font-serif italic text-teal-600 dark:text-teal-400">{stat.unit}</span>
-                    </div>
-                    <div className="text-sm font-mono uppercase tracking-[0.15em] text-neutral-400 mt-2 sm:mt-3">{stat.label}</div>
-                  </div>
-                ))}
+        <aside className="opacity-0 animate-scale-in delay-300">
+          <div className="overflow-hidden rounded-lg border border-[color-mix(in_oklch,var(--ink)_14%,transparent)] bg-[var(--paper)] shadow-[0_24px_70px_color-mix(in_oklch,var(--ink)_12%,transparent)]">
+            <div className="bg-[color-mix(in_oklch,var(--ink)_94%,var(--signal))] p-5 text-[var(--stone)]">
+              <p className="font-mono text-[0.7rem] font-bold uppercase tracking-[0.12em] text-[var(--signal-live)]">Call now</p>
+              <a href="tel:+254707019898" className="mt-2 flex items-center gap-3 text-3xl font-bold leading-none sm:text-5xl">
+                <Phone className="h-8 w-8 text-[var(--service)]" />
+                0707 019 898
+              </a>
+            </div>
+
+            <div className="grid gap-px bg-[color-mix(in_oklch,var(--ink)_12%,transparent)] sm:grid-cols-3">
+              {quickFacts.map(([label, value]) => (
+                <div key={label} className="bg-[var(--paper)] p-4">
+                  <p className="font-mono text-[0.65rem] font-bold uppercase tracking-[0.12em] text-[var(--ink-soft)]">{label}</p>
+                  <p className="mt-1 text-xl font-bold text-[var(--ink)]">{value}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="relative">
+              <KapsabetMap compact />
+              <div className="absolute bottom-5 left-5">
+                <span className="inline-flex w-fit items-center gap-2 rounded-md bg-[var(--paper)] px-3 py-2 font-bold text-[var(--ink)] shadow-sm">
+                  <Wifi className="h-4 w-4 text-[var(--signal)]" />
+                  18+ covered points
+                </span>
               </div>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
   )

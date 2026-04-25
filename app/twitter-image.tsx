@@ -20,7 +20,7 @@ export default async function Image() {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "space-between",
-          backgroundColor: "#0a0a0a",
+          backgroundColor: "#092e29",
           padding: "80px",
         }}
       >
@@ -37,7 +37,7 @@ export default async function Image() {
               width: "48px",
               height: "48px",
               borderRadius: "12px",
-              backgroundColor: "#171717",
+              backgroundColor: "#10211e",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -48,7 +48,7 @@ export default async function Image() {
               height="28"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="#ffffff"
+              stroke="#5eead4"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -63,8 +63,8 @@ export default async function Image() {
             style={{
               fontSize: "28px",
               fontWeight: "600",
-              color: "#ffffff",
-              letterSpacing: "-0.02em",
+              color: "#f5f5f4",
+              letterSpacing: "normal",
             }}
           >
             Seacom Networks
@@ -83,9 +83,9 @@ export default async function Image() {
             style={{
               fontSize: "72px",
               fontWeight: "600",
-              color: "#ffffff",
+              color: "#f5f5f4",
               lineHeight: 1.1,
-              letterSpacing: "-0.03em",
+              letterSpacing: "normal",
               margin: 0,
               maxWidth: "900px",
             }}
@@ -95,9 +95,9 @@ export default async function Image() {
           <p
             style={{
               fontSize: "28px",
-              color: "#737373",
+              color: "#c9d8d4",
               margin: 0,
-              letterSpacing: "-0.01em",
+              letterSpacing: "normal",
             }}
           >
             Connecting homes and businesses in Kapsabet, Nandi County
@@ -128,8 +128,8 @@ export default async function Image() {
                 style={{
                   fontSize: "36px",
                   fontWeight: "600",
-                  color: "#ffffff",
-                  letterSpacing: "-0.02em",
+                  color: "#f5f5f4",
+                  letterSpacing: "normal",
                 }}
               >
                 {stat.value}
@@ -137,7 +137,7 @@ export default async function Image() {
               <span
                 style={{
                   fontSize: "18px",
-                  color: "#525252",
+                  color: "#9db5af",
                 }}
               >
                 {stat.label}

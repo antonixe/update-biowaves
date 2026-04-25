@@ -1,58 +1,51 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Home, ArrowLeft } from "lucide-react"
+import { ArrowLeft, Home, MessageCircle } from "lucide-react"
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950 flex items-center justify-center px-4">
-      <div className="text-center max-w-md">
-        {/* 404 Display */}
-        <div className="mb-8">
-          <h1 className="text-8xl sm:text-9xl font-bold text-neutral-200 dark:text-neutral-800">
-            404
-          </h1>
-        </div>
-
-        {/* Message */}
-        <h2 className="text-2xl sm:text-3xl font-semibold text-neutral-900 dark:text-white mb-4">
-          Page not found
-        </h2>
-        <p className="text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
-          Sorry, we couldn't find the page you're looking for. 
-          It might have been moved or doesn't exist.
+    <main className="flex min-h-screen items-center justify-center bg-[var(--field)] px-4 py-16 text-[var(--ink)]">
+      <section className="route-grid w-full max-w-xl rounded-lg border border-[color-mix(in_oklch,var(--ink)_14%,transparent)] bg-[var(--paper)] p-6 sm:p-8">
+        <p className="section-label">Route not found</p>
+        <h1 className="mt-4 text-[clamp(4.5rem,18vw,8rem)] font-bold leading-none tracking-normal text-[color-mix(in_oklch,var(--ink)_18%,transparent)]">
+          404
+        </h1>
+        <h2 className="mt-5 text-4xl font-bold leading-none tracking-normal sm:text-5xl">This page is outside coverage.</h2>
+        <p className="mt-5 text-base leading-7 text-[var(--ink-soft)]">
+          The address may have moved. Go back, return home, or contact Seacom if you were trying to confirm a building.
         </p>
 
-        {/* Actions */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Button
             onClick={() => window.history.back()}
             variant="outline"
-            className="w-full sm:w-auto border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            className="h-12 rounded-md border-[color-mix(in_oklch,var(--ink)_18%,transparent)] bg-[var(--paper)] font-bold text-[var(--ink)] hover:bg-[var(--route)]"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Go Back
+            Go back
           </Button>
           <Button
-            onClick={() => window.location.href = "/"}
-            className="w-full sm:w-auto bg-neutral-900 hover:bg-neutral-800 dark:bg-white dark:hover:bg-neutral-200 text-white dark:text-neutral-900"
+            onClick={() => {
+              window.location.href = "/"
+            }}
+            className="h-12 rounded-md bg-[var(--ink)] font-bold text-[var(--stone)] hover:bg-[color-mix(in_oklch,var(--ink)_88%,var(--signal))]"
           >
             <Home className="mr-2 h-4 w-4" />
-            Back to Home
+            Back home
           </Button>
         </div>
 
-        {/* Contact Link */}
-        <p className="mt-10 text-sm text-neutral-500">
-          Need help?{" "}
-          <a 
-            href="/#contact" 
-            className="text-neutral-900 dark:text-white hover:underline"
-          >
-            Contact us
-          </a>
-        </p>
-      </div>
-    </div>
+        <a
+          href="https://wa.me/254707019898"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="focus-ring mt-8 inline-flex items-center gap-2 rounded-md text-sm font-bold text-[var(--signal)] hover:text-[var(--ink)]"
+        >
+          <MessageCircle className="h-4 w-4" />
+          WhatsApp coverage check
+        </a>
+      </section>
+    </main>
   )
 }
