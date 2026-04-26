@@ -66,15 +66,6 @@ const nextConfig = {
       },
     ]
   },
-  // Security-focused rewrites
-  async rewrites() {
-    return [
-      {
-        source: '/robots.txt',
-        destination: '/api/robots'
-      }
-    ]
-  }
 }
 
 export default nextConfig

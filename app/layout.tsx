@@ -20,32 +20,22 @@ const brandMono = Roboto_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://seacomnetworks.co.ke"),
-  title: "Seacom Networks - High-Speed Fiber Internet & Business Solutions in Kapsabet, Kenya",
+  title: {
+    default: "Seacom Networks | Fiber Internet in Kapsabet",
+    template: "%s | Seacom Networks",
+  },
   description:
-    "Get lightning-fast fiber internet, CCTV security systems, and IP intercom solutions in Kapsabet, Nandi County. Reliable connectivity for homes and businesses with 99.9% uptime guarantee.",
+    "Local Kapsabet ISP for home and business fiber internet, CCTV, and intercom installation. Plans from KES 1,500 with support from Eden Plaza.",
   keywords: [
     "fiber internet Kapsabet",
-    "high-speed internet Kenya",
-    "business internet Nandi County",
+    "internet provider Kapsabet",
+    "home internet Kapsabet",
+    "business internet Kapsabet",
+    "ISP Kapsabet",
     "CCTV installation Kapsabet",
-    "IP intercom systems",
-    "wireless internet Kenya",
-    "Seacom Networks internet",
-    "fiber to home Kenya",
-    "business connectivity solutions",
-    "internet service provider Kapsabet",
-    "best ISP Kapsabet",
-    "affordable internet Nandi County",
-    "fiber optic internet Kenya",
-    "unlimited internet Kapsabet",
-    "CCTV cameras Nandi County",
-    "Hikvision CCTV Kapsabet",
-    "office internet solutions Kenya",
-    "home internet packages Kapsabet",
-    "broadband Kapsabet Kenya",
-    "enterprise internet Kenya",
-    "fast internet Kapsabet",
-    "wifi installation Kapsabet",
+    "intercom installation Kapsabet",
+    "Seacom Networks",
+    "Nandi County internet",
   ],
   authors: [{ name: "Seacom Networks" }],
   creator: "Seacom Networks",
@@ -66,27 +56,128 @@ export const metadata: Metadata = {
     locale: "en_KE",
     url: "https://seacomnetworks.co.ke",
     siteName: "Seacom Networks",
-    title: "Seacom Networks - High-Speed Fiber Internet & Business Solutions in Kapsabet, Kenya",
+    title: "Seacom Networks | Fiber Internet in Kapsabet",
     description:
-      "Get lightning-fast fiber internet, CCTV security systems, and IP intercom solutions in Kapsabet, Nandi County. Reliable connectivity for homes and businesses with 99.9% uptime guarantee.",
+      "Local Kapsabet fiber internet, CCTV, and intercom installation for homes, offices, shops, and buildings.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Seacom Networks fiber internet in Kapsabet",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Seacom Networks - High-Speed Fiber Internet & Business Solutions in Kapsabet, Kenya",
+    title: "Seacom Networks | Fiber Internet in Kapsabet",
     description:
-      "Get lightning-fast fiber internet, CCTV security systems, and IP intercom solutions in Kapsabet, Nandi County. Reliable connectivity for homes and businesses with 99.9% uptime guarantee.",
-    creator: "@seacomnetworks_ke",
-  },
-  verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-    yahoo: "your-yahoo-verification-code",
+      "Fiber plans, CCTV, and intercom installation from a local Kapsabet team.",
+    images: ["/twitter-image"],
   },
   alternates: {
-    canonical: "https://seacomnetworks.co.ke",
+    canonical: "/",
   },
+  icons: {
+    icon: "/icon",
+    apple: "/apple-icon",
+  },
+  manifest: "/manifest.json",
   category: "Technology",
   generator: "Next.js",
+}
+
+const businessJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://seacomnetworks.co.ke/#website",
+      name: "Seacom Networks",
+      url: "https://seacomnetworks.co.ke",
+      inLanguage: "en-KE",
+      publisher: { "@id": "https://seacomnetworks.co.ke/#business" },
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://seacomnetworks.co.ke/#business",
+      name: "Seacom Networks",
+      url: "https://seacomnetworks.co.ke",
+      telephone: "+254707019898",
+      email: "info@seacomnetworks.co.ke",
+      priceRange: "KES 1,500+",
+      description:
+        "Local Kapsabet provider for fiber internet plans, CCTV installation, and intercom installation.",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Eden Plaza, 3rd Floor",
+        addressLocality: "Kapsabet",
+        addressRegion: "Nandi County",
+        postalCode: "30300",
+        addressCountry: "KE",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 0.20387,
+        longitude: 35.105,
+      },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "08:00",
+          closes: "17:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Saturday",
+          opens: "09:00",
+          closes: "14:00",
+        },
+      ],
+      areaServed: [
+        { "@type": "City", name: "Kapsabet" },
+        { "@type": "AdministrativeArea", name: "Nandi County" },
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Seacom Networks services",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            name: "Home fiber internet",
+            price: "1500",
+            priceCurrency: "KES",
+            itemOffered: {
+              "@type": "Service",
+              name: "Home fiber internet in Kapsabet",
+              serviceType: "Internet service",
+            },
+          },
+          {
+            "@type": "Offer",
+            name: "Business internet",
+            price: "5000",
+            priceCurrency: "KES",
+            itemOffered: {
+              "@type": "Service",
+              name: "Business internet in Kapsabet",
+              serviceType: "Internet service",
+            },
+          },
+          {
+            "@type": "Offer",
+            name: "CCTV and intercom installation",
+            itemOffered: {
+              "@type": "Service",
+              name: "CCTV and intercom installation",
+              serviceType: "Security system installation",
+            },
+          },
+        ],
+      },
+    },
+  ],
 }
 
 export default function RootLayout({
@@ -97,25 +188,14 @@ export default function RootLayout({
   return (
     <html lang="en-KE" suppressHydrationWarning>
       <head>
-        {/* Performance Hints */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
-        {/* Security Headers */}
-        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-        <meta httpEquiv="X-Frame-Options" content="DENY" />
-        <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
-        <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-
-        {/* Additional SEO Meta Tags */}
         <meta name="geo.region" content="KE-30" />
         <meta name="geo.placename" content="Kapsabet, Nandi County, Kenya" />
-        <meta name="geo.position" content="0.2017;35.1042" />
-        <meta name="ICBM" content="0.2017, 35.1042" />
-
-        {/* Business Information */}
+        <meta name="geo.position" content="0.20387;35.105" />
+        <meta name="ICBM" content="0.20387, 35.105" />
         <meta name="business:contact_data:street_address" content="Eden Plaza, 3rd Floor" />
         <meta name="business:contact_data:locality" content="Kapsabet" />
         <meta name="business:contact_data:region" content="Nandi County" />
@@ -123,266 +203,10 @@ export default function RootLayout({
         <meta name="business:contact_data:country_name" content="Kenya" />
         <meta name="business:contact_data:phone_number" content="+254707019898" />
         <meta name="business:contact_data:email" content="info@seacomnetworks.co.ke" />
-
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" sizes="32x32" />
-        <link rel="icon" href="/favicon.png" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
-
-        {/* WebSite Structured Data — for Google sitelinks */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "Seacom Networks",
-              url: "https://seacomnetworks.co.ke",
-              description: "High-speed fiber internet, CCTV security systems, and IP intercom solutions in Kapsabet, Nandi County, Kenya.",
-              publisher: {
-                "@type": "Organization",
-                name: "Seacom Networks",
-                url: "https://seacomnetworks.co.ke",
-              },
-              inLanguage: "en-KE",
-            }),
-          }}
-        />
-
-        {/* Organization Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Seacom Networks",
-              url: "https://seacomnetworks.co.ke",
-              logo: "https://seacomnetworks.co.ke/icon.png",
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+254707019898",
-                contactType: "customer service",
-                areaServed: "KE",
-                availableLanguage: ["English", "Swahili"],
-              },
-              sameAs: [
-                "https://facebook.com/seacomnetworks.ke",
-                "https://twitter.com/seacomnetworks_ke",
-                "https://instagram.com/seacomnetworks_ke",
-              ],
-            }),
-          }}
-        />
-
-        {/* Structured Data for Local Business */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "@id": "https://seacomnetworks.co.ke/#organization",
-              name: "Seacom Networks",
-              alternateName: "Seacom Networks",
-              description:
-                "High-speed fiber internet, CCTV security systems, and IP intercom solutions provider in Kapsabet, Nandi County, Kenya.",
-              url: "https://seacomnetworks.co.ke",
-              telephone: "+254707019898",
-              email: "info@seacomnetworks.co.ke",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "Eden Plaza, 3rd Floor",
-                addressLocality: "Kapsabet",
-                addressRegion: "Nandi County",
-                postalCode: "30300",
-                addressCountry: "KE",
-              },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: 0.2017,
-                longitude: 35.1042,
-              },
-              openingHours: ["Mo-Fr 08:00-17:00", "Sa 09:00-14:00"],
-              priceRange: "KSh 1,500 - KSh 20,000",
-              serviceArea: {
-                "@type": "GeoCircle",
-                geoMidpoint: {
-                  "@type": "GeoCoordinates",
-                  latitude: 0.2017,
-                  longitude: 35.1042,
-                },
-                geoRadius: "50000",
-              },
-              hasOfferCatalog: {
-                "@type": "OfferCatalog",
-                name: "Internet and Security Services",
-                itemListElement: [
-                  {
-                    "@type": "Offer",
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "Fiber Internet - Home",
-                      description: "High-speed fiber internet for residential customers",
-                    },
-                  },
-                  {
-                    "@type": "Offer",
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "Business Internet Solutions",
-                      description: "Enterprise-grade internet connectivity for businesses",
-                    },
-                  },
-                  {
-                    "@type": "Offer",
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "CCTV Security Systems",
-                      description: "Professional CCTV installation and monitoring services",
-                    },
-                  },
-                ],
-              },
-              sameAs: [
-                "https://facebook.com/seacomnetworks.ke",
-                "https://twitter.com/seacomnetworks_ke",
-                "https://instagram.com/seacomnetworks_ke",
-              ],
-            }),
-          }}
-        />
-
-        {/* Breadcrumb Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              itemListElement: [
-                {
-                  "@type": "ListItem",
-                  position: 1,
-                  name: "Home",
-                  item: "https://seacomnetworks.co.ke",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 2,
-                  name: "Internet Packages",
-                  item: "https://seacomnetworks.co.ke#packages",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 3,
-                  name: "Products",
-                  item: "https://seacomnetworks.co.ke#products",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 4,
-                  name: "Contact",
-                  item: "https://seacomnetworks.co.ke#contact",
-                },
-              ],
-            }),
-          }}
-        />
-
-        {/* Service Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Service",
-              name: "High-Speed Fiber Internet Services",
-              description:
-                "Professional fiber internet installation and maintenance services in Kapsabet, Nandi County, Kenya.",
-              provider: {
-                "@type": "LocalBusiness",
-                name: "Seacom Networks",
-              },
-              areaServed: {
-                "@type": "City",
-                name: "Kapsabet",
-                containedInPlace: {
-                  "@type": "State",
-                  name: "Nandi County",
-                  containedInPlace: {
-                    "@type": "Country",
-                    name: "Kenya",
-                  },
-                },
-              },
-              hasOfferCatalog: {
-                "@type": "OfferCatalog",
-                name: "Internet Packages",
-                itemListElement: [
-                  {
-                    "@type": "Offer",
-                    name: "Basic Home Internet",
-                    price: "1500",
-                    priceCurrency: "KES",
-                    description: "5 Mbps fiber internet for home use",
-                  },
-                  {
-                    "@type": "Offer",
-                    name: "Business Pro Internet",
-                    price: "8000",
-                    priceCurrency: "KES",
-                    description: "50 Mbps fiber internet for business use",
-                  },
-                ],
-              },
-            }),
-          }}
-        />
-
-        {/* FAQ Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: [
-                {
-                  "@type": "Question",
-                  name: "What internet speeds does Seacom Networks offer?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Seacom Networks offers fiber internet speeds ranging from 5 Mbps to 100 Mbps, suitable for both home and business use.",
-                  },
-                },
-                {
-                  "@type": "Question",
-                  name: "What areas does Seacom Networks cover in Kapsabet?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Seacom Networks covers 18+ locations in Kapsabet including Eden Plaza, Naivas Building, Kapsabet Hospital, and many other commercial and residential areas.",
-                  },
-                },
-                {
-                  "@type": "Question",
-                  name: "What is the uptime guarantee?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Seacom Networks provides a 99.9% uptime guarantee for all internet packages with 24/7 technical support.",
-                  },
-                },
-                {
-                  "@type": "Question",
-                  name: "Do you offer business internet solutions?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Yes, Seacom Networks offers dedicated business internet packages with static IPs, priority support, and enterprise-grade connectivity.",
-                  },
-                },
-              ],
-            }),
+            __html: JSON.stringify(businessJsonLd),
           }}
         />
       </head>
@@ -396,37 +220,6 @@ export default function RootLayout({
           <Suspense fallback={null}>{children}</Suspense>
         </ThemeProvider>
         <Analytics />
-        {/* Noscript fallback for SEO crawlers */}
-        <noscript>
-          <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
-            <h1>Seacom Networks — High-Speed Fiber Internet in Kapsabet, Kenya</h1>
-            <p>Get lightning-fast fiber internet, CCTV security systems, and IP intercom solutions in Kapsabet, Nandi County. Reliable connectivity for homes and businesses with 99.9% uptime guarantee.</p>
-            <h2>Internet Packages</h2>
-            <ul>
-              <li>Basic 5 Mbps — KES 1,500/mo</li>
-              <li>Standard 10 Mbps — KES 2,000/mo</li>
-              <li>Premium 20 Mbps — KES 2,500/mo</li>
-              <li>Advanced 30 Mbps — KES 3,000/mo</li>
-              <li>Ultimate 50 Mbps — KES 3,500/mo</li>
-            </ul>
-            <h2>Business Packages</h2>
-            <ul>
-              <li>Starter 30 Mbps — KES 5,000/mo</li>
-              <li>Professional 50 Mbps — KES 8,000/mo</li>
-              <li>Enterprise 100 Mbps — KES 20,000/mo</li>
-            </ul>
-            <h2>Products</h2>
-            <ul>
-              <li>Hikvision CCTV — 8CH HD Night Vision — KES 15,000</li>
-              <li>IP Intercom — Video, Audio, Mobile — KES 11,099</li>
-              <li>Wireless Intercom — 1km Range, Weatherproof — KES 20,044</li>
-            </ul>
-            <h2>Contact</h2>
-            <p>Phone: <a href="tel:+254707019898">0707 019 898</a> | WhatsApp: <a href="https://wa.me/254707019898">0707 019 898</a></p>
-            <p>Eden Plaza, 3rd Floor, Kapsabet, Nandi County 30300, Kenya</p>
-            <p>Mon–Fri 8AM–5PM | Sat 9AM–2PM</p>
-          </div>
-        </noscript>
       </body>
     </html>
   )

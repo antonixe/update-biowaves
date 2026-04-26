@@ -1,32 +1,26 @@
 {
-  "name": "Seacom Networks - High-Speed Fiber Internet",
+  "name": "Seacom Networks",
   "short_name": "Seacom Networks",
-  "description": "High-speed fiber internet, CCTV security systems, and IP intercom solutions in Kapsabet, Kenya",
+  "description": "Fiber internet, CCTV, and intercom installation in Kapsabet, Kenya.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#2563eb",
+  "background_color": "#f7f1e4",
+  "theme_color": "#092e29",
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "en-KE",
   "categories": ["business", "utilities", "productivity"],
   "icons": [
     {
-      "src": "/favicon.ico",
+      "src": "/icon",
       "sizes": "32x32",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
-      "src": "/favicon.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/apple-touch-icon.png",
+      "src": "/apple-icon",
       "sizes": "180x180",
       "type": "image/png",
-      "purpose": "apple-touch-icon"
+      "purpose": "any"
     }
   ]
 }

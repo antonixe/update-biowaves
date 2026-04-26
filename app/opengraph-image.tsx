@@ -90,7 +90,7 @@ export default async function Image() {
               maxWidth: "900px",
             }}
           >
-            Fast, reliable fiber internet
+            Fiber internet in Kapsabet
           </h1>
           <p
             style={{
@@ -100,7 +100,7 @@ export default async function Image() {
               letterSpacing: "normal",
             }}
           >
-            Connecting homes and businesses in Kapsabet, Nandi County
+            Home, business, CCTV, and intercom installs
           </p>
         </div>
 
@@ -112,9 +112,9 @@ export default async function Image() {
           }}
         >
           {[
-            { value: "100 Mbps", label: "Speed" },
-            { value: "99.9%", label: "Uptime" },
-            { value: "1,000+", label: "Customers" },
+            { value: "5-50 Mbps", label: "Home" },
+            { value: "30-100 Mbps", label: "Business" },
+            { value: "Eden Plaza", label: "Office" },
           ].map((stat) => (
             <div
               key={stat.label}
