@@ -29,7 +29,7 @@ export function About() {
                 {notes.map((note) => (
                   <span
                     key={note.text}
-                    className="inline-flex items-center gap-2 rounded-md bg-[var(--service-soft)] px-3 py-2 text-sm font-bold text-[var(--ink)]"
+                    className="inline-flex items-center gap-2 rounded-md bg-[var(--service-soft)] px-3 py-2 text-sm font-bold text-[var(--service-soft-ink)]"
                   >
                     <note.icon className="h-4 w-4 text-[var(--signal)]" />
                     {note.text}

@@ -81,7 +81,7 @@ export function Packages() {
         <ScrollAnimation delay={140}>
           <div className="mt-6 flex flex-col gap-4 rounded-lg bg-[color-mix(in_oklch,var(--ink)_94%,var(--signal))] p-5 text-[var(--stone)] sm:flex-row sm:items-center sm:justify-between">
             <p className="text-lg font-bold">Unlimited data. Local support. Site survey available.</p>
-            <Button onClick={scrollToContact} className="h-11 rounded-md bg-[var(--service)] font-bold text-[var(--ink)] hover:brightness-105">
+            <Button onClick={scrollToContact} className="h-11 rounded-md bg-[var(--service)] font-bold text-[var(--service-ink)] hover:brightness-105">
               Request install
             </Button>
           </div>

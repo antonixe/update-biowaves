@@ -35,7 +35,7 @@ export function Contact() {
                     href="https://wa.me/254707019898"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[var(--service)] px-5 font-bold text-[var(--ink)]"
+                    className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[var(--service)] px-5 font-bold text-[var(--service-ink)]"
                   >
                     <MessageCircle className="h-4 w-4" />
                     WhatsApp

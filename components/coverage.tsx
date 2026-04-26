@@ -43,7 +43,7 @@ export function Coverage() {
             </div>
             <button
               onClick={scrollToContact}
-              className="focus-ring inline-flex h-12 w-fit items-center gap-2 rounded-md bg-[var(--service)] px-5 font-bold text-[var(--ink)]"
+              className="focus-ring inline-flex h-12 w-fit items-center gap-2 rounded-md bg-[var(--service)] px-5 font-bold text-[var(--service-ink)]"
             >
               Confirm building
               <ArrowRight className="h-4 w-4" />

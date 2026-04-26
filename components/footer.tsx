@@ -21,7 +21,7 @@ export function Footer() {
             <p className="text-2xl font-bold">Seacom Networks</p>
             <p className="mt-2 font-semibold text-[color-mix(in_oklch,var(--stone)_72%,transparent)]">Eden Plaza, Kapsabet</p>
           </div>
-          <a href="tel:+254707019898" className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[var(--service)] px-5 font-bold text-[var(--ink)]">
+          <a href="tel:+254707019898" className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[var(--service)] px-5 font-bold text-[var(--service-ink)]">
             <Phone className="h-4 w-4" />
             0707 019 898
           </a>

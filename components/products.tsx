@@ -35,7 +35,7 @@ export function Products() {
               <article className="min-h-full bg-[var(--field)] p-5">
                 <div className="flex items-center justify-between">
                   <Icon className="h-7 w-7 text-[var(--signal)]" />
-                  <span className="rounded bg-[var(--service)] px-2 py-1 font-mono text-[0.62rem] font-bold uppercase tracking-[0.1em] text-[var(--ink)]">
+                  <span className="rounded bg-[var(--service)] px-2 py-1 font-mono text-[0.62rem] font-bold uppercase tracking-[0.1em] text-[var(--service-ink)]">
                     From
                   </span>
                 </div>

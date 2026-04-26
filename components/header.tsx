@@ -77,7 +77,7 @@ export function Header() {
               href="https://wa.me/254707019898"
               target="_blank"
               rel="noopener noreferrer"
-              className="focus-ring inline-flex h-10 items-center gap-2 rounded-md bg-[var(--service)] px-4 text-sm font-bold text-[var(--ink)]"
+              className="focus-ring inline-flex h-10 items-center gap-2 rounded-md bg-[var(--service)] px-4 text-sm font-bold text-[var(--service-ink)]"
             >
               <MessageCircle className="h-4 w-4" />
               WhatsApp
