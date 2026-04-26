@@ -38,8 +38,16 @@ export function Hero() {
               </span>
             </div>
 
-            <h1 className="max-w-3xl text-[clamp(2.35rem,5.6vw,4.8rem)] font-bold leading-[0.98] tracking-normal text-[var(--ink)] opacity-0 animate-fade-up delay-100">
-              Reliable internet for Kapsabet homes and businesses.
+            <h1 className="max-w-3xl text-[clamp(2rem,4.2vw,3.75rem)] font-bold leading-[1.02] tracking-normal text-[var(--ink)]">
+              <span className="hero-line" style={{ animationDelay: "90ms" }}>
+                Reliable internet
+              </span>
+              <span className="hero-line" style={{ animationDelay: "190ms" }}>
+                for Kapsabet homes
+              </span>
+              <span className="hero-line" style={{ animationDelay: "290ms" }}>
+                and businesses.
+              </span>
             </h1>
 
             <p className="mt-5 max-w-2xl text-lg font-semibold leading-8 text-[var(--ink-soft)] opacity-0 animate-fade-up delay-200">

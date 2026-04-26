@@ -208,6 +208,17 @@
   }
 }
 
+@keyframes hero-line-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.32em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .animate-fade-up {
   animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -218,6 +229,12 @@
 
 .animate-loading-bar {
   animation: loading-bar 1.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.hero-line {
+  display: block;
+  opacity: 0;
+  animation: hero-line-in 0.72s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .delay-100 {
