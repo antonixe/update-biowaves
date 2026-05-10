@@ -43,7 +43,7 @@ export function Products() {
                 <p className="mt-3 font-mono text-sm font-bold uppercase tracking-[0.08em] text-[var(--ink-soft)]">{spec}</p>
                 <button
                   onClick={scrollToContact}
-                  className="focus-ring mt-8 flex w-full items-center justify-between rounded-md bg-[var(--ink)] px-4 py-3 text-left font-bold text-[var(--stone)]"
+                  className="focus-ring mt-8 flex w-full items-center justify-between rounded-md bg-[var(--solid)] px-4 py-3 text-left font-bold text-[var(--solid-ink)]"
                 >
                   <span>{price}</span>
                   <ArrowRight className="h-4 w-4" />

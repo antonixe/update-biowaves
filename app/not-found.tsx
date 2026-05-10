@@ -29,7 +29,7 @@ export default function NotFound() {
             onClick={() => {
               window.location.href = "/"
             }}
-            className="h-12 rounded-md bg-[var(--ink)] font-bold text-[var(--stone)] hover:bg-[color-mix(in_oklch,var(--ink)_88%,var(--signal))]"
+            className="h-12 rounded-md bg-[var(--solid)] font-bold text-[var(--solid-ink)] hover:bg-[var(--solid-hover)]"
           >
             <Home className="mr-2 h-4 w-4" />
             Back home

@@ -37,6 +37,10 @@
     --service-soft: oklch(94.4% 0.046 82);
     --service-ink: oklch(24% 0.035 181);
     --service-soft-ink: oklch(27% 0.035 181);
+    --solid: oklch(16% 0.024 181);
+    --solid-hover: oklch(22% 0.033 181);
+    --solid-ink: oklch(96% 0.011 83);
+    --solid-soft-ink: oklch(80% 0.014 83);
     --night: oklch(16% 0.024 181);
     --panel: oklch(21% 0.026 181);
     --stone: oklch(96% 0.011 83);
@@ -75,6 +79,10 @@
     --service-soft: oklch(30% 0.034 72);
     --service-ink: oklch(19% 0.028 181);
     --service-soft-ink: oklch(92% 0.014 82);
+    --solid: oklch(16% 0.024 181);
+    --solid-hover: oklch(24% 0.032 181);
+    --solid-ink: oklch(96% 0.011 83);
+    --solid-soft-ink: oklch(78% 0.018 84);
     --night: oklch(13% 0.022 181);
     --panel: oklch(20% 0.026 181);
     --stone: oklch(95% 0.012 85);
@@ -130,7 +138,7 @@
 
 ::selection {
   background: var(--signal);
-  color: var(--stone);
+  color: var(--service-ink);
 }
 
 ::-webkit-scrollbar {

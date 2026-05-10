@@ -27,7 +27,7 @@ export function Contact() {
                   Send your building name and usage.
                 </p>
                 <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                  <a href="tel:+254707019898" className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[var(--ink)] px-5 font-bold text-[var(--stone)]">
+                  <a href="tel:+254707019898" className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[var(--solid)] px-5 font-bold text-[var(--solid-ink)]">
                     <Phone className="h-4 w-4" />
                     Call
                   </a>
@@ -43,9 +43,9 @@ export function Contact() {
                 </div>
               </div>
 
-              <div className="bg-[color-mix(in_oklch,var(--ink)_94%,var(--signal))] p-6 text-[var(--stone)] sm:p-8 lg:p-10">
+              <div className="bg-[var(--solid)] p-6 text-[var(--solid-ink)] sm:p-8 lg:p-10">
                 <p className="font-mono text-[0.72rem] font-bold uppercase tracking-[0.12em] text-[var(--signal-live)]">Details</p>
-                <div className="mt-6 divide-y divide-[color-mix(in_oklch,var(--stone)_16%,transparent)]">
+                <div className="mt-6 divide-y divide-[color-mix(in_oklch,var(--solid-ink)_16%,transparent)]">
                   {details.map(([Icon, value]) => (
                     <div key={value as string} className="flex items-center gap-4 py-4">
                       <Icon className="h-5 w-5 text-[var(--service)]" />

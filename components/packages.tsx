@@ -45,7 +45,7 @@ export function Packages() {
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id as "home" | "business")}
                   className={`focus-ring inline-flex h-10 items-center justify-center gap-2 rounded px-4 text-sm font-bold ${
-                    activeTab === tab.id ? "bg-[var(--ink)] text-[var(--stone)]" : "text-[var(--ink)] hover:bg-[var(--route)]"
+                    activeTab === tab.id ? "bg-[var(--solid)] text-[var(--solid-ink)]" : "text-[var(--ink)] hover:bg-[var(--route)]"
                   }`}
                 >
                   <tab.icon className="h-4 w-4" />
@@ -79,7 +79,7 @@ export function Packages() {
         </ScrollAnimation>
 
         <ScrollAnimation delay={140}>
-          <div className="mt-6 flex flex-col gap-4 rounded-lg bg-[color-mix(in_oklch,var(--ink)_94%,var(--signal))] p-5 text-[var(--stone)] sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-6 flex flex-col gap-4 rounded-lg bg-[var(--solid)] p-5 text-[var(--solid-ink)] sm:flex-row sm:items-center sm:justify-between">
             <p className="text-lg font-bold">Unlimited data. Local support. Site survey available.</p>
             <Button onClick={scrollToContact} className="h-11 rounded-md bg-[var(--service)] font-bold text-[var(--service-ink)] hover:brightness-105">
               Request install

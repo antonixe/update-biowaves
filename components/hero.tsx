@@ -71,7 +71,7 @@ export function Hero() {
               <Button
                 onClick={scrollToPackages}
                 size="lg"
-                className="h-12 rounded-md bg-[var(--ink)] px-6 text-base font-bold text-[var(--stone)] hover:bg-[color-mix(in_oklch,var(--ink)_88%,var(--signal))]"
+                className="h-12 rounded-md bg-[var(--solid)] px-6 text-base font-bold text-[var(--solid-ink)] hover:bg-[var(--solid-hover)]"
               >
                 Compare plans
                 <ArrowRight className="ml-2 h-4 w-4" />

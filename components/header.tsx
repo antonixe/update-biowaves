@@ -48,7 +48,7 @@ export function Header() {
       >
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-5" aria-label="Main navigation">
           <button onClick={() => scrollToSection("#home")} className="focus-ring flex items-center gap-3 text-left" aria-label="Go to home">
-            <span className="grid h-10 w-10 place-items-center rounded-md bg-[var(--ink)] text-[var(--stone)]">
+            <span className="grid h-10 w-10 place-items-center rounded-md bg-[var(--solid)] text-[var(--solid-ink)]">
               <Phone className="h-5 w-5 text-[var(--service)]" />
             </span>
             <span>
