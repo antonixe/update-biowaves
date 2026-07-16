@@ -188,10 +188,6 @@ export default function RootLayout({
   return (
     <html lang="en-KE" suppressHydrationWarning>
       <head>
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <meta name="geo.region" content="KE-30" />
         <meta name="geo.placename" content="Kapsabet, Nandi County, Kenya" />
         <meta name="geo.position" content="0.20387;35.105" />
