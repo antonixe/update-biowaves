@@ -1,17 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   images: {
     unoptimized: true,
-    domains: ['seacomnetworks.co.ke'],
-    formats: ['image/webp', 'image/avif'],
   },
-  // Security headers
   async headers() {
     return [
       {
@@ -24,10 +15,6 @@ const nextConfig = {
           {
             key: 'X-Content-Type-Options',
             value: 'nosniff'
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block'
           },
           {
             key: 'Referrer-Policy',
@@ -47,23 +34,6 @@ const nextConfig = {
           }
         ]
       }
-    ]
-  },
-  // Redirect HTTP to HTTPS
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'header',
-            key: 'x-forwarded-proto',
-            value: 'http',
-          },
-        ],
-        destination: 'https://seacomnetworks.co.ke/:path*',
-        permanent: true,
-      },
     ]
   },
 }

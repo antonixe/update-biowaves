@@ -9,7 +9,7 @@ const details = [
   [Mail, "info@seacomnetworks.co.ke"],
   [MapPin, "Eden Plaza, 3rd Floor"],
   [Clock3, "Mon-Fri 8-5, Sat 9-2"],
-]
+] as const
 
 export function Contact() {
   return (
@@ -47,7 +47,7 @@ export function Contact() {
                 <p className="font-mono text-[0.72rem] font-bold uppercase tracking-[0.12em] text-[var(--signal-live)]">Details</p>
                 <div className="mt-6 divide-y divide-[color-mix(in_oklch,var(--solid-ink)_16%,transparent)]">
                   {details.map(([Icon, value]) => (
-                    <div key={value as string} className="flex items-center gap-4 py-4">
+                    <div key={value} className="flex items-center gap-4 py-4">
                       <Icon className="h-5 w-5 text-[var(--service)]" />
                       <p className="text-lg font-bold leading-6">{value}</p>
                     </div>
