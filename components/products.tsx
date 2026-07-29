@@ -1,44 +1,10 @@
 "use client"
 
-import type { LucideIcon } from "lucide-react"
 import { ArrowRight, Camera, PhoneCall, Radio } from "lucide-react"
 import { ScrollAnimation } from "@/components/scroll-animation"
+import { security as products } from "@/lib/pricing"
 
-type SecurityProduct = {
-  name: string
-  spec: string
-  price: string
-  image: string
-  imageAlt: string
-  Icon: LucideIcon
-}
-
-const products: SecurityProduct[] = [
-  {
-    name: "Hikvision CCTV",
-    spec: "8CH, HD, night vision",
-    price: "KES 15,000",
-    image: "/security-cctv.jpg",
-    imageAlt: "Wall-mounted outdoor CCTV camera installed above an entry point.",
-    Icon: Camera,
-  },
-  {
-    name: "IP Intercom",
-    spec: "Video, audio, mobile",
-    price: "KES 11,099",
-    image: "/security-ip-intercom.jpg",
-    imageAlt: "Outdoor video intercom keypad mounted in a protective metal housing.",
-    Icon: PhoneCall,
-  },
-  {
-    name: "Wireless Intercom",
-    spec: "1 km, weatherproof",
-    price: "KES 20,044",
-    image: "/security-wireless-intercom.jpg",
-    imageAlt: "Rooftop wireless antenna equipment for long-range building communication.",
-    Icon: Radio,
-  },
-]
+const icons = { Camera, PhoneCall, Radio } as const
 
 export function Products() {
   const scrollToContact = () => {
@@ -61,7 +27,9 @@ export function Products() {
         </ScrollAnimation>
 
         <div className="mt-8 grid gap-4 lg:grid-cols-3">
-          {products.map(({ name, spec, price, image, imageAlt, Icon }, index) => (
+          {products.map(({ name, spec, price, image, imageAlt, icon }, index) => {
+            const Icon = icons[icon as keyof typeof icons] ?? Camera
+            return (
             <ScrollAnimation key={name} delay={index * 70}>
               <article className="group flex min-h-full flex-col overflow-hidden rounded-lg border border-[color-mix(in_oklch,var(--ink)_14%,transparent)] bg-[var(--field)]">
                 <figure className="aspect-[4/3] overflow-hidden border-b border-[color-mix(in_oklch,var(--ink)_12%,transparent)] bg-[var(--route)]">
@@ -93,7 +61,8 @@ export function Products() {
                 </div>
               </article>
             </ScrollAnimation>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

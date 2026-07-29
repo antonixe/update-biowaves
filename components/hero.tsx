@@ -3,10 +3,11 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, CheckCircle2, MapPin, MessageCircle, Phone, Wifi } from "lucide-react"
 import { KapsabetMap } from "@/components/kapsabet-map"
+import { home, business, startingPrice } from "@/lib/pricing"
 
 const plans = [
-  { label: "Home", value: "5-50 Mbps", price: "KES 1,500+" },
-  { label: "Business", value: "30-100 Mbps", price: "KES 5,000+" },
+  { label: "Home", value: "5-50 Mbps", price: startingPrice(home) },
+  { label: "Business", value: "30-100 Mbps", price: startingPrice(business) },
   { label: "Security", value: "CCTV + intercom", price: "Quote" },
 ]
 

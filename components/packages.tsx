@@ -4,20 +4,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Home, Landmark } from "lucide-react"
 import { ScrollAnimation } from "@/components/scroll-animation"
-
-const homePackages = [
-  ["Basic", "5 Mbps", "KES 1,500"],
-  ["Standard", "10 Mbps", "KES 2,000"],
-  ["Premium", "20 Mbps", "KES 2,500"],
-  ["Advanced", "30 Mbps", "KES 3,000"],
-  ["Ultimate", "50 Mbps", "KES 3,500"],
-]
-
-const businessPackages = [
-  ["Starter", "30 Mbps", "KES 5,000"],
-  ["Professional", "50 Mbps", "KES 8,000"],
-  ["Enterprise", "100 Mbps", "KES 20,000"],
-]
+import { home as homePackages, business as businessPackages } from "@/lib/pricing"
 
 export function Packages() {
   const [activeTab, setActiveTab] = useState<"home" | "business">("home")
@@ -58,7 +45,7 @@ export function Packages() {
 
         <ScrollAnimation delay={80}>
           <div className="mt-8 overflow-hidden rounded-lg border border-[color-mix(in_oklch,var(--ink)_14%,transparent)] bg-[var(--paper)]">
-            {packages.map(([name, speed, price], index) => (
+            {packages.map(({ name, speed, price }, index) => (
               <button
                 key={name}
                 onClick={scrollToContact}

@@ -1,0 +1,72 @@
+{
+  "home": [
+    {
+      "name": "Basic",
+      "speed": "5 Mbps",
+      "price": "KES 1,500"
+    },
+    {
+      "name": "Standard",
+      "speed": "10 Mbps",
+      "price": "KES 2,000"
+    },
+    {
+      "name": "Premium",
+      "speed": "20 Mbps",
+      "price": "KES 2,500"
+    },
+    {
+      "name": "Advanced",
+      "speed": "30 Mbps",
+      "price": "KES 3,000"
+    },
+    {
+      "name": "Ultimate",
+      "speed": "50 Mbps",
+      "price": "KES 3,500"
+    }
+  ],
+  "business": [
+    {
+      "name": "Starter",
+      "speed": "30 Mbps",
+      "price": "KES 5,000"
+    },
+    {
+      "name": "Professional",
+      "speed": "50 Mbps",
+      "price": "KES 8,000"
+    },
+    {
+      "name": "Enterprise",
+      "speed": "100 Mbps",
+      "price": "KES 20,000"
+    }
+  ],
+  "security": [
+    {
+      "name": "Hikvision CCTV",
+      "spec": "8CH, HD, night vision",
+      "price": "KES 15,000",
+      "image": "/security-cctv.jpg",
+      "imageAlt": "Wall-mounted outdoor CCTV camera installed above an entry point.",
+      "icon": "Camera"
+    },
+    {
+      "name": "IP Intercom",
+      "spec": "Video, audio, mobile",
+      "price": "KES 11,099",
+      "image": "/security-ip-intercom.jpg",
+      "imageAlt": "Outdoor video intercom keypad mounted in a protective metal housing.",
+      "icon": "PhoneCall"
+    },
+    {
+      "name": "Wireless Intercom",
+      "spec": "1 km, weatherproof",
+      "price": "KES 20,044",
+      "image": "/security-wireless-intercom.jpg",
+      "imageAlt": "Rooftop wireless antenna equipment for long-range building communication.",
+      "icon": "Radio"
+    }
+  ]
+}
