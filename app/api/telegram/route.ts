@@ -49,8 +49,9 @@ export function GET() {
 
 export async function POST(req: Request) {
   // Telegram echoes this secret header on every webhook call — reject anything else.
-  const secret = process.env.TELEGRAM_WEBHOOK_SECRET
-  if (secret && req.headers.get("x-telegram-bot-api-secret-token") !== secret) {
+  // Fails closed: if TELEGRAM_WEBHOOK_SECRET is unset the header can never match,
+  // so a missing env var takes the bot offline rather than opening it to the world.
+  if (req.headers.get("x-telegram-bot-api-secret-token") !== process.env.TELEGRAM_WEBHOOK_SECRET) {
     return new NextResponse("forbidden", { status: 401 })
   }
 
