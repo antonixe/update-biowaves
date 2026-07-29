@@ -5,6 +5,12 @@ import "./globals.css"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import { ThemeProvider } from "@/components/theme-provider"
+import { home, business, minPrice, startingPrice } from "@/lib/pricing"
+
+// SEO copy quotes the cheapest plan in each tier, so it tracks pricing.json
+// instead of drifting every time the price bot commits a change.
+const homeFrom = minPrice(home)
+const businessFrom = minPrice(business)
 
 const brandSans = Barlow({
   subsets: ["latin"],
@@ -24,8 +30,7 @@ export const metadata: Metadata = {
     default: "Seacom Networks | Fiber Internet in Kapsabet",
     template: "%s | Seacom Networks",
   },
-  description:
-    "Local Kapsabet ISP for home and business fiber internet, CCTV, and intercom installation. Plans from KES 1,500 with support from Eden Plaza.",
+  description: `Local Kapsabet ISP for home and business fiber internet, CCTV, and intercom installation. Plans from KES ${homeFrom.toLocaleString("en-US")} with support from Eden Plaza.`,
   keywords: [
     "fiber internet Kapsabet",
     "internet provider Kapsabet",
@@ -105,7 +110,7 @@ const businessJsonLd = {
       url: "https://seacomnetworks.co.ke",
       telephone: "+254707019898",
       email: "info@seacomnetworks.co.ke",
-      priceRange: "KES 1,500+",
+      priceRange: startingPrice(home),
       description:
         "Local Kapsabet provider for fiber internet plans, CCTV installation, and intercom installation.",
       address: {
@@ -146,7 +151,7 @@ const businessJsonLd = {
           {
             "@type": "Offer",
             name: "Home fiber internet",
-            price: "1500",
+            price: String(homeFrom),
             priceCurrency: "KES",
             itemOffered: {
               "@type": "Service",
@@ -157,7 +162,7 @@ const businessJsonLd = {
           {
             "@type": "Offer",
             name: "Business internet",
-            price: "5000",
+            price: String(businessFrom),
             priceCurrency: "KES",
             itemOffered: {
               "@type": "Service",

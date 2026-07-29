@@ -57,7 +57,6 @@ set security hikvision 16000      name is matched by substring
 - Price accepts `1600`, `1,600`, or `KES 1,600` — all become `KES 1,600`.
 - Ambiguous or unknown names are rejected with the list of valid options; nothing is written.
 
-## Known gap
-
-SEO structured data in `app/layout.tsx` (JSON-LD `Offer` prices, meta description)
-is still hardcoded and does **not** auto-update. Ask if you want it wired to `lib/pricing.json` too.
+SEO markup in `app/layout.tsx` (meta description, `priceRange`, JSON-LD `Offer`
+prices) also reads from `lib/pricing.json`, quoting the cheapest plan in each
+tier — so a bot edit updates the structured data too.

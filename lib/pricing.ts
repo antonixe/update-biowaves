@@ -14,8 +14,11 @@ export const home: Plan[] = data.home
 export const business: Plan[] = data.business
 export const security: Product[] = data.security
 
+// Cheapest price in a tier as a plain number, e.g. 1500 — used by SEO markup.
+export const minPrice = (plans: Plan[]): number =>
+  Math.min(...plans.map((p) => Number(p.price.replace(/\D/g, ""))))
+
 // Cheapest price in a tier, formatted for the hero cards, e.g. "KES 1,500+"
 export function startingPrice(plans: Plan[]): string {
-  const min = Math.min(...plans.map((p) => Number(p.price.replace(/\D/g, ""))))
-  return `KES ${min.toLocaleString("en-US")}+`
+  return `KES ${minPrice(plans).toLocaleString("en-US")}+`
 }
