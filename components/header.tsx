@@ -9,6 +9,7 @@ const navigation = [
   { name: "Install", href: "#features" },
   { name: "Security", href: "#products" },
   { name: "Coverage", href: "#coverage" },
+  { name: "Speed test", href: "/speed-test" },
   { name: "Contact", href: "#contact" },
 ]
 
@@ -61,13 +62,23 @@ export function Header() {
 
           <div className="hidden items-center gap-1 lg:flex">
             {navigation.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className="focus-ring rounded-md px-3 py-2 text-sm font-bold text-[var(--ink)] hover:bg-[var(--route)]"
-              >
-                {item.name}
-              </button>
+              item.href.startsWith("/") ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="focus-ring rounded-md px-3 py-2 text-sm font-bold text-[var(--ink)] hover:bg-[var(--route)]"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className="focus-ring rounded-md px-3 py-2 text-sm font-bold text-[var(--ink)] hover:bg-[var(--route)]"
+                >
+                  {item.name}
+                </button>
+              )
             ))}
           </div>
 
@@ -105,16 +116,28 @@ export function Header() {
       >
         <div className="overflow-hidden rounded-lg border border-[color-mix(in_oklch,var(--ink)_16%,transparent)] bg-[var(--paper)]">
           {[{ name: "Home", href: "#home" }, ...navigation].map((item) => (
-            <button
-              key={item.name}
-              onClick={() => scrollToSection(item.href)}
-              className="focus-ring flex w-full items-center justify-between border-b border-[color-mix(in_oklch,var(--ink)_14%,transparent)] px-5 py-5 text-left text-2xl font-bold text-[var(--ink)] last:border-b-0"
-            >
-              {item.name}
-              <span className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[var(--signal)]">
-                {item.href.replace("#", "")}
-              </span>
-            </button>
+            item.href.startsWith("/") ? (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="focus-ring flex w-full items-center justify-between border-b border-[color-mix(in_oklch,var(--ink)_14%,transparent)] px-5 py-5 text-left text-2xl font-bold text-[var(--ink)] last:border-b-0"
+              >
+                {item.name}
+                <span className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[var(--signal)]">test</span>
+              </a>
+            ) : (
+              <button
+                key={item.name}
+                onClick={() => scrollToSection(item.href)}
+                className="focus-ring flex w-full items-center justify-between border-b border-[color-mix(in_oklch,var(--ink)_14%,transparent)] px-5 py-5 text-left text-2xl font-bold text-[var(--ink)] last:border-b-0"
+              >
+                {item.name}
+                <span className="font-mono text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[var(--signal)]">
+                  {item.href.replace("#", "")}
+                </span>
+              </button>
+            )
           ))}
         </div>
       </div>
