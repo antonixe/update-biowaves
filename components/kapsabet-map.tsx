@@ -25,7 +25,9 @@ interface KapsabetMapProps {
 
 export function KapsabetMap({ compact = false }: KapsabetMapProps) {
   return (
-    <div className={`relative overflow-hidden bg-[var(--route)] ${compact ? "min-h-[230px]" : "min-h-[380px]"}`}>
+    <div
+      className={`relative overflow-hidden bg-[var(--route)] ${compact ? "min-h-[230px]" : "min-h-[380px]"}`}
+    >
       <div className="absolute inset-0 grid grid-cols-2 opacity-75 saturate-[0.72] sepia-[0.18]">
         {tiles.map((tile) => (
           <img
@@ -34,16 +36,16 @@ export function KapsabetMap({ compact = false }: KapsabetMapProps) {
             alt=""
             className="h-full w-full object-cover"
             loading="lazy"
-            referrerPolicy="no-referrer"
+            referrerPolicy="strict-origin-when-cross-origin"
           />
         ))}
       </div>
 
-      <div className="absolute inset-0 bg-[color-mix(in_oklch,var(--field)_22%,transparent)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[color-mix(in_oklch,var(--field)_22%,transparent)]" />
       {coverageSignals.map((signal, index) => (
         <span
           key={`${signal.top}-${signal.left}`}
-          className={`absolute rounded-full bg-[var(--signal-live)] shadow-[0_0_12px_color-mix(in_oklch,var(--signal-live)_80%,transparent)] ${signal.size} ${
+          className={`pointer-events-none absolute rounded-full bg-[var(--signal-live)] shadow-[0_0_12px_color-mix(in_oklch,var(--signal-live)_80%,transparent)] ${signal.size} ${
             compact && index > 6 ? "hidden sm:block" : ""
           }`}
           style={{
